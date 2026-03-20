@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olead – Ads Dashboard</title>
+<style>
+  /* ── Reset & base ──────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    min-height: 100vh;
+  }
+
+  /* ── Navbar ────────────────────────────────────────────────────── */
+  .navbar {
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+  }
+  .navbar .brand { font-weight: 700; font-size: 1.25rem; color: #008f39; text-decoration: none; }
+  .navbar ul { list-style: none; display: flex; }
+  .navbar li a { display: block; padding: 20px 16px; text-decoration: none; color: #333; font-size: .9rem; }
+  .navbar li a:hover, .navbar li a.active { color: #008f39; }
+
+  /* ── Page header ───────────────────────────────────────────────── */
+  .page-header {
+    background: linear-gradient(135deg, #008f39 0%, #005c25 100%);
+    color: #fff;
+    padding: 36px 32px 28px;
+  }
+  .page-header h1 { font-size: 1.75rem; margin-bottom: 6px; }
+  .page-header p { opacity: .85; font-size: .95rem; }
+  .header-row { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .date-range { display: flex; align-items: center; gap: 10px; }
+  .date-range label { font-size: .85rem; opacity: .8; }
+  .date-range select {
+    background: rgba(255,255,255,.2);
+    border: 1px solid rgba(255,255,255,.4);
+    color: #fff;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: .85rem;
+    cursor: pointer;
+  }
+  .date-range select option { color: #333; background: #fff; }
+  .refresh-btn {
+    background: rgba(255,255,255,.2);
+    border: 1px solid rgba(255,255,255,.4);
+    color: #fff;
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-size: .85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background .2s;
+  }
+  .refresh-btn:hover { background: rgba(255,255,255,.35); }
+
+  /* ── Main layout ───────────────────────────────────────────────── */
+  .main { padding: 28px 32px; max-width: 1400px; }
+
+  /* ── Source tabs ───────────────────────────────────────────────── */
+  .tabs { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 2px solid #e0e0e0; }
+  .tab-btn {
+    background: none;
+    border: none;
+    padding: 10px 20px 12px;
+    font-size: .95rem;
+    cursor: pointer;
+    color: #666;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: color .2s;
+  }
+  .tab-btn.active { color: #008f39; border-bottom-color: #008f39; font-weight: 600; }
+  .tab-btn:hover:not(.active) { color: #333; }
+
+  /* ── KPI cards ─────────────────────────────────────────────────── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .kpi-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent, #008f39);
+  }
+  .kpi-label { font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; color: #888; margin-bottom: 8px; }
+  .kpi-value { font-size: 1.7rem; font-weight: 700; color: #222; line-height: 1; margin-bottom: 6px; }
+  .kpi-delta {
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .kpi-delta.up { color: #008f39; }
+  .kpi-delta.down { color: #d32f2f; }
+  .kpi-delta .arrow { font-size: .9rem; }
+  .kpi-sub { font-size: .75rem; color: #aaa; margin-top: 2px; }
+
+  /* ── Panel grid ────────────────────────────────────────────────── */
+  .panel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 900px) { .panel-grid { grid-template-columns: 1fr; } }
+  .panel {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    overflow: hidden;
+  }
+  .panel.wide { grid-column: 1 / -1; }
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .panel-title { font-weight: 600; font-size: .95rem; color: #222; }
+  .panel-badge {
+    font-size: .72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .badge-google { background: #e8f5e9; color: #2e7d32; }
+  .badge-meta   { background: #e3f2fd; color: #1565c0; }
+  .badge-combined { background: #f3e5f5; color: #6a1b9a; }
+
+  /* ── Chart canvas area ─────────────────────────────────────────── */
+  .chart-area { padding: 20px; position: relative; }
+  canvas { width: 100% !important; }
+
+  /* ── Data table ────────────────────────────────────────────────── */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+  thead tr { background: #f9f9f9; }
+  th { padding: 12px 16px; text-align: left; font-weight: 600; color: #555; border-bottom: 2px solid #eee; white-space: nowrap; }
+  td { padding: 11px 16px; border-bottom: 1px solid #f0f0f0; color: #333; }
+  tbody tr:hover { background: #fafafa; }
+  .status-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: .75rem;
+    font-weight: 600;
+  }
+  .status-active  { background: #e8f5e9; color: #2e7d32; }
+  .status-paused  { background: #fff8e1; color: #f57f17; }
+  .status-ended   { background: #fce4ec; color: #c62828; }
+  .source-google { color: #2e7d32; font-weight: 600; }
+  .source-meta   { color: #1565c0; font-weight: 600; }
+
+  /* ── Comparison bar ────────────────────────────────────────────── */
+  .comparison { padding: 16px 20px; }
+  .comp-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .comp-label { width: 110px; font-size: .82rem; color: #555; flex-shrink: 0; }
+  .comp-bar-wrap { flex: 1; background: #f0f0f0; border-radius: 20px; height: 10px; overflow: hidden; }
+  .comp-bar { height: 100%; border-radius: 20px; transition: width .6s ease; }
+  .bar-google { background: #43a047; }
+  .bar-meta   { background: #1e88e5; }
+  .comp-val { width: 80px; text-align: right; font-size: .82rem; font-weight: 600; color: #333; }
+
+  /* ── Insight cards ─────────────────────────────────────────────── */
+  .insights { padding: 16px 20px; display: flex; flex-direction: column; gap: 12px; }
+  .insight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #f9f9f9;
+  }
+  .insight-icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1; }
+  .insight-text { font-size: .85rem; color: #444; line-height: 1.5; }
+  .insight-text strong { color: #222; }
+
+  /* ── Footer ────────────────────────────────────────────────────── */
+  .footer { background: #333; color: #fff; text-align: center; padding: 20px; font-size: .85rem; }
+  .footer a { color: #81c784; text-decoration: none; }
+
+  /* ── Loading spinner ───────────────────────────────────────────── */
+  .spinner-wrap { display: flex; align-items: center; justify-content: center; padding: 40px; }
+  .spinner {
+    width: 36px; height: 36px;
+    border: 3px solid #e0e0e0;
+    border-top-color: #008f39;
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Utility ───────────────────────────────────────────────────── */
+  .text-right { text-align: right; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+
+<!-- ── Navbar ───────────────────────────────────────────────────── -->
+<nav class="navbar">
+  <a href="olead_landing_page.html" class="brand">Olead</a>
+  <ul>
+    <li><a href="olead_landing_page.html">Home</a></li>
+    <li><a href="ads_dashboard.html" class="active">Ads Dashboard</a></li>
+    <li><a href="#">Reports</a></li>
+    <li><a href="#">Settings</a></li>
+  </ul>
+</nav>
+
+<!-- ── Page header ──────────────────────────────────────────────── -->
+<div class="page-header">
+  <div class="header-row">
+    <div>
+      <h1>Ads Performance Dashboard</h1>
+      <p>Connected via Lemonado · Google Ads &amp; Meta Ads</p>
+    </div>
+    <div class="date-range">
+      <label>Period:</label>
+      <select id="dateRange" onchange="loadData()">
+        <option value="7">Last 7 days</option>
+        <option value="14">Last 14 days</option>
+        <option value="30" selected>Last 30 days</option>
+        <option value="90">Last 90 days</option>
+      </select>
+      <button class="refresh-btn" onclick="loadData()">&#8635; Refresh</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Main ─────────────────────────────────────────────────────── -->
+<div class="main">
+
+  <!-- Source tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="all"    onclick="switchTab(this)">All Sources</button>
+    <button class="tab-btn"        data-tab="google" onclick="switchTab(this)">Google Ads</button>
+    <button class="tab-btn"        data-tab="meta"   onclick="switchTab(this)">Meta Ads</button>
+  </div>
+
+  <!-- KPI cards -->
+  <div class="kpi-grid" id="kpiGrid">
+    <div class="spinner-wrap" style="grid-column:1/-1"><div class="spinner"></div></div>
+  </div>
+
+  <!-- Charts row -->
+  <div class="panel-grid">
+
+    <!-- Spend over time -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Daily Spend</span>
+        <span class="panel-badge badge-combined">Combined</span>
+      </div>
+      <div class="chart-area"><canvas id="spendChart" height="220"></canvas></div>
+    </div>
+
+    <!-- Impressions vs Clicks -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Impressions vs Clicks</span>
+        <span class="panel-badge badge-combined">Combined</span>
+      </div>
+      <div class="chart-area"><canvas id="impClickChart" height="220"></canvas></div>
+    </div>
+
+    <!-- Platform comparison -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Platform Comparison</span>
+        <span class="panel-badge badge-combined">Google vs Meta</span>
+      </div>
+      <div class="comparison" id="compSection"></div>
+    </div>
+
+    <!-- AI insights -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Insights</span>
+        <span class="panel-badge badge-combined">Auto-generated</span>
+      </div>
+      <div class="insights" id="insightsSection"></div>
+    </div>
+
+    <!-- Campaigns table -->
+    <div class="panel wide">
+      <div class="panel-header">
+        <span class="panel-title">Active Campaigns</span>
+      </div>
+      <div class="table-wrap">
+        <table id="campaignTable">
+          <thead>
+            <tr>
+              <th>Campaign</th>
+              <th>Source</th>
+              <th>Status</th>
+              <th class="text-right">Impressions</th>
+              <th class="text-right">Clicks</th>
+              <th class="text-right">CTR</th>
+              <th class="text-right">Spend</th>
+              <th class="text-right">CPC</th>
+              <th class="text-right">Conversions</th>
+              <th class="text-right">CPA</th>
+              <th class="text-right">ROAS</th>
+            </tr>
+          </thead>
+          <tbody id="campaignBody">
+            <tr><td colspan="11" style="text-align:center;padding:24px;color:#aaa">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /panel-grid -->
+</div><!-- /main -->
+
+<div class="footer">
+  <p>&copy; 2025 Olead · Data powered by <a href="#">Lemonado</a> · Google Ads &amp; Meta Ads</p>
+</div>
+
+<!-- ── Chart.js CDN ──────────────────────────────────────────────── -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+<script>
+/* ================================================================
+   DATA LAYER
+   In production this section is replaced by calls to the Lemonado
+   MCP connector tools:
+     - lemonado_google_ads_metrics(date_range, metrics, dimensions)
+     - lemonado_meta_ads_metrics(date_range, metrics, dimensions)
+   ================================================================ */
+
+function generateDailyData(days, baseGoogle, baseMeta, variance) {
+  const labels = [];
+  const googleSpend = [], metaSpend = [];
+  const googleImpr = [], metaImpr = [];
+  const googleClicks = [], metaClicks = [];
+  const today = new Date();
+
+  for (let i = days - 1; i >= 0; i--) {
+    const d = new Date(today);
+    d.setDate(d.getDate() - i);
+    labels.push(d.toLocaleDateString('en-GB', { month: 'short', day: 'numeric' }));
+
+    const jitter = () => 1 + (Math.random() - 0.5) * variance;
+    googleSpend.push(+(baseGoogle.spend * jitter()).toFixed(2));
+    metaSpend.push(+(baseMeta.spend * jitter()).toFixed(2));
+    googleImpr.push(Math.round(baseGoogle.impr * jitter()));
+    metaImpr.push(Math.round(baseMeta.impr * jitter()));
+    googleClicks.push(Math.round(baseGoogle.clicks * jitter()));
+    metaClicks.push(Math.round(baseMeta.clicks * jitter()));
+  }
+  return { labels, googleSpend, metaSpend, googleImpr, metaImpr, googleClicks, metaClicks };
+}
+
+function getDataset(days) {
+  /* Scales the realistic-looking baseline by selected period */
+  const scale = days / 30;
+  const daily = generateDailyData(days,
+    { spend: 142, impr: 18400, clicks: 310 },
+    { spend: 98,  impr: 24600, clicks: 420 },
+    0.4
+  );
+
+  const sumG = (arr) => arr.reduce((a, b) => a + b, 0);
+
+  const gSpendTotal  = +sumG(daily.googleSpend).toFixed(2);
+  const mSpendTotal  = +sumG(daily.metaSpend).toFixed(2);
+  const gImprTotal   = sumG(daily.googleImpr);
+  const mImprTotal   = sumG(daily.metaImpr);
+  const gClicksTotal = sumG(daily.googleClicks);
+  const mClicksTotal = sumG(daily.metaClicks);
+  const gConv  = Math.round(gClicksTotal * 0.042);
+  const mConv  = Math.round(mClicksTotal * 0.031);
+
+  return {
+    daily,
+    google: {
+      spend: gSpendTotal, impr: gImprTotal, clicks: gClicksTotal, conv: gConv,
+      ctr:   +(gClicksTotal / gImprTotal * 100).toFixed(2),
+      cpc:   +(gSpendTotal / gClicksTotal).toFixed(2),
+      cpa:   +(gSpendTotal / gConv).toFixed(2),
+      roas:  +(gConv * 45 / gSpendTotal).toFixed(2)
+    },
+    meta: {
+      spend: mSpendTotal, impr: mImprTotal, clicks: mClicksTotal, conv: mConv,
+      ctr:   +(mClicksTotal / mImprTotal * 100).toFixed(2),
+      cpc:   +(mSpendTotal / mClicksTotal).toFixed(2),
+      cpa:   +(mSpendTotal / mConv).toFixed(2),
+      roas:  +(mConv * 45 / mSpendTotal).toFixed(2)
+    },
+    campaigns: makeCampaigns(days)
+  };
+}
+
+function makeCampaigns(days) {
+  const scale = days / 30;
+  return [
+    { name: 'Brand Search – Exact',   source: 'google', status: 'active', impr: Math.round(52000*scale), clicks: Math.round(4200*scale), spend: +(1840*scale).toFixed(2), conv: Math.round(210*scale) },
+    { name: 'Competitor Keywords',     source: 'google', status: 'active', impr: Math.round(38000*scale), clicks: Math.round(980*scale),  spend: +(680*scale).toFixed(2),  conv: Math.round(38*scale)  },
+    { name: 'Display – Retargeting',   source: 'google', status: 'paused', impr: Math.round(94000*scale), clicks: Math.round(560*scale),  spend: +(340*scale).toFixed(2),  conv: Math.round(14*scale)  },
+    { name: 'Performance Max',         source: 'google', status: 'active', impr: Math.round(120000*scale),clicks: Math.round(3600*scale), spend: +(2200*scale).toFixed(2), conv: Math.round(148*scale) },
+    { name: 'Lookalike – Purchasers',  source: 'meta',   status: 'active', impr: Math.round(145000*scale),clicks: Math.round(6800*scale), spend: +(1560*scale).toFixed(2), conv: Math.round(124*scale) },
+    { name: 'Interest – Home Owners',  source: 'meta',   status: 'active', impr: Math.round(210000*scale),clicks: Math.round(8400*scale), spend: +(1920*scale).toFixed(2), conv: Math.round(188*scale) },
+    { name: 'Retargeting – 30d',       source: 'meta',   status: 'active', impr: Math.round(68000*scale), clicks: Math.round(3100*scale), spend: +(720*scale).toFixed(2),  conv: Math.round(96*scale)  },
+    { name: 'Broad Awareness Q1',      source: 'meta',   status: 'ended',  impr: Math.round(320000*scale),clicks: Math.round(4200*scale), spend: +(980*scale).toFixed(2),  conv: Math.round(42*scale)  },
+  ];
+}
+
+/* ================================================================
+   CHARTS
+   ================================================================ */
+let spendChart, impClickChart;
+
+function drawCharts(ds) {
+  const { labels, googleSpend, metaSpend, googleImpr, metaImpr, googleClicks, metaClicks } = ds.daily;
+
+  const baseOpts = {
+    responsive: true,
+    plugins: { legend: { position: 'top', labels: { boxWidth: 12, font: { size: 12 } } } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 11 }, maxTicksLimit: 8 } },
+      y: { grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } } }
+    }
+  };
+
+  /* Spend chart */
+  if (spendChart) spendChart.destroy();
+  spendChart = new Chart(document.getElementById('spendChart'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Google Ads', data: googleSpend, backgroundColor: '#43a04799', borderColor: '#43a047', borderWidth: 1 },
+        { label: 'Meta Ads',   data: metaSpend,   backgroundColor: '#1e88e599', borderColor: '#1e88e5', borderWidth: 1 }
+      ]
+    },
+    options: { ...baseOpts, scales: { ...baseOpts.scales, x: { ...baseOpts.scales.x, stacked: false } } }
+  });
+
+  /* Impressions vs Clicks (dual axis) */
+  if (impClickChart) impClickChart.destroy();
+  impClickChart = new Chart(document.getElementById('impClickChart'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Impressions (combined)', yAxisID: 'y',
+          data: googleImpr.map((v, i) => v + metaImpr[i]),
+          borderColor: '#7b1fa2', backgroundColor: 'rgba(123,31,162,.08)',
+          tension: 0.4, fill: true, borderWidth: 2, pointRadius: 2
+        },
+        {
+          label: 'Clicks (combined)', yAxisID: 'y1',
+          data: googleClicks.map((v, i) => v + metaClicks[i]),
+          borderColor: '#f57c00', backgroundColor: 'transparent',
+          tension: 0.4, borderWidth: 2, pointRadius: 2
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { position: 'top', labels: { boxWidth: 12, font: { size: 12 } } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 11 }, maxTicksLimit: 8 } },
+        y:  { type: 'linear', position: 'left',  grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } } },
+        y1: { type: 'linear', position: 'right', grid: { drawOnChartArea: false }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+/* ================================================================
+   KPI CARDS
+   ================================================================ */
+function fmt(n, prefix = '') {
+  if (n >= 1e6) return prefix + (n / 1e6).toFixed(1) + 'M';
+  if (n >= 1e3) return prefix + (n / 1e3).toFixed(1) + 'K';
+  return prefix + n.toLocaleString();
+}
+function fmtCurrency(n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+
+function renderKPIs(ds, tab) {
+  const g = ds.google, m = ds.meta;
+  const isAll = tab === 'all', isGoogle = tab === 'google', isMeta = tab === 'meta';
+
+  const spend     = isAll ? g.spend + m.spend : (isGoogle ? g.spend : m.spend);
+  const impr      = isAll ? g.impr + m.impr : (isGoogle ? g.impr : m.impr);
+  const clicks    = isAll ? g.clicks + m.clicks : (isGoogle ? g.clicks : m.clicks);
+  const conv      = isAll ? g.conv + m.conv : (isGoogle ? g.conv : m.conv);
+  const ctr       = +((clicks / impr) * 100).toFixed(2);
+  const cpc       = +(spend / clicks).toFixed(2);
+  const cpa       = +(spend / conv).toFixed(2);
+  const roas      = +((conv * 45) / spend).toFixed(2);
+
+  const cards = [
+    { label: 'Total Spend',    value: fmtCurrency(spend),       delta: '+8.4%',  dir: 'up',   sub: 'vs prior period', accent: '#008f39' },
+    { label: 'Impressions',    value: fmt(impr),                delta: '+12.1%', dir: 'up',   sub: 'vs prior period', accent: '#1565c0' },
+    { label: 'Clicks',         value: fmt(clicks),              delta: '+6.7%',  dir: 'up',   sub: 'vs prior period', accent: '#6a1b9a' },
+    { label: 'CTR',            value: ctr + '%',                delta: '-0.3%',  dir: 'down', sub: 'click-through rate', accent: '#e65100' },
+    { label: 'Avg CPC',        value: '$' + cpc,                delta: '+2.1%',  dir: 'down', sub: 'cost per click', accent: '#00838f' },
+    { label: 'Conversions',    value: fmt(conv),                delta: '+14.2%', dir: 'up',   sub: 'vs prior period', accent: '#2e7d32' },
+    { label: 'CPA',            value: '$' + cpa,                delta: '-5.8%',  dir: 'up',   sub: 'cost per acquisition', accent: '#558b2f' },
+    { label: 'ROAS',           value: roas + 'x',               delta: '+11.3%', dir: 'up',   sub: 'return on ad spend', accent: '#6a1b9a' },
+  ];
+
+  document.getElementById('kpiGrid').innerHTML = cards.map(c => `
+    <div class="kpi-card" style="--accent:${c.accent}">
+      <div class="kpi-label">${c.label}</div>
+      <div class="kpi-value">${c.value}</div>
+      <div class="kpi-delta ${c.dir}">
+        <span class="arrow">${c.dir === 'up' ? '▲' : '▼'}</span>${c.delta}
+      </div>
+      <div class="kpi-sub">${c.sub}</div>
+    </div>
+  `).join('');
+}
+
+/* ================================================================
+   PLATFORM COMPARISON
+   ================================================================ */
+function renderComparison(ds) {
+  const g = ds.google, m = ds.meta;
+  const rows = [
+    { label: 'Spend',       gv: g.spend,  mv: m.spend,  fmt: v => fmtCurrency(v) },
+    { label: 'Impressions', gv: g.impr,   mv: m.impr,   fmt: v => fmt(v) },
+    { label: 'Clicks',      gv: g.clicks, mv: m.clicks,  fmt: v => fmt(v) },
+    { label: 'Conversions', gv: g.conv,   mv: m.conv,   fmt: v => fmt(v) },
+    { label: 'ROAS',        gv: g.roas,   mv: m.roas,   fmt: v => v + 'x' },
+  ];
+
+  document.getElementById('compSection').innerHTML = `
+    <div style="display:flex;gap:16px;margin-bottom:14px;font-size:.8rem;">
+      <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:50%;background:#43a047;display:inline-block"></span>Google Ads</span>
+      <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:50%;background:#1e88e5;display:inline-block"></span>Meta Ads</span>
+    </div>
+    ${rows.map(r => {
+      const total = r.gv + r.mv;
+      const gPct = total ? Math.round(r.gv / total * 100) : 50;
+      const mPct = 100 - gPct;
+      return `
+        <div class="comp-row">
+          <span class="comp-label">${r.label}</span>
+          <div style="flex:1">
+            <div class="comp-bar-wrap" style="margin-bottom:4px">
+              <div class="comp-bar bar-google" style="width:${gPct}%"></div>
+            </div>
+            <div class="comp-bar-wrap">
+              <div class="comp-bar bar-meta" style="width:${mPct}%"></div>
+            </div>
+          </div>
+          <div style="text-align:right;font-size:.78rem;width:140px">
+            <div style="color:#43a047;font-weight:600">${r.fmt(r.gv)}</div>
+            <div style="color:#1e88e5;font-weight:600">${r.fmt(r.mv)}</div>
+          </div>
+        </div>
+      `;
+    }).join('')}
+  `;
+}
+
+/* ================================================================
+   INSIGHTS
+   ================================================================ */
+function renderInsights(ds) {
+  const g = ds.google, m = ds.meta;
+  const topROAS = g.roas > m.roas ? 'Google Ads' : 'Meta Ads';
+  const topROASVal = Math.max(g.roas, m.roas);
+  const lowCPA = g.cpa < m.cpa ? 'Google Ads' : 'Meta Ads';
+
+  const items = [
+    { icon: '🏆', text: `<strong>${topROAS}</strong> is delivering the best return at <strong>${topROASVal}x ROAS</strong> — consider shifting budget here.` },
+    { icon: '💰', text: `<strong>${lowCPA}</strong> has the lowest CPA at <strong>$${Math.min(g.cpa, m.cpa)}</strong>. Scaling this channel could improve overall efficiency.` },
+    { icon: '📈', text: `Meta Ads CTR (<strong>${m.ctr}%</strong>) exceeds Google Ads (<strong>${g.ctr}%</strong>). Review ad creatives and landing pages for the Google campaigns.` },
+    { icon: '⚡', text: `Conversion volume grew <strong>+14.2%</strong> vs prior period. Ensure landing pages and inventory can sustain continued growth.` },
+    { icon: '🔍', text: `1 Google Ads campaign is currently <strong>paused</strong>. Review its historical CPA before reactivating to recover lost volume.` },
+  ];
+
+  document.getElementById('insightsSection').innerHTML = items.map(i => `
+    <div class="insight-item">
+      <span class="insight-icon">${i.icon}</span>
+      <span class="insight-text">${i.text}</span>
+    </div>
+  `).join('');
+}
+
+/* ================================================================
+   CAMPAIGNS TABLE
+   ================================================================ */
+function renderTable(campaigns, tab) {
+  const filtered = tab === 'all' ? campaigns
+    : campaigns.filter(c => c.source === tab);
+
+  const statusClass = { active: 'status-active', paused: 'status-paused', ended: 'status-ended' };
+
+  document.getElementById('campaignBody').innerHTML = filtered.map(c => {
+    const ctr  = (c.clicks / c.impr * 100).toFixed(2);
+    const cpc  = (c.spend / c.clicks).toFixed(2);
+    const cpa  = (c.spend / Math.max(c.conv, 1)).toFixed(2);
+    const roas = (c.conv * 45 / c.spend).toFixed(2);
+    return `
+      <tr>
+        <td>${c.name}</td>
+        <td><span class="source-${c.source}">${c.source === 'google' ? 'Google Ads' : 'Meta Ads'}</span></td>
+        <td><span class="status-badge ${statusClass[c.status]}">${c.status}</span></td>
+        <td class="text-right">${fmt(c.impr)}</td>
+        <td class="text-right">${fmt(c.clicks)}</td>
+        <td class="text-right">${ctr}%</td>
+        <td class="text-right">${fmtCurrency(c.spend)}</td>
+        <td class="text-right">$${cpc}</td>
+        <td class="text-right">${fmt(c.conv)}</td>
+        <td class="text-right">$${cpa}</td>
+        <td class="text-right">${roas}x</td>
+      </tr>
+    `;
+  }).join('') || '<tr><td colspan="11" style="text-align:center;padding:24px;color:#aaa">No campaigns found</td></tr>';
+}
+
+/* ================================================================
+   LOAD & TAB LOGIC
+   ================================================================ */
+let currentTab = 'all';
+let currentData = null;
+
+function loadData() {
+  const days = parseInt(document.getElementById('dateRange').value, 10);
+
+  /* Show loading spinner in KPI grid only */
+  document.getElementById('kpiGrid').innerHTML =
+    '<div class="spinner-wrap" style="grid-column:1/-1"><div class="spinner"></div></div>';
+
+  /* Simulate async fetch (replace with actual Lemonado MCP calls) */
+  setTimeout(() => {
+    currentData = getDataset(days);
+    render(currentTab);
+  }, 600);
+}
+
+function render(tab) {
+  if (!currentData) return;
+  renderKPIs(currentData, tab);
+  renderComparison(currentData);
+  renderInsights(currentData);
+  renderTable(currentData.campaigns, tab);
+  drawCharts(currentData);
+}
+
+function switchTab(btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentTab = btn.dataset.tab;
+  if (currentData) render(currentTab);
+}
+
+/* Boot */
+loadData();
+</script>
+</body>
+</html>
