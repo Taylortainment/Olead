@@ -1,12 +1,8 @@
 {
   "mcpServers": {
     "lemonado": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch", "https://mcp.lemonado.io/mcp"],
-      "env": {
-        "MCP_AUTH_TYPE": "oauth",
-        "MCP_OAUTH_PROVIDER": "lemonado"
-      }
+      "type": "http",
+      "url": "https://mcp.lemonado.io/mcp"
     }
   }
 }
