@@ -1,0 +1,82 @@
+{
+  "month": "2026-08",
+  "connector": "google_ads",
+  "source_file": "data/raw/google-2026-08.json",
+  "rows": [
+    {
+      "channel": "YouTube",
+      "metric": "spend_actual",
+      "value": 4193.92
+    },
+    {
+      "channel": "YouTube",
+      "metric": "kiwisaver",
+      "value": 0
+    },
+    {
+      "channel": "YouTube",
+      "metric": "crypto",
+      "value": 0
+    },
+    {
+      "channel": "YouTube",
+      "metric": "spend_signup",
+      "value": 0
+    },
+    {
+      "channel": "YouTube",
+      "metric": "subscription",
+      "value": 0
+    },
+    {
+      "channel": "YouTube",
+      "metric": "insure_quote",
+      "value": 0
+    },
+    {
+      "channel": "YouTube",
+      "metric": "insure_payment",
+      "value": 0
+    },
+    {
+      "channel": "Google",
+      "metric": "spend_actual",
+      "value": 12386.75
+    },
+    {
+      "channel": "Google",
+      "metric": "spend_signup",
+      "value": 3
+    },
+    {
+      "channel": "Google",
+      "metric": "crypto",
+      "value": 2
+    },
+    {
+      "channel": "Google",
+      "metric": "kiwisaver",
+      "value": 7
+    },
+    {
+      "channel": "Google",
+      "metric": "save",
+      "value": 8
+    },
+    {
+      "channel": "Google",
+      "metric": "subscription",
+      "value": 2
+    },
+    {
+      "channel": "Google",
+      "metric": "insure_quote",
+      "value": 2
+    },
+    {
+      "channel": "Google",
+      "metric": "insure_payment",
+      "value": 0
+    }
+  ]
+}

@@ -1,0 +1,436 @@
+<title>Sharesies Paid Media Monitor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#f6f8f7; --surface:#ffffff; --surface-2:#eef2f1; --border:#dde4e2;
+  --ink:#0f1a18; --ink-2:#55655f; --muted:#849690;
+  --accent:#0d6b5f; --accent-soft:#e2efec;
+  --good:#1a7f4f; --warn:#9a6206; --bad:#b4342a;
+  --grid:#e7ecea; --shadow:0 1px 2px rgba(15,26,24,.06),0 6px 18px -10px rgba(15,26,24,.18);
+  --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--s6:#008300;--s7:#4a3aa7;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1413; --surface:#151d1b; --surface-2:#1b2523; --border:#27322f;
+  --ink:#eef3f1; --ink-2:#a5b3ae; --muted:#7b8985;
+  --accent:#43b8a5; --accent-soft:#16302c;
+  --good:#4cc98a; --warn:#e0a83c; --bad:#f0736a;
+  --grid:#212b29; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 22px -12px rgba(0,0,0,.6);
+  --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s6:#008300;--s7:#9085e9;
+}}
+:root[data-theme="dark"]{
+  --bg:#0e1413; --surface:#151d1b; --surface-2:#1b2523; --border:#27322f;
+  --ink:#eef3f1; --ink-2:#a5b3ae; --muted:#7b8985;
+  --accent:#43b8a5; --accent-soft:#16302c;
+  --good:#4cc98a; --warn:#e0a83c; --bad:#f0736a;
+  --grid:#212b29; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 22px -12px rgba(0,0,0,.6);
+  --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s6:#008300;--s7:#9085e9;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:40px 24px 72px}
+h1,h2,h3{font-family:Newsreader,Georgia,"Times New Roman",serif;font-weight:500;
+  text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(30px,4.4vw,46px);line-height:1.08}
+h2{font-size:23px;margin-bottom:2px}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:12px}
+.sub{color:var(--ink-2);max-width:62ch;margin-top:10px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+header{border-bottom:1px solid var(--border);padding-bottom:26px;margin-bottom:28px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:22px}
+label.ctl{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+select,button.tgl{font-family:inherit;font-size:14px;color:var(--ink);background:var(--surface);
+  border:1px solid var(--border);border-radius:7px;padding:7px 11px;cursor:pointer}
+select:focus-visible,button.tgl:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.banner{display:flex;gap:10px;align-items:flex-start;background:var(--accent-soft);
+  border:1px solid var(--border);border-left:3px solid var(--warn);
+  border-radius:8px;padding:11px 14px;margin-top:18px;font-size:13.5px;color:var(--ink)}
+.banner b{font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));gap:14px;margin:26px 0 34px}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:11px;
+  padding:16px 17px 15px;box-shadow:var(--shadow)}
+.kpi .k{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.kpi .v{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+  font-size:29px;font-weight:500;letter-spacing:-.02em;margin-top:9px;line-height:1}
+.kpi .d{font-size:12.5px;margin-top:8px;color:var(--ink-2);display:flex;align-items:center;gap:5px}
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;
+  padding:2px 7px;border-radius:20px;border:1px solid transparent}
+.pill.up{color:var(--good);background:color-mix(in oklab,var(--good) 12%,transparent);
+  border-color:color-mix(in oklab,var(--good) 30%,transparent)}
+.pill.dn{color:var(--bad);background:color-mix(in oklab,var(--bad) 12%,transparent);
+  border-color:color-mix(in oklab,var(--bad) 30%,transparent)}
+.pill.fl{color:var(--ink-2);background:var(--surface-2);border-color:var(--border)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:20px 22px 16px;margin-bottom:22px;box-shadow:var(--shadow)}
+.card .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.card .note{font-size:13px;color:var(--ink-2);margin-top:4px;max-width:66ch}
+.legend{display:flex;flex-wrap:wrap;gap:6px 15px;margin-top:14px}
+.legend span{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-2)}
+.legend i{width:11px;height:11px;border-radius:3px;flex:none;display:inline-block}
+.legend i.ln{height:3px;border-radius:2px;width:15px}
+.plot{position:relative;margin-top:16px;overflow-x:auto}
+svg{display:block;max-width:100%;height:auto}
+.tip{position:absolute;pointer-events:none;opacity:0;transition:opacity .1s;z-index:5;
+  background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:9px 11px;font-size:12.5px;box-shadow:var(--shadow);min-width:150px}
+.tip h4{margin:0 0 6px;font:600 12px/1.2 "IBM Plex Sans",sans-serif;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+.tip .r{display:flex;justify-content:space-between;gap:14px;align-items:center}
+.tip .r span{display:inline-flex;align-items:center;gap:6px}
+.tip .r i{width:9px;height:9px;border-radius:2px;flex:none}
+.tip .r b{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-weight:500}
+.sm{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:8px;margin-top:16px}
+.sm .c{border:1px solid var(--border);border-radius:9px;padding:11px 12px 7px;background:var(--surface)}
+.sm .c .t{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--ink)}
+.sm .c .t i{width:9px;height:9px;border-radius:2px;flex:none}
+.sm .c .n{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+  font-size:18px;margin-top:5px;letter-spacing:-.01em}
+.sm .c .m{font-size:11.5px;color:var(--muted);margin-top:1px}
+details{margin-top:8px}
+summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--accent);padding:6px 0}
+.tbl{overflow-x:auto;margin-top:12px;border:1px solid var(--border);border-radius:9px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:7px 11px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--border)}
+th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--surface)}
+thead th{background:var(--surface-2);font-weight:600;font-size:11.5px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-2);position:sticky;top:0}
+thead th:first-child{background:var(--surface-2);z-index:2}
+tbody tr:hover td{background:var(--surface-2)}
+td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+tr.tot td{font-weight:600;border-top:2px solid var(--border);background:var(--surface-2)}
+tr.tot td:first-child{background:var(--surface-2)}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);
+  font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 20px}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block;background:var(--accent)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Sharesies NZ &middot; Paid media performance</div>
+  <h1>Where the money went, and what it brought back</h1>
+  <p class="sub">Media investment, conversions and cost per conversion across every
+  active channel. Spend and conversion counts come straight from the ad platforms;
+  every total and cost-per-conversion figure on this page is calculated from them.</p>
+  <div class="controls">
+    <label class="ctl" for="mo">Reporting month</label>
+    <select id="mo"></select>
+    <button class="tgl" id="win" type="button">Showing 13 months</button>
+  </div>
+  <div id="pw"></div>
+</header>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="card">
+  <div class="hd"><div>
+    <h2>Investment against plan</h2>
+    <div class="note">Actual media spend versus the forecast set for each month.</div>
+  </div></div>
+  <div class="legend">
+    <span><i style="background:var(--s1)"></i>Actual spend</span>
+    <span><i class="ln" style="background:var(--ink-2)"></i>Forecast</span>
+  </div>
+  <div class="plot" id="p-spend"></div>
+</div>
+
+<div class="card">
+  <div class="hd"><div>
+    <h2>Conversions by product</h2>
+    <div class="note">Every conversion the channels drove, stacked by Sharesies product.
+    A product with no bar in a month simply had no activity recorded.</div>
+  </div></div>
+  <div class="legend" id="lg-prod"></div>
+  <div class="plot" id="p-conv"></div>
+</div>
+
+<div class="card">
+  <div class="hd"><div>
+    <h2>Cost per conversion</h2>
+    <div class="note">One panel per product so each keeps its own scale — a $40 CPA and a
+    $1,200 CPA can&rsquo;t share an axis honestly. The figure shown is the selected month.<br><b>How this is calculated:</b> total media spend divided by that product&rsquo;s conversions &mdash; the same method the working doc has always used. Because one channel&rsquo;s spend drives several products at once, treat these as a trend over time per product, not as a like-for-like comparison between products.</div>
+  </div></div>
+  <div class="sm" id="p-cpa"></div>
+</div>
+
+<div class="card">
+  <div class="hd"><div>
+    <h2 id="ch-h">Channel contribution</h2>
+    <div class="note">Spend by channel for the selected month, largest first.</div>
+  </div></div>
+  <div class="plot" id="p-chan"></div>
+</div>
+
+<div class="card">
+  <div class="hd"><div>
+    <h2>The numbers</h2>
+    <div class="note">The selected month in full — every channel against every product,
+    with cost per conversion underneath. This is the same data the charts draw from.</div>
+  </div></div>
+  <details open><summary>Show table</summary><div class="tbl" id="p-tbl"></div></details>
+</div>
+
+<footer>
+  <span><span class="dot"></span> Generated 18 August 2026</span>
+  <span id="fsrc"></span>
+  <span>All figures $NZD</span>
+</footer>
+</div>
+
+<script>
+const D = {"client":"Sharesies NZ","currency":"NZD","generated":"2026-08-18","months":["2025-08","2025-09","2025-10","2025-11","2025-12","2026-01","2026-02","2026-03","2026-04","2026-05","2026-06","2026-07","2026-08"],"labels":["August 2025","September 2025","October 2025","November 2025","December 2025","January 2026","February 2026","March 2026","April 2026","May 2026","June 2026","July 2026","August 2026"],"labelsShort":["Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26","Mar 26","Apr 26","May 26","Jun 26","Jul 26","Aug 26"],"partial":["2026-08"],"channels":["TikTok","YouTube","Meta","Reddit","Stackadapt","Google"],"spend":[28171.7,36734.729999999996,41575.27,53270.12,41508.759999999995,102253.69999999998,138752.66999999998,178546.41,51513.42,71628.39,77857.0,130442.0,62291.009999999995],"forecast":[null,null,null,56000.0,25000.0,176000.0,147054.0,163000.0,null,null,80688.0,146224.0,138000.0],"spendByChannel":{"TikTok":[250.3,1485.16,1766.26,5547.48,9018.35,24662.53,11363.88,10666.0,3269.45,1401.8,0.0,5000.0,0.0],"YouTube":[4486.15,5084.05,1043.02,4025.53,6765.78,22792.81,15322.54,22910.97,8159.36,6727.77,6225.0,6678.0,4193.92],"Meta":[9344.08,17035.04,25688.82,27229.15,18635.82,39077.9,40723.67,58449.26,22425.01,39526.12,42877.0,58894.0,33586.34],"Reddit":[9580.04,13130.48,13077.17,16467.96,7088.81,15720.46,27341.22,28109.9,5529.45,12062.35,10500.0,21591.0,7213.0],"Stackadapt":[0.0,0.0,0.0,0.0,0.0,0.0,44001.36,58410.28,9001.24,10501.54,15000.0,14769.0,4911.0],"Google":[4511.13,0.0,0.0,0.0,0.0,0.0,0.0,0.0,3128.91,1408.81,3255.0,23510.0,12386.75]},"products":[{"key":"kiwisaver","label":"KiwiSaver","light":"#2a78d6","dark":"#3987e5","conv":[405.0,538.0,995.0,707.0,454.0,1150.0,1261.0,1458.0,1055.0,1904.0,1440.0,1329.0,576.0],"cpa":[69.55975308641976,68.28016728624534,41.78419095477387,75.34670438472419,91.42898678414096,88.9162608695652,110.03383822363203,122.45981481481482,48.82788625592417,37.61995273109244,54.06736111111111,98.15048908954101,108.14411458333332],"byChannel":{"TikTok":{"conv":[0.0,0.0,18.0,80.0,65.0,130.0,58.0,51.0,17.0,11.0,0.0,14.0,0.0],"cpa":[null,null,98.12555555555555,69.34349999999999,138.74384615384616,189.71176923076922,195.92896551724135,209.13725490196077,192.3205882352941,127.43636363636364,null,357.14285714285717,null]},"YouTube":{"conv":[0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0],"cpa":[null,null,null,4025.53,null,null,null,22910.97,null,null,null,null,null]},"Meta":{"conv":[197.0,343.0,660.0,446.0,242.0,692.0,460.0,512.0,278.0,848.0,824.0,621.0,418.0],"cpa":[47.43187817258883,49.66483965014577,38.92245454545454,61.051905829596414,77.00752066115702,56.47095375722544,88.52971739130435,114.1587109375,80.6655035971223,46.61099056603774,52.03519417475728,94.83735909822866,80.35009569377989]},"Reddit":{"conv":[208.0,195.0,317.0,180.0,147.0,328.0,258.0,227.0,601.0,601.0,226.0,331.0,125.0],"cpa":[46.05788461538462,67.33579487179487,41.252902208201895,91.48866666666666,48.22319727891157,47.92823170731707,105.97372093023256,123.83215859030838,9.200415973377703,20.07046589018303,46.46017699115044,65.2296072507553,57.704]},"Google":{"conv":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,22.0,7.0],"cpa":[null,null,null,null,null,null,null,null,null,null,null,1068.6363636363637,1769.5357142857142]},"Stackadapt":{"conv":[0.0,0.0,0.0,0.0,0.0,0.0,485.0,667.0,159.0,444.0,390.0,341.0,26.0],"cpa":[null,null,null,null,null,null,90.72445360824743,87.57163418290854,56.61157232704402,23.65211711711712,38.46153846153846,43.3108504398827,188.8846153846154]}}},{"key":"crypto","label":"Crypto","light":"#eb6834","dark":"#d95926","conv":[null,null,3197.0,6441.0,3365.0,7763.0,6415.0,4610.0,2531.0,3016.0,2114.0,1944.0,1042.0],"cpa":[null,null,13.004463559587112,8.270473528955131,12.335441307578007,13.171930954527886,21.629410756040528,38.73024078091106,20.352990912682735,23.749466180371353,36.829233680227055,67.09979423868313,59.78023992322456],"byChannel":{"TikTok":{"conv":[null,null,73.0,397.0,320.0,671.0,334.0,267.0,54.0,44.0,0.0,0.0,0.0],"cpa":[null,null,24.195342465753424,13.973501259445843,28.18234375,36.75488822652757,34.023592814371256,39.947565543071164,60.545370370370364,31.85909090909091,null,null,null]},"YouTube":{"conv":[null,null,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"cpa":[null,null,null,null,null,null,null,null,null,null,null,null,null]},"Meta":{"conv":[null,null,1367.0,3906.0,1970.0,5025.0,4150.0,3145.0,1289.0,1832.0,1397.0,1103.0,648.0],"cpa":[null,null,18.79211411850768,6.971108550947261,9.459807106598985,7.776696517412936,9.81293253012048,18.584820349761525,17.39721489526765,21.575393013100438,30.692197566213313,53.39437896645512,51.83077160493826]},"Reddit":{"conv":[null,null,1757.0,2138.0,1075.0,2067.0,1931.0,1198.0,475.0,1004.0,589.0,698.0,323.0],"cpa":[null,null,7.4428969834945935,7.702507015902713,6.594241860465116,7.605447508466376,14.15909891248058,23.464023372287148,11.640947368421052,12.01429282868526,17.826825127334466,30.932664756446993,22.3312693498452]},"Google":{"conv":[null,null,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0],"cpa":[null,null,null,null,null,null,null,null,null,null,null,null,6193.375]},"Stackadapt":{"conv":[null,null,0.0,0.0,0.0,0.0,0.0,0.0,713.0,136.0,128.0,143.0,69.0],"cpa":[null,null,null,null,null,null,null,null,12.62446002805049,77.21720588235294,117.1875,103.27972027972028,71.17391304347827]}}},{"key":"spend_signup","label":"Spend","light":"#1baf7a","dark":"#199e70","conv":[null,null,null,null,null,null,null,89.0,681.0,2222.0,1409.0,1194.0,521.0],"cpa":[null,null,null,null,null,null,null,2006.1394382022472,75.64378854625551,32.23599909990999,55.256919801277505,109.24790619765494,119.56047984644913],"byChannel":{"TikTok":{"conv":[null,null,null,null,null,null,null,0.0,0.0,0.0,0.0,0.0,0.0],"cpa":[null,null,null,null,null,null,null,null,null,null,null,null,null]},"YouTube":{"conv":[null,null,null,null,null,null,null,0.0,0.0,0.0,0.0,0.0,0.0],"cpa":[null,null,null,null,null,null,null,null,null,null,null,null,null]},"Meta":{"conv":[null,null,null,null,null,null,null,89.0,472.0,1505.0,1000.0,774.0,373.0],"cpa":[null,null,null,null,null,null,null,656.7332584269664,47.51061440677966,26.263202657807312,42.877,76.09043927648578,90.04380697050938]},"Reddit":{"conv":[null,null,null,null,null,null,null,0.0,209.0,717.0,399.0,409.0,145.0],"cpa":[null,null,null,null,null,null,null,null,26.4566985645933,16.82336122733612,26.31578947368421,52.789731051344745,49.744827586206895]},"Google":{"conv":[null,null,null,null,null,null,null,0.0,0.0,0.0,10.0,11.0,3.0],"cpa":[null,null,null,null,null,null,null,null,null,null,325.5,2137.2727272727275,4128.916666666667]},"Stackadapt":{"conv":[null,null,null,null,null,null,null,0.0,0.0,0.0,0.0,0.0,0.0],"cpa":[null,null,null,null,null,null,null,null,null,null,null,null,null]}}},{"key":"subscription","label":"Subscription (Plan Started)","light":"#eda100","dark":"#c98500","conv":[945.0,2708.0,2538.0,1610.0,1201.0,3291.0,3273.0,3263.0,1698.0,3167.0,2661.0,2736.0,1224.0],"cpa":[29.811322751322752,13.565262186115213,16.381115051221432,33.087031055900624,34.56183180682764,31.070707991491943,42.39311640696608,54.718482991112474,30.337703180212014,22.6171108304389,29.258549417512214,47.676169590643276,50.89134803921568],"byChannel":{"TikTok":{"conv":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"cpa":[null,null,null,null,null,null,null,null,null,null,null,null,null]},"YouTube":{"conv":[0.0,0.0,1.0,0.0,19.0,1.0,2.0,3.0,1.0,0.0,0.0,0.0,0.0],"cpa":[null,null,1043.02,null,356.0936842105263,22792.81,7661.27,7636.990000000001,8159.36,null,null,null,null]},"Meta":{"conv":[373.0,932.0,1348.0,944.0,643.0,2140.0,1518.0,1526.0,1111.0,1871.0,1728.0,1593.0,856.0],"cpa":[25.051152815013406,18.277939914163092,19.0569881305638,28.844438559322036,28.982612752721618,18.26070093457944,26.827187088274044,38.30226736566186,20.18452745274527,21.125665419561734,24.813078703703702,36.970495919648464,39.23637850467289]},"Reddit":{"conv":[572.0,1776.0,1189.0,666.0,539.0,1150.0,851.0,771.0,586.0,1296.0,933.0,1143.0,366.0],"cpa":[16.74832167832168,7.393288288288288,10.998460891505466,24.726666666666667,13.151781076066792,13.669965217391304,32.12834312573443,36.459014267185474,9.435921501706485,9.307368827160493,11.254019292604502,18.88976377952756,19.707650273224044]},"Google":{"conv":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0],"cpa":[null,null,null,null,null,null,null,null,null,null,null,null,6193.375]},"Stackadapt":{"conv":[0.0,0.0,0.0,0.0,0.0,0.0,902.0,963.0,0.0,0.0,0.0,0.0,0.0],"cpa":[null,null,null,null,null,null,48.7819955654102,60.6544963655244,null,null,null,null,null]}}},{"key":"insure_quote","label":"Insure (Quote)","light":"#e87ba4","dark":"#d55181","conv":[848.0,1133.0,1132.0,896.0,475.0,997.0,1628.0,1532.0,927.0,1111.0,641.0,767.0,564.0],"cpa":[33.22134433962264,32.42253309796999,36.7272703180212,59.45325892857143,87.38686315789472,102.56138415245735,85.22891277641277,116.5446540469974,55.57003236245954,64.47199819981998,121.46177847113884,170.0677966101695,110.44505319148935],"byChannel":{"TikTok":{"conv":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"cpa":[null,null,null,null,null,null,null,null,null,null,null,null,null]},"YouTube":{"conv":[2.0,0.0,0.0,0.0,0.0,0.0,0.0,null,0.0,0.0,0.0,0.0,0.0],"cpa":[2243.075,null,null,null,null,null,null,null,null,null,null,null,null]},"Meta":{"conv":[453.0,469.0,693.0,565.0,297.0,702.0,493.0,577.0,602.0,627.0,393.0,390.0,367.0],"cpa":[20.62710816777042,36.32204690831556,37.06900432900433,48.19318584070797,62.74686868686869,55.666524216524216,82.60379310344827,101.29854419410745,37.25084717607973,63.04006379585327,109.10178117048346,151.0102564102564,91.5159128065395]},"Reddit":{"conv":[391.0,664.0,439.0,331.0,178.0,295.0,252.0,222.0,200.0,283.0,141.0,216.0,113.0],"cpa":[24.5013810741688,19.774819277108435,29.788542141230067,49.75214501510574,39.824775280898876,53.28969491525424,108.49690476190477,126.62117117117118,27.64725,42.62314487632509,74.46808510638297,99.95833333333333,63.83185840707964]},"Google":{"conv":[2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0],"cpa":[2255.565,null,null,null,null,null,null,null,null,null,null,null,6193.375]},"Stackadapt":{"conv":[0.0,0.0,0.0,0.0,0.0,0.0,883.0,733.0,125.0,201.0,107.0,161.0,82.0],"cpa":[null,null,null,null,null,null,49.83166477916195,79.68660300136426,72.00992,52.24646766169155,140.18691588785046,91.73291925465838,59.890243902439025]}}},{"key":"save","label":"Save","light":"#008300","dark":"#008300","conv":[187.0,668.0,998.0,1048.0,696.0,1578.0,2810.0,2513.0,1074.0,1892.0,2607.0,3311.0,1229.0],"cpa":[150.65080213903744,54.992110778443106,41.658587174348696,50.83026717557252,59.63902298850574,64.79955640050696,49.37817437722419,71.0491086350975,47.9640782122905,37.85855708245243,29.864595320291524,39.39655693144065,50.68430431244914],"byChannel":{"Meta":{"conv":[175.0,455.0,747.0,674.0,436.0,1056.0,834.0,802.0,737.0,1152.0,1499.0,1639.0,733.0],"cpa":[53.39474285714286,37.43964835164835,34.38931726907631,40.399332344213654,42.74270642201835,37.00558712121212,48.82934052757793,72.8793765586035,30.42742198100407,34.31086805555556,28.603735823882587,35.93288590604027,45.82038199181446]},"Reddit":{"conv":[12.0,213.0,251.0,374.0,260.0,522.0,515.0,379.0,337.0,740.0,692.0,972.0,282.0],"cpa":[798.3366666666667,61.64544600938967,52.10027888446215,44.03197860962567,27.26465384615385,30.11582375478927,53.08974757281553,74.16860158311346,16.40786350148368,16.300472972972972,15.173410404624278,22.212962962962962,25.578014184397162]},"Stackadapt":{"conv":[null,null,null,null,null,null,1461.0,1332.0,null,0.0,382.0,678.0,206.0],"cpa":[null,null,null,null,null,null,30.11728952772074,43.85156156156156,null,null,39.26701570680628,21.783185840707965,23.839805825242717]},"Google":{"conv":[null,null,null,null,null,null,null,null,null,null,34.0,22.0,8.0],"cpa":[null,null,null,null,null,null,null,null,null,null,95.73529411764706,1068.6363636363637,1548.34375]}}},{"key":"insure_payment","label":"Insure (Payment)","light":"#4a3aa7","dark":"#9085e9","conv":[13.0,10.0,2.0,32.0,40.0,89.0,60.0,55.0,45.0,87.0,98.0,103.0,39.0],"cpa":[2167.0538461538463,3673.4729999999995,20787.635,1664.69125,1037.7189999999998,1148.9179775280898,2312.5444999999995,3246.298363636364,1144.7426666666665,823.3148275862069,794.4591836734694,1266.4271844660195,1597.2053846153844],"byChannel":{"TikTok":{"conv":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"cpa":[null,null,null,null,null,null,null,null,null,null,null,null,null]},"YouTube":{"conv":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"cpa":[null,null,null,null,null,null,null,null,null,null,null,null,null]},"Meta":{"conv":[11.0,8.0,2.0,15.0,16.0,56.0,37.0,33.0,21.0,47.0,58.0,59.0,27.0],"cpa":[849.4618181818182,2129.38,12844.41,1815.2766666666669,1164.73875,697.8196428571429,1100.6397297297297,1771.189696969697,1067.857619047619,840.9812765957447,739.2586206896551,998.2033898305085,1243.9385185185183]},"Reddit":{"conv":[2.0,2.0,0.0,17.0,24.0,33.0,23.0,22.0,24.0,40.0,40.0,44.0,12.0],"cpa":[4790.02,6565.24,null,968.7035294117646,295.36708333333337,476.37757575757576,1188.7486956521739,1277.7227272727273,230.39374999999998,301.55875000000003,262.5,490.70454545454544,601.0833333333334]},"Google":{"conv":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"cpa":[null,null,null,null,null,null,null,null,null,null,null,null,null]},"Stackadapt":{"conv":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"cpa":[null,null,null,null,null,null,null,null,null,null,null,null,null]}}}],"grandConv":[2398.0,5057.0,8862.0,10734.0,6231.0,14868.0,15447.0,13520.0,8011.0,13399.0,10970.0,11384.0,5195.0],"grandCpa":[11.747998331943286,7.264134862566738,4.69140938839991,4.962746413266257,6.661653025196597,6.877434759214419,8.982499514468827,13.206095414201183,6.430335788291099,5.345801179192477,7.097265268915224,11.458362614195362,11.9905697786333],"sources":{"2025-08":["doc"],"2025-09":["doc"],"2025-10":["doc"],"2025-11":["doc"],"2025-12":["doc"],"2026-01":["doc"],"2026-02":["doc"],"2026-03":["doc"],"2026-04":["doc"],"2026-05":["doc"],"2026-06":["doc"],"2026-07":["doc"],"2026-08":["doc","google_ads","meta_ads"]}};
+const NM = D.months.length;
+let sel = (function(){
+  for(let i=NM-1;i>=0;i--) if(!D.partial.includes(D.months[i]) && D.spend[i]!=null) return i;
+  return NM-1;})();
+let win = 13;
+
+const money=(v,dp)=>v==null?"—":(v<0?"-$":"$")+Math.abs(v).toLocaleString("en-NZ",
+  {minimumFractionDigits:dp??0,maximumFractionDigits:dp??0});
+const num=v=>v==null?"—":Math.round(v).toLocaleString("en-NZ");
+const SVGNS="http://www.w3.org/2000/svg";
+function E(n,a,p){const e=document.createElementNS(SVGNS,n);
+  for(const k in a||{})e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+function ticks(max,n){if(!(max>0))return[0,1];const raw=max/n,mag=Math.pow(10,Math.floor(Math.log10(raw)));
+  const st=[1,2,2.5,5,10].map(x=>x*mag).find(x=>x>=raw)||10*mag;
+  const out=[];for(let v=0;v<=Math.ceil(max/st)*st+1e-9;v+=st)out.push(v);return out;}
+function idx(){const a=[];for(let i=Math.max(0,NM-win);i<NM;i++)a.push(i);return a;}
+
+function tipFor(host){let t=host.querySelector(".tip");
+  if(!t){t=document.createElement("div");t.className="tip";host.appendChild(t);}return t;}
+function showTip(host,t,x,title,rows){
+  t.innerHTML="<h4>"+title+"</h4>"+rows.map(r=>
+    '<div class="r"><span>'+(r.c?'<i style="background:'+r.c+'"></i>':'')+r.k+"</span><b>"+r.v+"</b></div>").join("");
+  t.style.opacity=1;const w=host.clientWidth,tw=t.offsetWidth;
+  t.style.left=Math.max(4,Math.min(x-tw/2,w-tw-4))+"px";t.style.top="6px";}
+
+/* ---------- grouped: actual bars + forecast ticks ---------- */
+function spendChart(){
+  const host=document.getElementById("p-spend");host.innerHTML="";
+  const I=idx(),W=Math.max(560,I.length*74),H=286,L=62,R=14,T=12,B=42;
+  const pw=W-L-R,ph=H-T-B;
+  const max=Math.max(...I.map(i=>Math.max(D.spend[i]||0,D.forecast[i]||0)))||1;
+  const tk=ticks(max,5),top=tk[tk.length-1];
+  const svg=E("svg",{viewBox:`0 0 ${W} ${H}`,width:W,role:"img",
+    "aria-label":"Actual media spend against forecast by month"},host);
+  const y=v=>T+ph-(v/top)*ph, bw=Math.min(38,pw/I.length*0.56);
+  tk.forEach(v=>{E("line",{x1:L,x2:W-R,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=E("text",{x:L-9,y:y(v)+4,"text-anchor":"end",fill:"var(--muted)","font-size":11},svg);
+    t.textContent=v>=1000?"$"+(v/1000)+"k":"$"+v;});
+  I.forEach((i,k)=>{
+    const cx=L+(k+0.5)*(pw/I.length), part=D.partial.includes(D.months[i]);
+    const sv=D.spend[i];
+    if(sv!=null){const h=Math.max(2,(sv/top)*ph);
+      const r=E("rect",{x:cx-bw/2,y:y(sv),width:bw,height:h,rx:4,fill:"var(--s1)"},svg);
+      if(part){r.setAttribute("fill-opacity",".55");
+        E("rect",{x:cx-bw/2,y:y(sv),width:bw,height:h,rx:4,fill:"none",
+          stroke:"var(--s1)","stroke-width":1.5,"stroke-dasharray":"3 2"},svg);}}
+    const fv=D.forecast[i];
+    if(fv!=null)E("line",{x1:cx-bw/2-4,x2:cx+bw/2+4,y1:y(fv),y2:y(fv),
+      stroke:"var(--ink-2)","stroke-width":2.5,"stroke-linecap":"round"},svg);
+    const lb=E("text",{x:cx,y:H-24,"text-anchor":"middle",fill:"var(--ink-2)","font-size":11},svg);
+    lb.textContent=D.labelsShort[i];
+    if(part){const p=E("text",{x:cx,y:H-11,"text-anchor":"middle",fill:"var(--muted)","font-size":9.5},svg);
+      p.textContent="partial";}
+    const hit=E("rect",{x:L+k*(pw/I.length),y:T,width:pw/I.length,height:ph,
+      fill:"transparent",style:"cursor:crosshair"},svg);
+    const t=tipFor(host);
+    hit.addEventListener("mouseenter",()=>{const rows=[
+      {k:"Actual",v:money(sv),c:"var(--s1)"},{k:"Forecast",v:money(fv),c:"var(--ink-2)"}];
+      if(sv!=null&&fv!=null)rows.push({k:fv-sv>=0?"Under plan":"Over plan",v:money(Math.abs(fv-sv))});
+      showTip(host,t,cx,D.labels[i]+(part?" (partial)":""),rows);});
+    hit.addEventListener("mouseleave",()=>t.style.opacity=0);
+  });
+  E("line",{x1:L,x2:W-R,y1:T+ph,y2:T+ph,stroke:"var(--border)","stroke-width":1},svg);
+}
+
+/* ---------- stacked product conversions ---------- */
+function convChart(){
+  const host=document.getElementById("p-conv");host.innerHTML="";
+  const I=idx(),W=Math.max(560,I.length*74),H=300,L=62,R=14,T=12,B=42;
+  const pw=W-L-R,ph=H-T-B;
+  const max=Math.max(...I.map(i=>D.grandConv[i]||0))||1;
+  const tk=ticks(max,5),top=tk[tk.length-1];
+  const svg=E("svg",{viewBox:`0 0 ${W} ${H}`,width:W,role:"img",
+    "aria-label":"Conversions by product by month, stacked"},host);
+  const y=v=>T+ph-(v/top)*ph, bw=Math.min(40,pw/I.length*0.6);
+  tk.forEach(v=>{E("line",{x1:L,x2:W-R,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
+    const t=E("text",{x:L-9,y:y(v)+4,"text-anchor":"end",fill:"var(--muted)","font-size":11},svg);
+    t.textContent=v>=1000?(v/1000)+"k":v;});
+  I.forEach((i,k)=>{
+    const cx=L+(k+0.5)*(pw/I.length),part=D.partial.includes(D.months[i]);
+    let acc=0;
+    D.products.forEach(p=>{const v=p.conv[i];if(!v)return;
+      const y0=y(acc),y1=y(acc+v),h=Math.max(1.5,y0-y1-2);
+      E("rect",{x:cx-bw/2,y:y1,width:bw,height:h,rx:2,fill:"var(--"+p.slot+")",
+        "fill-opacity":part?".6":"1"},svg);acc+=v;});
+    const lb=E("text",{x:cx,y:H-24,"text-anchor":"middle",fill:"var(--ink-2)","font-size":11},svg);
+    lb.textContent=D.labelsShort[i];
+    if(part){const p2=E("text",{x:cx,y:H-11,"text-anchor":"middle",fill:"var(--muted)","font-size":9.5},svg);
+      p2.textContent="partial";}
+    const hit=E("rect",{x:L+k*(pw/I.length),y:T,width:pw/I.length,height:ph,
+      fill:"transparent",style:"cursor:crosshair"},svg);
+    const t=tipFor(host);
+    hit.addEventListener("mouseenter",()=>{
+      const rows=D.products.filter(p=>p.conv[i]).sort((a,b)=>b.conv[i]-a.conv[i])
+        .map(p=>({k:p.label,v:num(p.conv[i]),c:"var(--"+p.slot+")"}));
+      rows.push({k:"Total",v:num(D.grandConv[i])});
+      showTip(host,t,cx,D.labels[i]+(part?" (partial)":""),rows);});
+    hit.addEventListener("mouseleave",()=>t.style.opacity=0);
+  });
+  E("line",{x1:L,x2:W-R,y1:T+ph,y2:T+ph,stroke:"var(--border)","stroke-width":1},svg);
+}
+
+/* ---------- CPA small multiples ---------- */
+function cpaPanels(){
+  const host=document.getElementById("p-cpa");host.innerHTML="";
+  const I=idx();
+  D.products.forEach(p=>{
+    const vals=I.map(i=>p.cpa[i]),have=vals.filter(v=>v!=null);
+    const c=document.createElement("div");c.className="c";
+    const cur=p.cpa[sel];
+    c.innerHTML='<div class="t"><i style="background:var(--'+p.slot+')"></i>'+p.label+"</div>"+
+      '<div class="n">'+money(cur,cur!=null&&cur<100?2:0)+"</div>"+
+      '<div class="m">'+(have.length?"per conversion":"no conversions recorded")+"</div>";
+    if(have.length>1){
+      const W=170,H=40,mx=Math.max(...have),mn=Math.min(...have);
+      const rng=(mx-mn)||mx||1;
+      const svg=E("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",
+        role:"img","aria-label":p.label+" cost per conversion trend"},c);
+      const pts=[];
+      vals.forEach((v,k)=>{if(v==null)return;
+        pts.push([4+(k/(vals.length-1))*(W-8),H-6-((v-mn)/rng)*(H-14)]);});
+      if(pts.length>1){
+        E("path",{d:"M"+pts.map(q=>q[0].toFixed(1)+","+q[1].toFixed(1)).join("L"),
+          fill:"none",stroke:"var(--"+p.slot+")","stroke-width":2,
+          "stroke-linecap":"round","stroke-linejoin":"round"},svg);
+        const last=pts[pts.length-1];
+        E("circle",{cx:last[0],cy:last[1],r:3.4,fill:"var(--"+p.slot+")",
+          stroke:"var(--surface)","stroke-width":2},svg);}
+    }
+    host.appendChild(c);
+  });
+}
+
+/* ---------- channel contribution ---------- */
+function chanChart(){
+  const host=document.getElementById("p-chan");host.innerHTML="";
+  document.getElementById("ch-h").textContent="Channel contribution — "+D.labels[sel];
+  const rows=D.channels.map(c=>({c,v:D.spendByChannel[c][sel]}))
+    .filter(r=>r.v!=null&&r.v>0).sort((a,b)=>b.v-a.v);
+  if(!rows.length){host.innerHTML='<p class="note">No spend recorded for this month.</p>';return;}
+  const tot=rows.reduce((s,r)=>s+r.v,0);
+  const W=Math.max(520,560),rh=30,H=rows.length*rh+16,L=104,R=118;
+  const max=Math.max(...rows.map(r=>r.v));
+  const svg=E("svg",{viewBox:`0 0 ${W} ${H}`,width:W,role:"img",
+    "aria-label":"Spend by channel for "+D.labels[sel]},host);
+  const t=tipFor(host);
+  rows.forEach((r,k)=>{
+    const y=8+k*rh, bw=(r.v/max)*(W-L-R);
+    const lb=E("text",{x:L-11,y:y+15,"text-anchor":"end",fill:"var(--ink)","font-size":13},svg);
+    lb.textContent=r.c;
+    E("rect",{x:L,y:y+3,width:Math.max(2,bw),height:17,rx:4,fill:"var(--accent)"},svg);
+    const vl=E("text",{x:L+bw+10,y:y+16,fill:"var(--ink-2)","font-size":12,
+      style:'font-family:"IBM Plex Mono",monospace'},svg);
+    vl.textContent=money(r.v)+"  ·  "+(r.v/tot*100).toFixed(0)+"%";
+    const hit=E("rect",{x:0,y:y,width:W,height:rh-2,fill:"transparent",style:"cursor:crosshair"},svg);
+    hit.addEventListener("mouseenter",()=>{
+      const pr=D.products.filter(p=>p.byChannel[r.c]&&p.byChannel[r.c].conv[sel])
+        .map(p=>({k:p.label,v:num(p.byChannel[r.c].conv[sel]),c:"var(--"+p.slot+")"}));
+      showTip(host,t,W/2,r.c+" — "+D.labels[sel],
+        [{k:"Spend",v:money(r.v),c:"var(--accent)"},{k:"Share",v:(r.v/tot*100).toFixed(1)+"%"}].concat(pr));});
+    hit.addEventListener("mouseleave",()=>t.style.opacity=0);
+  });
+}
+
+/* ---------- KPIs ---------- */
+function kpis(){
+  const host=document.getElementById("kpis");host.innerHTML="";
+  const prev=sel>0?sel-1:null;
+  const part=D.partial.includes(D.months[sel]);
+  // goodUp: true = rising is good, false = falling is good, null = neutral/informational
+  function delta(cur,pv,goodUp){
+    if(cur==null||pv==null||!pv)return '<span class="pill fl">no prior month</span>';
+    const pc=(cur-pv)/Math.abs(pv)*100, up=pc>=0;
+    let cls="fl";
+    if(goodUp!==null&&Math.abs(pc)>=0.5)cls=(goodUp?up:!up)?"up":"dn";
+    return '<span class="pill '+cls+'">'+(up?"▲":"▼")+" "+Math.abs(pc).toFixed(0)+"%</span>";
+  }
+  const fc=D.forecast[sel],sp=D.spend[sel];
+  const items=[
+    {k:"Media spend",v:money(sp),
+     d:delta(sp,prev!=null?D.spend[prev]:null,null)+
+       (fc!=null?" <span>"+(fc-sp>=0?money(fc-sp)+" under plan":money(sp-fc)+" over plan")+"</span>":
+        " <span>no forecast set</span>")},
+    {k:"Conversions",v:num(D.grandConv[sel]),
+     d:delta(D.grandConv[sel],prev!=null?D.grandConv[prev]:null,true)+" <span>all products</span>"},
+    {k:"Blended cost / conversion",v:money(D.grandCpa[sel],2),
+     d:delta(D.grandCpa[sel],prev!=null?D.grandCpa[prev]:null,false)+" <span>lower is better</span>"},
+  ];
+  const big=D.products.map(p=>({l:p.label,v:p.conv[sel]})).filter(x=>x.v)
+    .sort((a,b)=>b.v-a.v)[0];
+  const bigPrev=big&&prev!=null?(D.products.find(p=>p.label===big.l)||{}).conv?.[prev]:null;
+  items.push({k:"Largest product",v:big?num(big.v):"—",
+    d:(big?delta(big.v,bigPrev,true):"")+" <span>"+(big?big.l:"no conversions recorded")+"</span>"});
+  items.forEach(it=>{const d=document.createElement("div");d.className="kpi";
+    d.innerHTML='<div class="k">'+it.k+'</div><div class="v">'+it.v+'</div><div class="d">'+it.d+"</div>";
+    host.appendChild(d);});
+  document.getElementById("pw").innerHTML = part ?
+    '<div class="banner"><b>Month in progress.</b><span>'+D.labels[sel]+
+    ' is not finished, so its figures are lower than a full month and are shown hatched on the'+
+    ' charts. Compare complete months for a like-for-like read.</span></div>' : "";
+}
+
+/* ---------- table ---------- */
+function table(){
+  const host=document.getElementById("p-tbl");
+  const P=D.products;
+  let h="<table><thead><tr><th>Channel</th><th>Spend</th>"+
+    P.map(p=>"<th>"+p.label+"</th>").join("")+"</tr></thead><tbody>";
+  D.channels.forEach(c=>{
+    const sp=D.spendByChannel[c][sel];
+    h+="<tr><td>"+c+'</td><td class="num">'+money(sp)+"</td>"+
+      P.map(p=>{const b=p.byChannel[c];
+        if(!b)return '<td class="num" style="color:var(--muted)">—</td>';
+        const cv=b.conv[sel],cp=b.cpa[sel];
+        return '<td class="num">'+num(cv)+(cp!=null?'<br><span style="color:var(--muted);font-size:11.5px">'
+          +money(cp,cp<100?2:0)+"</span>":"")+"</td>";}).join("")+"</tr>";
+  });
+  h+='<tr class="tot"><td>Total</td><td class="num">'+money(D.spend[sel])+"</td>"+
+    P.map(p=>{const cp=p.cpa[sel];
+      return '<td class="num">'+num(p.conv[sel])+(cp!=null?
+        '<br><span style="font-weight:400;color:var(--ink-2);font-size:11.5px">'+
+        money(cp,cp<100?2:0)+"</span>":"")+"</td>";}).join("")+"</tr></tbody></table>";
+  host.innerHTML=h;
+}
+
+function legend(){
+  document.getElementById("lg-prod").innerHTML =
+    D.products.map(p=>'<span><i style="background:var(--'+p.slot+')"></i>'+p.label+"</span>").join("");
+}
+
+function draw(){kpis();spendChart();convChart();cpaPanels();chanChart();table();}
+
+/* init */
+D.products.forEach((p,i)=>p.slot="s"+(i%7+1));
+const msel=document.getElementById("mo");
+D.months.forEach((m,i)=>{if(D.spend[i]==null&&D.grandConv[i]==null)return;
+  const o=document.createElement("option");o.value=i;o.textContent=D.labels[i]+
+    (D.partial.includes(m)?" (in progress)":"");msel.appendChild(o);});
+msel.value=sel;
+msel.addEventListener("change",e=>{sel=+e.target.value;draw();});
+const wb=document.getElementById("win");
+wb.addEventListener("click",()=>{win=win===13?NM:(NM>25?13:(win===NM?13:NM));
+  if(win>NM)win=NM;wb.textContent="Showing "+win+" months";
+  spendChart();convChart();cpaPanels();});
+wb.textContent="Showing "+Math.min(win,NM)+" months";
+const srcs=new Set();Object.values(D.sources).forEach(a=>a.forEach(s=>srcs.add(s)));
+document.getElementById("fsrc").textContent="Sources: "+
+  [...srcs].map(s=>({doc:"historic doc",meta_ads:"Meta Ads API",
+    google_ads:"Google Ads API",manual:"manual entry"}[s]||s)).join(", ");
+legend();draw();
+</script>

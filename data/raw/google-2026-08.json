@@ -1,0 +1,528 @@
+{
+ "cost": [
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/1814209845",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "costMicros": "880501450"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "costMicros": "8426402932"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/20454829890",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "costMicros": "1332884231"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/23831378601",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "costMicros": "678712562"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/24041290939",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "costMicros": "1068245488"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/23387631524",
+    "advertisingChannelType": "VIDEO"
+   },
+   "metrics": {
+    "costMicros": "1204602079"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/23390566700",
+    "advertisingChannelType": "VIDEO"
+   },
+   "metrics": {
+    "costMicros": "594741825"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/23390566703",
+    "advertisingChannelType": "VIDEO"
+   },
+   "metrics": {
+    "costMicros": "593580055"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/23390566709",
+    "advertisingChannelType": "VIDEO"
+   },
+   "metrics": {
+    "costMicros": "593472129"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/23391962386",
+    "advertisingChannelType": "VIDEO"
+   },
+   "metrics": {
+    "costMicros": "1207525908"
+   }
+  }
+ ],
+ "conversions": [
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/1814209845",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 6.340819
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/1814209845",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) spend_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/1814209845",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) wills_started"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/1814209845",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 8.039567
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/1814209845",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_spend_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 12.299318
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 3
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) insurance_quote_created"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) kiwisaver_investment_plan_created"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 2.095042
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) kiwisaver_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1.33415
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) subscription_plan_started"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 2
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) wills_started"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 23.960433
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 2
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_crypto_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 6
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_kiwisaver_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_save_account_opened"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_subscription_plan_started"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1.5
+   },
+   "segments": {
+    "conversionActionName": "save_account_opened"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/20454829890",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 9.011877
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/20454829890",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) kiwisaver_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/20454829890",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 18
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/20454829890",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_kiwisaver_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/20454829890",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 6
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_save_account_opened"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/20454829890",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_subscription_plan_started"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/20454829890",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 5.5
+   },
+   "segments": {
+    "conversionActionName": "save_account_opened"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/23391962386",
+    "advertisingChannelType": "VIDEO"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/23831378601",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 3
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/23831378601",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 2
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) spend_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/23831378601",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 5
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/23831378601",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 2
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_insurance_quote_created"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/23831378601",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 2
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_spend_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/24041290939",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 3
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/24041290939",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 2.628961
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) wills_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/24041290939",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 16.882924
+   },
+   "segments": {
+    "conversionActionName": "Sharesies - GA4 - MAIN (web) wills_started"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/24041290939",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 3
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/24041290939",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_save_account_opened"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3844401760/campaigns/24041290939",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "save_account_opened"
+   }
+  }
+ ]
+}
