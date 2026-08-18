@@ -20,6 +20,15 @@ FIELDS = ["month", "channel", "metric", "value", "source"]
 # test -- the Sharesies product named "Spend" stores as `spend_signup`, which
 # is a conversion count, not currency.
 MONEY_METRICS = {"spend_actual", "spend_forecast"}
+# Product-attributed spend, one metric per product: spend_p_kiwisaver etc.
+SPEND_P = "spend_p_"
+
+
+def is_money(metric):
+    """Money metrics are listed explicitly plus the spend_p_* family. Never use
+    a bare "spend" prefix test -- the product named Spend is `spend_signup`,
+    a conversion count."""
+    return metric in MONEY_METRICS or metric.startswith(SPEND_P)
 
 
 def load_schema():
@@ -136,7 +145,7 @@ def write_store(store, path=HISTORY):
                 "month": month,
                 "channel": channel,
                 "metric": metric,
-                "value": f"{val:.2f}" if metric in MONEY_METRICS else f"{val:g}",
+                "value": f"{val:.2f}" if is_money(metric) else f"{val:g}",
                 "source": rec["source"],
             })
     return len(rows)

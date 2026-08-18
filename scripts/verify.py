@@ -44,10 +44,14 @@ def main():
 
     months = lib.month_range(schema["start_month"], 24)
 
-    # Months that have been refreshed from a connector no longer match the
-    # original doc snapshot -- by design. Exclude them so this stays a real
-    # regression test of the derivation, not a diff against stale numbers.
-    refreshed = sorted({m for (m, _, _), r in store.items() if r["source"] != "doc"})
+    # Months whose CHECKED facts were refreshed from a connector no longer match
+    # the original snapshot -- by design. Only spend_actual / spend_forecast and
+    # the product conversion counts feed these checks, so an added metric such as
+    # spend_p_* must not exclude a month: it changes nothing being verified.
+    checked_metrics = ({"spend_actual", "spend_forecast"}
+                       | {p["key"] for p in schema["products"]})
+    refreshed = sorted({m for (m, _, mt), r in store.items()
+                        if r["source"] != "doc" and mt in checked_metrics})
     if refreshed:
         print(f"excluded (refreshed since export): {', '.join(refreshed)}\n")
 
@@ -98,6 +102,32 @@ def main():
                 check(None, lib.cpa(tot_spend, tot_conv), d_tcpa,
                       max(TOL_CPA, abs(d_tcpa) * 0.005), f"{mo} {key} TOTAL CPA")
 
+    # --- attribution reconciliation ---------------------------------------
+    # Attributed product spend must sum to the channel total it was split from.
+    # insure_payment is skipped: it shares the insure pool with insure_quote,
+    # so counting both would double it.
+    attr_fail, attr_ok = [], 0
+    attr_channels = {k[1] for k in store if k[2].startswith(lib.SPEND_P)}
+    for mo in months:
+        for ch in sorted(attr_channels):
+            parts = [v["value"] for (m, c, mt), v in store.items()
+                     if m == mo and c == ch and mt.startswith(lib.SPEND_P)
+                     and mt != lib.SPEND_P + "insure_payment"]
+            if not parts:
+                continue
+            stored = lib.get(store, mo, ch, "spend_actual")
+            if stored is None:
+                attr_fail.append((f"{mo} {ch} attribution", sum(parts), "no channel spend"))
+            elif abs(sum(parts) - stored) > 0.05:
+                attr_fail.append((f"{mo} {ch} attribution", sum(parts), stored))
+            else:
+                attr_ok += 1
+    print(f"attribution reconciled : {attr_ok} channel-months"
+          + (f"  ({len(attr_fail)} FAILED)" if attr_fail else ""))
+    for desc, got, want in attr_fail:
+        print(f"  {desc:<40} attributed={got:,.2f}  channel={want}")
+    print()
+
     print(f"checks passed : {passes}")
     print(f"checks failed : {len(fails)}")
     if fails:
@@ -107,7 +137,7 @@ def main():
             print(f"  {desc:<44} derived={dv_s:>14}  doc={doc_v:,.2f}")
         if len(fails) > 40:
             print(f"  ... and {len(fails)-40} more")
-    return 0 if not fails else 1
+    return 0 if not (fails or attr_fail) else 1
 
 
 if __name__ == "__main__":

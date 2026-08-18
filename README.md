@@ -94,6 +94,42 @@ scripts/              lib · parse_source · build_pull · update_month
 docs/                 the discrepancy catalogue
 ```
 
+## Cost per conversion: the attributed basis
+
+The original doc divided a channel's **entire** spend by **one** product's
+conversions. Every product therefore shared a numerator, which inflated all of
+them and made per-product comparison meaningless.
+
+The obvious fix does not work. Splitting spend in proportion to each product's
+conversion share gives `S x (n_p/N)` for product p, so
+`CPA_p = S x (n_p/N) / n_p = S/N` — the **same number for every product**. It
+looks like an improvement and carries no information.
+
+What does work is campaign-level attribution: a campaign targets a product, so
+its spend genuinely belongs to that product. `config/campaign_map.yml` maps
+campaign names to products, and `scripts/attribute.py` applies it. Three rules
+keep it honest:
+
+- **Coverage is asserted.** Any campaign with spend that matches no rule aborts
+  the run and is printed. Spend cannot be silently swept into a bucket.
+- **The split is applied to the stored channel total**, so attributed figures
+  always reconcile to spend the client has already seen. `verify.py` checks all
+  39 channel-months.
+- **Numerator and denominator use the same channel set.** TikTok, Reddit and
+  StackAdapt have no campaign API, so they are excluded from *both* — the report
+  names which channels each cost covers and what share of spend that is (68% in
+  July 2026).
+
+Three kinds of spend are held out of product costs rather than folded in:
+**brand / upper funnel** (works across every product), **other & tests**, and
+**untracked products** — Wills has live campaigns but no row in the doc.
+**Subscription** gets no attributed CPA at all: it fires across other products'
+campaigns, so no spend belongs to it.
+
+The effect is large. July 2026 Save went from $39.40 to $7.60, Crypto from $67.10
+to $2.96. The workbook keeps the old figures in clearly-labelled
+`... - LEGACY` sections so two years of history stays traceable.
+
 ## Design decisions worth knowing
 
 - **CPAs and totals are never stored.** Deriving them at render time is why
@@ -106,6 +142,8 @@ docs/                 the discrepancy catalogue
   bare names). They measure the same events three times and must never be summed.
   The mapping pins `rudderstack_*`, which is what the doc has always used.
 - **Event renames are config, not code** — `config/schema.yml`.
+- **Blank beats a fabricated number.** Where a channel has conversions but no
+  campaign-level spend, the attributed CPA renders as a dash, not a guess.
 - **Partial months are labelled.** The current month is flagged in the report and
   hatched on the charts, so an in-flight month is never read as a full one.
 

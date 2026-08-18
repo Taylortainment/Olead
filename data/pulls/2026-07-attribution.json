@@ -1,0 +1,86 @@
+{
+ "month": "2026-07",
+ "connector": "attribution",
+ "rows": [
+  {
+   "channel": "Google",
+   "metric": "spend_p_kiwisaver",
+   "value": 16616.37
+  },
+  {
+   "channel": "Google",
+   "metric": "spend_p_save",
+   "value": 2960.27
+  },
+  {
+   "channel": "Google",
+   "metric": "spend_p_spend_signup",
+   "value": 1959.09
+  },
+  {
+   "channel": "Google",
+   "metric": "spend_p_wills",
+   "value": 1974.27
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_insure_quote",
+   "value": 2893.94
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_insure_payment",
+   "value": 2893.94
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_kiwisaver",
+   "value": 33360.78
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_crypto",
+   "value": 2317.96
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_brand",
+   "value": 3913.23
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_spend_signup",
+   "value": 5307.83
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_save",
+   "value": 9669.09
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_other",
+   "value": 238.21
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_wills",
+   "value": 1192.96
+  },
+  {
+   "channel": "YouTube",
+   "metric": "spend_p_brand",
+   "value": 3840.61
+  },
+  {
+   "channel": "YouTube",
+   "metric": "spend_p_kiwisaver",
+   "value": 1891.64
+  },
+  {
+   "channel": "YouTube",
+   "metric": "spend_p_crypto",
+   "value": 945.75
+  }
+ ]
+}

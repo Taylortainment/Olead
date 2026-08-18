@@ -1,0 +1,52 @@
+# Campaign name -> product attribution.
+#
+# Spend is genuinely attributable at campaign level: a campaign targets a
+# product. This is what makes a real per-product CPA possible, and it is why
+# the naive alternative was rejected -- splitting a channel's spend in
+# proportion to each product's conversions collapses to spend/conversions for
+# EVERY product, i.e. one identical number, telling you nothing.
+#
+# Rules are ordered; FIRST match wins. Patterns are case-insensitive regex
+# matched against the campaign name. attribute.py fails loudly if any campaign
+# with spend matches nothing, so new campaigns cannot be silently dropped into
+# a bucket.
+#
+# Two buckets are not products and are excluded from product CPA:
+#   brand  -- upper-funnel / awareness. Assigning it to a product would be a
+#             fiction; it is reported separately instead.
+#   other  -- targets something the doc does not track (Invest, B2B, Farmers,
+#             one-off tests).
+
+rules:
+  # --- Wills first: a live product, currently absent from the doc ----------
+  - {pattern: "wills",                      product: wills}
+
+  # --- Insure: Quote and Payment are two stages of ONE spend pool ---------
+  - {pattern: "insure|car insurance",       product: insure}
+
+  # --- Spend (the Sharesies debit-card product) ---------------------------
+  - {pattern: "apple pay|debit card",       product: spend_signup}
+  - {pattern: "(^|[^a-z])spend([^a-z]|$)",  product: spend_signup}
+
+  # --- KiwiSaver. "KS -" and "SKS" are the in-account shorthands ----------
+  - {pattern: "kiwisaver|(^|[^a-z])ks[^a-z]|sks", product: kiwisaver}
+
+  - {pattern: "crypto",                     product: crypto}
+  - {pattern: "(^|[^a-z])save([^a-z]|$)",   product: save}
+
+  # --- Not products -------------------------------------------------------
+  - {pattern: "brand|yt \\| members|yt \\| prospecting|prospecting shorts",  product: brand}
+  - {pattern: "reach|awareness",            product: brand}
+  - {pattern: "invest|b2b|farmer|space x|shared lunch|us500|share transfer|easter|anzac|tarrif|air points|self select|remarketing - conversions|prospecting - conversions|gift", product: other}
+
+# Products whose conversions have no campaign of their own -- they are
+# downstream events that fire across several products' campaigns. There is no
+# attributable spend for them, so an attributed CPA is undefined and the report
+# must say so rather than print a number.
+cross_cutting:
+  - subscription
+
+# Products that share one spend pool because they are funnel stages of the same
+# campaign set. Their CPAs are both valid but must not be added together.
+shared_spend:
+  insure: [insure_quote, insure_payment]

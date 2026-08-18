@@ -96,6 +96,35 @@ month's numbers forward.
 Blank and `0` are different: `0` means measured zero, blank means not reported.
 They render differently.
 
+## 4b. Refresh campaign attribution
+
+Product-level cost comes from campaign-level attribution, so the campaign pulls
+need refreshing too. Two calls cover all months at once:
+
+```sql
+SELECT segments.month, campaign.name, campaign.advertising_channel_type,
+       metrics.cost_micros
+FROM campaign WHERE segments.date BETWEEN '<13-MONTHS-AGO>' AND '<TODAY>'
+  AND metrics.cost_micros > 0
+```
+
+and `ads_get_ad_entities` at `level: campaign` with
+`fields: ["id","name","amount_spent"]`, `time_increment: "monthly"` over the same
+range. Save as `data/raw/google-campaigns-13mo.json` (list of
+`{month, name, channel_type, cost}`) and `data/raw/meta-campaigns-13mo.json`
+(list of `{month, name, spend}`), then:
+
+```bash
+python3 scripts/attribute.py            # dry run -- READ the output
+python3 scripts/attribute.py --apply
+```
+
+The dry run aborts if any campaign with spend matches no rule in
+`config/campaign_map.yml` — add a rule rather than letting it fall into a bucket.
+It also prints channel-months where the doc total disagrees with the sum of its
+campaigns; those are data-quality findings, and the split is still applied to the
+stored total so client-facing figures do not move.
+
 ## 5. Merge, verify, render
 
 ```bash
@@ -112,7 +141,8 @@ python3 scripts/render_report.py                     # -> reports/report.html
 `--force` is right when refreshing the current month (a mid-month snapshot being
 superseded); it is a red flag on a closed month.
 
-`verify.py` should report **794 passed / 31 failed**. Those 31 failures are
+`verify.py` should report **794 passed / 31 failed** and **39 channel-months
+reconciled** for attribution. Those 31 failures are
 pre-existing errors in the exported doc, catalogued in `docs/doc-discrepancies.md`.
 A *new* failure means something broke — investigate before shipping.
 

@@ -77,12 +77,40 @@ def build_rows(store, schema, months):
         row("Total", [lib.fmt_int(totals[m]) for m in months])
         blank()
 
-        section(f"{label} CPA ${cur}")
+        # Attributed basis: the campaigns that actually targeted this product.
+        # Blank where a channel has no campaign-level data -- a blank is honest,
+        # a number would not be.
+        section(f"{label} CPA ${cur} - attributed")
+        header("Channel")
+        for ch in pch:
+            row(ch, [lib.fmt_money(lib.cpa(lib.get(store, m, ch, lib.SPEND_P + key),
+                                          lib.get(store, m, ch, key))) for m in months])
+        a_sp, a_cv = {}, {}
+        for m in months:
+            sp = [lib.get(store, m, c, lib.SPEND_P + key) for c in pch]
+            sp = [v for v in sp if v is not None]
+            a_sp[m] = sum(sp) if sp else None
+            a_cv[m] = sum(v for c in pch
+                          for v in [lib.get(store, m, c, key)]
+                          if v is not None and lib.get(store, m, c, lib.SPEND_P + key) is not None)
+        row("Total", [lib.fmt_money(lib.cpa(a_sp[m], a_cv[m])) for m in months])
+        blank()
+
+        section(f"{label} attributed spend ${cur}")
+        header("Channel")
+        for ch in pch:
+            row(ch, [lib.fmt_money(lib.get(store, m, ch, lib.SPEND_P + key)) for m in months])
+        row("Total", [lib.fmt_money(a_sp[m]) for m in months])
+        blank()
+
+        # Legacy basis, retained so two years of history stays traceable. It
+        # divides a channel's ENTIRE spend by this one product's conversions,
+        # which inflates every figure -- clearly labelled so it is not reused.
+        section(f"{label} CPA ${cur} - LEGACY (all channel spend / product convs)")
         header("Channel")
         for ch in pch:
             row(ch, [lib.fmt_money(lib.cpa(lib.get(store, m, ch, "spend_actual"),
                                           lib.get(store, m, ch, key))) for m in months])
-        # doc convention: total CPA = all-channel spend / this product's total convs
         row("Total", [lib.fmt_money(lib.cpa(actual[m], totals[m])) for m in months])
         blank()
 

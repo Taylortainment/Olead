@@ -1,0 +1,41 @@
+{
+ "month": "2026-02",
+ "connector": "attribution",
+ "rows": [
+  {
+   "channel": "Google",
+   "metric": "spend_p_other",
+   "value": 0.0
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_kiwisaver",
+   "value": 12349.52
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_crypto",
+   "value": 18073.17
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_brand",
+   "value": 10300.98
+  },
+  {
+   "channel": "YouTube",
+   "metric": "spend_p_brand",
+   "value": 3240.62
+  },
+  {
+   "channel": "YouTube",
+   "metric": "spend_p_kiwisaver",
+   "value": 7201.77
+  },
+  {
+   "channel": "YouTube",
+   "metric": "spend_p_crypto",
+   "value": 4880.15
+  }
+ ]
+}

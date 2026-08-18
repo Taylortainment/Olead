@@ -168,12 +168,24 @@ footer{margin-top:36px;padding-top:18px;border-top:1.5px solid var(--rule);
   <h2>Product by product</h2>
   <div class="note">One panel per product, each on its own scale &mdash; a product doing
   3,000 conversions and one doing 100 can&rsquo;t share an axis honestly. The bars show
-  the trend; the figures are the selected month.<br>
-  <b>How cost per conversion is calculated:</b> total media spend divided by that
-  product&rsquo;s conversions, the same method the working doc has always used. Because
-  one channel&rsquo;s spend drives several products at once, read these as a trend within
-  a product, not as a ranking between products.</div>
+  the conversion trend; the figures are the selected month.</div>
   <div class="sm" id="p-prod"></div>
+  <div class="callout" style="margin:18px 0 4px 14px"><span><b>Cost per conversion is
+  now attributed.</b> Each product&rsquo;s cost comes from the campaigns that actually
+  targeted it, not from dividing the whole channel&rsquo;s spend by that product&rsquo;s
+  conversions. The old method gave every product the same numerator, so it inflated
+  every figure and made products look comparable when they weren&rsquo;t. Attributed
+  costs are therefore much lower, and they mean something. Each panel names the
+  channels its cost covers &mdash; <span id="cov-note"></span></span></div>
+</div>
+
+<div class="card">
+  <h2>Where the money actually goes</h2>
+  <div class="note">Not every dollar belongs to a product. Upper-funnel brand
+  activity works across all of them, and some campaigns target products this
+  report doesn&rsquo;t track. Both are held separately rather than folded into a
+  product&rsquo;s cost, which would flatter it.</div>
+  <div class="sm" id="p-alloc"></div>
 </div>
 
 <div class="card">
@@ -185,7 +197,9 @@ footer{margin-top:36px;padding-top:18px;border-top:1.5px solid var(--rule);
 <div class="card">
   <h2>The numbers</h2>
   <div class="note">The selected month in full &mdash; every channel against every
-  product, cost per conversion underneath. The same data the charts draw from.</div>
+  product, with attributed cost per conversion in grey underneath. A dash means that
+  channel has conversions but no campaign-level spend data, so a cost can&rsquo;t
+  honestly be assigned. The same data the charts draw from.</div>
   <details open><summary>Show table</summary><div class="tbl" id="p-tbl"></div></details>
 </div>
 
@@ -305,11 +319,23 @@ function prodPanels(){
   const I=idx();
   D.products.slice().sort((a,b)=>(b.conv[sel]||0)-(a.conv[sel]||0)).forEach(p=>{
     const c=document.createElement("div");c.className="c";
-    const cv=p.conv[sel],cp=p.cpa[sel];
+    const cv=p.conv[sel],ac=p.attrCpa[sel],an=p.attrConv[sel],used=p.attrUsed[sel]||[];
+    let costLine;
+    if(p.crossCutting){
+      costLine='<span title="This event fires across several products\u2019 campaigns, '+
+        'so no spend belongs to it alone.">not attributable &mdash; fires across products</span>';
+    } else if(ac!=null){
+      costLine="<b>"+money(ac,ac<100?2:0)+"</b> each &middot; "+used.join(", ")+
+        (an!=null&&cv?" ("+num(an)+" of "+num(cv)+")":"");
+      if((p.sharesPoolWith||[]).length)
+        costLine+="<br>shares its spend with "+p.sharesPoolWith.map(k=>{
+          const o=D.products.find(x=>x.key===k);return o?o.label:k;}).join(", ");
+    } else {
+      costLine="no attributed spend this month";
+    }
     c.innerHTML='<div class="t">'+p.label+"</div>"+
       '<div class="n num">'+num(cv)+"</div>"+
-      '<div class="m">'+(cv!=null?"conversions &middot; <b>"+money(cp,cp!=null&&cp<100?2:0)+
-        "</b> each":"none recorded")+"</div>";
+      '<div class="m">'+(cv!=null?"conversions &middot; "+costLine:"none recorded")+"</div>";
     const vals=I.map(i=>p.conv[i]),mx=Math.max(...vals.map(v=>v||0));
     if(mx>0){
       const W=200,H=42,bw=Math.max(2,(W-6)/vals.length-2);
@@ -324,6 +350,16 @@ function prodPanels(){
     }
     host.appendChild(c);
   });
+}
+
+function allocPanels(){
+  const host=document.getElementById("p-alloc");host.innerHTML="";
+  const tot=D.spend[sel]||0;
+  (D.alloc[sel]||[]).forEach(it=>{
+    const d=document.createElement("div");d.className="c";
+    d.innerHTML='<div class="t">'+it.label+'</div><div class="n num">'+money(it.value)+
+      '</div><div class="m">'+(tot?((it.value/tot*100).toFixed(0)+"% of the month &middot; "):"")+
+      it.note+"</div>";host.appendChild(d);});
 }
 
 function chanChart(){
@@ -377,8 +413,8 @@ function kpis(){
        "<span>no forecast set</span>")},
     {k:"Conversions",v:num(D.grandConv[sel]),
      d:delta(D.grandConv[sel],prev!=null?D.grandConv[prev]:null,["more","fewer"])+"<span>all products</span>"},
-    {k:"Cost per conversion",v:money(D.grandCpa[sel],2),
-     d:delta(D.grandCpa[sel],prev!=null?D.grandCpa[prev]:null,["more expensive","cheaper"])+"<span>blended</span>"},
+    {k:"Cost per conversion event",v:money(D.grandCpa[sel],2),
+     d:delta(D.grandCpa[sel],prev!=null?D.grandCpa[prev]:null,["more expensive","cheaper"])+"<span>all spend &divide; all events</span>"},
   ];
   const big=D.products.map(p=>({l:p.label,k:p.key,v:p.conv[sel]})).filter(x=>x.v)
     .sort((a,b)=>b.v-a.v)[0];
@@ -403,19 +439,26 @@ function table(){
     h+="<tr><td>"+c+'</td><td class="num">'+money(D.spendByChannel[c][sel])+"</td>"+
       P.map(p=>{const b=p.byChannel[c];
         if(!b)return '<td class="num dash">—</td>';
-        const cv=b.conv[sel],cp=b.cpa[sel];
+        const cv=b.conv[sel],cp=b.attrCpa[sel];
         return '<td class="num">'+num(cv)+(cp!=null?
-          '<br><span class="cpa">'+money(cp,cp<100?2:0)+"</span>":"")+"</td>";}).join("")+"</tr>";
+          '<br><span class="cpa">'+money(cp,cp<100?2:0)+"</span>":
+          (cv?'<br><span class="cpa">&mdash;</span>':""))+"</td>";}).join("")+"</tr>";
   });
   h+='<tr class="tot"><td>Total</td><td class="num">'+money(D.spend[sel])+"</td>"+
-    P.map(p=>{const cp=p.cpa[sel];
+    P.map(p=>{const cp=p.attrCpa[sel];
       return '<td class="num">'+num(p.conv[sel])+(cp!=null?
-        '<br><span class="cpa">'+money(cp,cp<100?2:0)+"</span>":"")+"</td>";}).join("")+
+        '<br><span class="cpa">'+money(cp,cp<100?2:0)+"</span>":
+        '<br><span class="cpa">&mdash;</span>')+"</td>";}).join("")+
     "</tr></tbody></table>";
   document.getElementById("p-tbl").innerHTML=h;
 }
 
-function draw(){kpis();spendChart();convChart();prodPanels();chanChart();table();}
+function draw(){kpis();spendChart();convChart();prodPanels();allocPanels();chanChart();table();
+  const c=D.coverage[sel];
+  document.getElementById("cov-note").textContent = c!=null
+    ? D.attrChannels.join(", ")+" carry campaign data, covering "+
+      Math.round(c*100)+"% of this month\u2019s spend."
+    : "coverage unavailable for this month.";}
 
 const msel=document.getElementById("mo");
 D.months.forEach((m,i)=>{if(D.spend[i]==null&&D.grandConv[i]==null)return;

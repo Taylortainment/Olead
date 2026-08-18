@@ -1,0 +1,542 @@
+[
+ {
+  "month": "2025-08",
+  "name": "Search | B2B",
+  "channel_type": "SEARCH",
+  "cost": 49.76
+ },
+ {
+  "month": "2025-08",
+  "name": "Search | Car Insurance",
+  "channel_type": "SEARCH",
+  "cost": 4511.131864
+ },
+ {
+  "month": "2025-08",
+  "name": "YT | Members",
+  "channel_type": "VIDEO",
+  "cost": 1399.833392
+ },
+ {
+  "month": "2025-08",
+  "name": "YT | Prospecting",
+  "channel_type": "VIDEO",
+  "cost": 3086.317212
+ },
+ {
+  "month": "2025-09",
+  "name": "Search | B2B",
+  "channel_type": "SEARCH",
+  "cost": 64.262947
+ },
+ {
+  "month": "2025-09",
+  "name": "YT | Members",
+  "channel_type": "VIDEO",
+  "cost": 1531.690476
+ },
+ {
+  "month": "2025-09",
+  "name": "YT | Prospecting",
+  "channel_type": "VIDEO",
+  "cost": 3552.27223
+ },
+ {
+  "month": "2025-10",
+  "name": "Search | B2B",
+  "channel_type": "SEARCH",
+  "cost": 110.02
+ },
+ {
+  "month": "2025-10",
+  "name": "YT | Members",
+  "channel_type": "VIDEO",
+  "cost": 297.398534
+ },
+ {
+  "month": "2025-10",
+  "name": "YT | Prospecting",
+  "channel_type": "VIDEO",
+  "cost": 745.619033
+ },
+ {
+  "month": "2025-11",
+  "name": "Search | B2B",
+  "channel_type": "SEARCH",
+  "cost": 85.952879
+ },
+ {
+  "month": "2025-11",
+  "name": "YT | Members",
+  "channel_type": "VIDEO",
+  "cost": 1199.495449
+ },
+ {
+  "month": "2025-11",
+  "name": "YT | Prospecting",
+  "channel_type": "VIDEO",
+  "cost": 826.103052
+ },
+ {
+  "month": "2025-11",
+  "name": "YT I Prospecting Shorts I Conversion",
+  "channel_type": "DEMAND_GEN",
+  "cost": 1999.926658
+ },
+ {
+  "month": "2025-12",
+  "name": "Search | B2B",
+  "channel_type": "SEARCH",
+  "cost": 127.577679
+ },
+ {
+  "month": "2025-12",
+  "name": "YT | Members",
+  "channel_type": "VIDEO",
+  "cost": 354.356701
+ },
+ {
+  "month": "2025-12",
+  "name": "YT | Prospecting",
+  "channel_type": "VIDEO",
+  "cost": 378.259868
+ },
+ {
+  "month": "2025-12",
+  "name": "YT I Prospecting Shorts I Conversion",
+  "channel_type": "DEMAND_GEN",
+  "cost": 1099.699424
+ },
+ {
+  "month": "2025-12",
+  "name": "Brand - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 1619.926102
+ },
+ {
+  "month": "2025-12",
+  "name": "KiwiSaver - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 807.260234
+ },
+ {
+  "month": "2025-12",
+  "name": "KiwiSaver - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 647.967745
+ },
+ {
+  "month": "2025-12",
+  "name": "Crypto - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 647.221608
+ },
+ {
+  "month": "2025-12",
+  "name": "Crypto - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 324.002378
+ },
+ {
+  "month": "2025-12",
+  "name": "Brand - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 1619.701269
+ },
+ {
+  "month": "2026-01",
+  "name": "Search | B2B",
+  "channel_type": "SEARCH",
+  "cost": 116.54989
+ },
+ {
+  "month": "2026-01",
+  "name": "Brand - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 5741.657121
+ },
+ {
+  "month": "2026-01",
+  "name": "KiwiSaver - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 4104.905609
+ },
+ {
+  "month": "2026-01",
+  "name": "KiwiSaver - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 3283.225888
+ },
+ {
+  "month": "2026-01",
+  "name": "Crypto - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 3283.600523
+ },
+ {
+  "month": "2026-01",
+  "name": "Crypto - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 1641.713575
+ },
+ {
+  "month": "2026-01",
+  "name": "Brand - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 5738.510498
+ },
+ {
+  "month": "2026-02",
+  "name": "Search | B2B",
+  "channel_type": "SEARCH",
+  "cost": 93.09
+ },
+ {
+  "month": "2026-02",
+  "name": "Brand - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 1620.246909
+ },
+ {
+  "month": "2026-02",
+  "name": "KiwiSaver - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 4007.058632
+ },
+ {
+  "month": "2026-02",
+  "name": "KiwiSaver - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 3194.711809
+ },
+ {
+  "month": "2026-02",
+  "name": "Crypto - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 3282.560653
+ },
+ {
+  "month": "2026-02",
+  "name": "Crypto - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 1597.591881
+ },
+ {
+  "month": "2026-02",
+  "name": "Brand - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 1620.370896
+ },
+ {
+  "month": "2026-03",
+  "name": "Search | B2B",
+  "channel_type": "SEARCH",
+  "cost": 170.753961
+ },
+ {
+  "month": "2026-03",
+  "name": "Brand - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 5234.214894
+ },
+ {
+  "month": "2026-03",
+  "name": "KiwiSaver - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 4144.231148
+ },
+ {
+  "month": "2026-03",
+  "name": "KiwiSaver - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 3330.093197
+ },
+ {
+  "month": "2026-03",
+  "name": "Crypto - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 3317.752742
+ },
+ {
+  "month": "2026-03",
+  "name": "Crypto - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 1651.023174
+ },
+ {
+  "month": "2026-03",
+  "name": "Brand - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 5233.65383
+ },
+ {
+  "month": "2026-04",
+  "name": "Search | B2B",
+  "channel_type": "SEARCH",
+  "cost": 128.377824
+ },
+ {
+  "month": "2026-04",
+  "name": "Brand - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 2080.20183
+ },
+ {
+  "month": "2026-04",
+  "name": "KiwiSaver - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 997.58377
+ },
+ {
+  "month": "2026-04",
+  "name": "KiwiSaver - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 989.915521
+ },
+ {
+  "month": "2026-04",
+  "name": "Crypto - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 1008.240154
+ },
+ {
+  "month": "2026-04",
+  "name": "Crypto - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 989.934989
+ },
+ {
+  "month": "2026-04",
+  "name": "Brand - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 2093.487781
+ },
+ {
+  "month": "2026-04",
+  "name": "Search | Farmer Campaign",
+  "channel_type": "SEARCH",
+  "cost": 3128.906063
+ },
+ {
+  "month": "2026-05",
+  "name": "Search | B2B",
+  "channel_type": "SEARCH",
+  "cost": 99.188886
+ },
+ {
+  "month": "2026-05",
+  "name": "Brand - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 2036.95138
+ },
+ {
+  "month": "2026-05",
+  "name": "KiwiSaver - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 1003.397967
+ },
+ {
+  "month": "2026-05",
+  "name": "KiwiSaver - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 1003.321217
+ },
+ {
+  "month": "2026-05",
+  "name": "Crypto - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 649.79066
+ },
+ {
+  "month": "2026-05",
+  "name": "Crypto - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 647.091953
+ },
+ {
+  "month": "2026-05",
+  "name": "Brand - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 2037.014043
+ },
+ {
+  "month": "2026-05",
+  "name": "Search | Farmer Campaign",
+  "channel_type": "SEARCH",
+  "cost": 639.89
+ },
+ {
+  "month": "2026-05",
+  "name": "Search - Spend",
+  "channel_type": "SEARCH",
+  "cost": 1408.813695
+ },
+ {
+  "month": "2026-06",
+  "name": "Search - Save",
+  "channel_type": "SEARCH",
+  "cost": 1000.485498
+ },
+ {
+  "month": "2026-06",
+  "name": "Search | B2B",
+  "channel_type": "SEARCH",
+  "cost": 128.45311
+ },
+ {
+  "month": "2026-06",
+  "name": "Brand - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 1995.623253
+ },
+ {
+  "month": "2026-06",
+  "name": "KiwiSaver - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 984.289786
+ },
+ {
+  "month": "2026-06",
+  "name": "KiwiSaver - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 983.394352
+ },
+ {
+  "month": "2026-06",
+  "name": "Crypto - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 263.734102
+ },
+ {
+  "month": "2026-06",
+  "name": "Brand - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 1997.080697
+ },
+ {
+  "month": "2026-06",
+  "name": "Search - Spend",
+  "channel_type": "SEARCH",
+  "cost": 1959.583072
+ },
+ {
+  "month": "2026-06",
+  "name": "Search | Space X | NZ",
+  "channel_type": "SEARCH",
+  "cost": 295.478631
+ },
+ {
+  "month": "2026-07",
+  "name": "Search - KiwiSaver",
+  "channel_type": "SEARCH",
+  "cost": 16856.453625
+ },
+ {
+  "month": "2026-07",
+  "name": "Search - Save",
+  "channel_type": "SEARCH",
+  "cost": 3003.044128
+ },
+ {
+  "month": "2026-07",
+  "name": "Brand - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 2036.923622
+ },
+ {
+  "month": "2026-07",
+  "name": "KiwiSaver - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 1003.287368
+ },
+ {
+  "month": "2026-07",
+  "name": "KiwiSaver - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 1003.365862
+ },
+ {
+  "month": "2026-07",
+  "name": "Crypto - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 1003.248341
+ },
+ {
+  "month": "2026-07",
+  "name": "Brand - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 2037.188
+ },
+ {
+  "month": "2026-07",
+  "name": "Search - Spend",
+  "channel_type": "SEARCH",
+  "cost": 1987.393458
+ },
+ {
+  "month": "2026-07",
+  "name": "Search - Wills",
+  "channel_type": "SEARCH",
+  "cost": 2002.790636
+ },
+ {
+  "month": "2026-08",
+  "name": "Search - Invest",
+  "channel_type": "SEARCH",
+  "cost": 888.96145
+ },
+ {
+  "month": "2026-08",
+  "name": "Search - KiwiSaver",
+  "channel_type": "SEARCH",
+  "cost": 8459.072932
+ },
+ {
+  "month": "2026-08",
+  "name": "Search - Save",
+  "channel_type": "SEARCH",
+  "cost": 1332.884231
+ },
+ {
+  "month": "2026-08",
+  "name": "Brand - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 1207.61614
+ },
+ {
+  "month": "2026-08",
+  "name": "KiwiSaver - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 596.09037
+ },
+ {
+  "month": "2026-08",
+  "name": "KiwiSaver - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 594.844966
+ },
+ {
+  "month": "2026-08",
+  "name": "Crypto - Video - Non-Skippable",
+  "channel_type": "VIDEO",
+  "cost": 594.841273
+ },
+ {
+  "month": "2026-08",
+  "name": "Brand - Video - Shorts",
+  "channel_type": "VIDEO",
+  "cost": 1210.228908
+ },
+ {
+  "month": "2026-08",
+  "name": "Search - Spend",
+  "channel_type": "SEARCH",
+  "cost": 678.712562
+ },
+ {
+  "month": "2026-08",
+  "name": "Search - Wills",
+  "channel_type": "SEARCH",
+  "cost": 1068.245488
+ }
+]

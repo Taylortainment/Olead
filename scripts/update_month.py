@@ -25,7 +25,10 @@ def collect(month, schema):
     """-> {(channel, metric): (value, source)}"""
     incoming, problems = {}, []
     valid_ch = set(schema["channels"])
-    valid_metrics = {"spend_actual", "spend_forecast"} | {p["key"] for p in schema["products"]}
+    valid_metrics = ({"spend_actual", "spend_forecast"}
+                     | {p["key"] for p in schema["products"]}
+                     | {f'spend_p_{p["key"]}' for p in schema["products"]}
+                     | {"spend_p_brand", "spend_p_other", "spend_p_wills"})
 
     for path in sorted(glob.glob(os.path.join(lib.ROOT, "data", "pulls", f"{month}-*.json"))):
         with open(path) as fh:
