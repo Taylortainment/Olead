@@ -1,121 +1,143 @@
 <title>Sharesies Paid Media Monitor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&family=DM+Mono:wght@500&display=swap">
 <style>
+/* Atlas Digital brand. Deliberately single-theme: the identity is light-first
+   (Off-White page, Navy type), so every colour is painted explicitly rather
+   than inherited, and the page holds on any host ground. */
 :root{
-  --bg:#f6f8f7; --surface:#ffffff; --surface-2:#eef2f1; --border:#dde4e2;
-  --ink:#0f1a18; --ink-2:#55655f; --muted:#849690;
-  --accent:#0d6b5f; --accent-soft:#e2efec;
-  --good:#1a7f4f; --warn:#9a6206; --bad:#b4342a;
-  --grid:#e7ecea; --shadow:0 1px 2px rgba(15,26,24,.06),0 6px 18px -10px rgba(15,26,24,.18);
-  --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--s6:#008300;--s7:#4a3aa7;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0e1413; --surface:#151d1b; --surface-2:#1b2523; --border:#27322f;
-  --ink:#eef3f1; --ink-2:#a5b3ae; --muted:#7b8985;
-  --accent:#43b8a5; --accent-soft:#16302c;
-  --good:#4cc98a; --warn:#e0a83c; --bad:#f0736a;
-  --grid:#212b29; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 22px -12px rgba(0,0,0,.6);
-  --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s6:#008300;--s7:#9085e9;
-}}
-:root[data-theme="dark"]{
-  --bg:#0e1413; --surface:#151d1b; --surface-2:#1b2523; --border:#27322f;
-  --ink:#eef3f1; --ink-2:#a5b3ae; --muted:#7b8985;
-  --accent:#43b8a5; --accent-soft:#16302c;
-  --good:#4cc98a; --warn:#e0a83c; --bad:#f0736a;
-  --grid:#212b29; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 22px -12px rgba(0,0,0,.6);
-  --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s6:#008300;--s7:#9085e9;
+  --navy:#050C65; --violet:#1E0A5B; --purple:#6D31E6;
+  --lilac:#E2D7FA; --offwhite:#FCFCFF;
+  --navy-70:#4a5091; --navy-45:#8489b3; --rule:#d8d3ee; --lilac-40:#f2edfd;
+  --pj:"Plus Jakarta Sans",ui-sans-serif,system-ui,sans-serif;
+  --dm:"DM Mono",ui-monospace,SFMono-Regular,monospace;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
-  font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1140px;margin:0 auto;padding:40px 24px 72px}
-h1,h2,h3{font-family:Newsreader,Georgia,"Times New Roman",serif;font-weight:500;
-  text-wrap:balance;margin:0;letter-spacing:-.01em}
-h1{font-size:clamp(30px,4.4vw,46px);line-height:1.08}
-h2{font-size:23px;margin-bottom:2px}
-.eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:12px}
-.sub{color:var(--ink-2);max-width:62ch;margin-top:10px}
-.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
-header{border-bottom:1px solid var(--border);padding-bottom:26px;margin-bottom:28px}
-.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:22px}
-label.ctl{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
-select,button.tgl{font-family:inherit;font-size:14px;color:var(--ink);background:var(--surface);
-  border:1px solid var(--border);border-radius:7px;padding:7px 11px;cursor:pointer}
-select:focus-visible,button.tgl:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.banner{display:flex;gap:10px;align-items:flex-start;background:var(--accent-soft);
-  border:1px solid var(--border);border-left:3px solid var(--warn);
-  border-radius:8px;padding:11px 14px;margin-top:18px;font-size:13.5px;color:var(--ink)}
-.banner b{font-weight:600}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));gap:14px;margin:26px 0 34px}
-.kpi{background:var(--surface);border:1px solid var(--border);border-radius:11px;
-  padding:16px 17px 15px;box-shadow:var(--shadow)}
-.kpi .k{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
-.kpi .v{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
-  font-size:29px;font-weight:500;letter-spacing:-.02em;margin-top:9px;line-height:1}
-.kpi .d{font-size:12.5px;margin-top:8px;color:var(--ink-2);display:flex;align-items:center;gap:5px}
-.pill{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;
-  padding:2px 7px;border-radius:20px;border:1px solid transparent}
-.pill.up{color:var(--good);background:color-mix(in oklab,var(--good) 12%,transparent);
-  border-color:color-mix(in oklab,var(--good) 30%,transparent)}
-.pill.dn{color:var(--bad);background:color-mix(in oklab,var(--bad) 12%,transparent);
-  border-color:color-mix(in oklab,var(--bad) 30%,transparent)}
-.pill.fl{color:var(--ink-2);background:var(--surface-2);border-color:var(--border)}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;
-  padding:20px 22px 16px;margin-bottom:22px;box-shadow:var(--shadow)}
-.card .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
-.card .note{font-size:13px;color:var(--ink-2);margin-top:4px;max-width:66ch}
-.legend{display:flex;flex-wrap:wrap;gap:6px 15px;margin-top:14px}
-.legend span{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-2)}
-.legend i{width:11px;height:11px;border-radius:3px;flex:none;display:inline-block}
-.legend i.ln{height:3px;border-radius:2px;width:15px}
-.plot{position:relative;margin-top:16px;overflow-x:auto}
+html{background:var(--offwhite)}
+body{margin:0;background:var(--offwhite);color:var(--navy);
+  font-family:var(--pj);font-weight:400;font-size:15px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+.wrap{max-width:1120px;margin:0 auto;padding:38px 24px 70px}
+h1,h2,h3{font-family:var(--pj);font-weight:700;margin:0;text-wrap:balance;
+  letter-spacing:-.018em;color:var(--navy)}
+h1{font-size:clamp(28px,4vw,42px);line-height:1.1}
+h2{font-size:21px;line-height:1.25}
+.num{font-variant-numeric:tabular-nums}
+.meta{font-family:var(--dm);font-weight:500;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--purple)}
+
+/* header */
+header{margin-bottom:34px}
+.brandbar{display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding-bottom:16px;border-bottom:2px solid var(--purple);margin-bottom:26px}
+.brandbar img{height:26px;width:auto;display:block}
+.eyebrow{display:flex;align-items:baseline;gap:9px}
+.eyebrow .l{font-family:var(--dm);font-weight:500;font-size:9.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--navy-45)}
+.eyebrow .c{font-family:var(--pj);font-weight:400;font-size:13.5px;color:var(--navy)}
+.titleblock{border-left:3px solid var(--purple);padding-left:18px}
+.sub{color:var(--navy-70);max-width:64ch;margin-top:11px;font-size:14.5px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:24px}
+label.ctl{font-family:var(--dm);font-weight:500;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--navy-45)}
+select,button.tgl{font-family:var(--pj);font-size:14px;font-weight:500;color:var(--navy);
+  background:var(--offwhite);border:1.5px solid var(--rule);border-radius:6px;
+  padding:7px 11px;cursor:pointer}
+select:hover,button.tgl:hover{border-color:var(--purple)}
+select:focus-visible,button.tgl:focus-visible,summary:focus-visible{
+  outline:2.5px solid var(--purple);outline-offset:2px}
+.callout{display:flex;gap:11px;align-items:flex-start;background:var(--lilac);
+  border-left:3px solid var(--purple);border-radius:0 7px 7px 0;
+  padding:12px 16px;margin-top:20px;font-size:13.5px;color:var(--navy);max-width:74ch}
+.callout b{font-weight:700}
+
+/* kpis */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(208px,1fr));gap:13px;
+  margin-bottom:30px}
+.kpi{background:var(--lilac-40);border:1.5px solid var(--rule);border-radius:9px;padding:15px 16px 14px}
+.kpi .k{font-family:var(--dm);font-weight:500;font-size:9.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--navy-45)}
+.kpi .v{font-weight:700;font-size:28px;letter-spacing:-.028em;margin-top:9px;line-height:1;
+  color:var(--navy)}
+.kpi .d{font-size:12.5px;margin-top:9px;color:var(--navy-70);display:flex;
+  align-items:center;gap:7px;flex-wrap:wrap}
+/* Atlas palette carries no status hues -- direction is a glyph plus a word,
+   never colour alone, and emphasis is Purple on Lilac. */
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;
+  padding:2px 8px;border-radius:4px;background:var(--lilac);color:var(--purple);
+  border:1px solid var(--rule);white-space:nowrap}
+.pill.flat{color:var(--navy-70)}
+
+/* cards */
+.card{background:var(--offwhite);border:1.5px solid var(--rule);border-radius:10px;
+  padding:19px 21px 15px;margin-bottom:20px}
+.card h2{border-left:3px solid var(--purple);padding-left:13px;margin-left:-2px}
+.note{font-size:13px;color:var(--navy-70);margin-top:7px;max-width:70ch;padding-left:14px}
+.note b{font-weight:700;color:var(--navy)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:13px 0 0 14px}
+.legend span{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--navy-70)}
+.legend i{width:11px;height:11px;border-radius:2px;flex:none;display:inline-block}
+.legend i.ln{height:3px;border-radius:2px;width:16px}
+.plot{position:relative;margin-top:14px;overflow-x:auto}
 svg{display:block;max-width:100%;height:auto}
+
+/* tooltip */
 .tip{position:absolute;pointer-events:none;opacity:0;transition:opacity .1s;z-index:5;
-  background:var(--surface);border:1px solid var(--border);border-radius:8px;
-  padding:9px 11px;font-size:12.5px;box-shadow:var(--shadow);min-width:150px}
-.tip h4{margin:0 0 6px;font:600 12px/1.2 "IBM Plex Sans",sans-serif;
-  letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
-.tip .r{display:flex;justify-content:space-between;gap:14px;align-items:center}
-.tip .r span{display:inline-flex;align-items:center;gap:6px}
-.tip .r i{width:9px;height:9px;border-radius:2px;flex:none}
-.tip .r b{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-weight:500}
-.sm{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:8px;margin-top:16px}
-.sm .c{border:1px solid var(--border);border-radius:9px;padding:11px 12px 7px;background:var(--surface)}
-.sm .c .t{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--ink)}
-.sm .c .t i{width:9px;height:9px;border-radius:2px;flex:none}
-.sm .c .n{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
-  font-size:18px;margin-top:5px;letter-spacing:-.01em}
-.sm .c .m{font-size:11.5px;color:var(--muted);margin-top:1px}
-details{margin-top:8px}
-summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--accent);padding:6px 0}
-.tbl{overflow-x:auto;margin-top:12px;border:1px solid var(--border);border-radius:9px}
+  background:var(--offwhite);border:1.5px solid var(--purple);border-radius:7px;
+  padding:9px 12px;font-size:12.5px;min-width:152px;
+  box-shadow:0 4px 16px -6px rgba(5,12,101,.35)}
+.tip h4{margin:0 0 7px;font-family:var(--dm);font-weight:500;font-size:9.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--purple)}
+.tip .r{display:flex;justify-content:space-between;gap:16px;align-items:center;
+  color:var(--navy)}
+.tip .r b{font-weight:700}
+
+/* small multiples */
+.sm{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:10px;
+  margin:15px 0 0 14px}
+.sm .c{border:1.5px solid var(--rule);border-radius:8px;padding:12px 13px 8px;
+  background:var(--offwhite)}
+.sm .c .t{font-weight:700;font-size:13px;color:var(--navy);line-height:1.25;min-height:2.5em}
+.sm .c .n{font-weight:700;font-size:21px;letter-spacing:-.02em;margin-top:4px;color:var(--navy)}
+.sm .c .m{font-size:11.5px;color:var(--navy-45);margin-top:2px}
+.sm .c .m b{color:var(--purple);font-weight:700}
+
+/* table */
+details{margin-top:10px}
+summary{cursor:pointer;font-size:13.5px;font-weight:700;color:var(--purple);
+  padding:6px 0 6px 14px}
+.tbl{overflow-x:auto;margin-top:10px;border:1.5px solid var(--rule);border-radius:8px}
 table{border-collapse:collapse;width:100%;font-size:13px}
-th,td{padding:7px 11px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--border)}
-th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--surface)}
-thead th{background:var(--surface-2);font-weight:600;font-size:11.5px;letter-spacing:.05em;
-  text-transform:uppercase;color:var(--ink-2);position:sticky;top:0}
-thead th:first-child{background:var(--surface-2);z-index:2}
-tbody tr:hover td{background:var(--surface-2)}
-td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
-tr.tot td{font-weight:600;border-top:2px solid var(--border);background:var(--surface-2)}
-tr.tot td:first-child{background:var(--surface-2)}
-footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);
-  font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 20px}
-.dot{width:7px;height:7px;border-radius:50%;display:inline-block;background:var(--accent)}
+th,td{padding:8px 12px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--rule)}
+th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--offwhite)}
+thead th{background:var(--violet);color:var(--offwhite);font-weight:700;font-size:11px;
+  letter-spacing:.07em;text-transform:uppercase;position:sticky;top:0}
+thead th:first-child{background:var(--violet);z-index:2}
+tbody td{color:var(--navy)}
+tbody tr:hover td{background:var(--lilac-40)}
+tbody tr:hover td:first-child{background:var(--lilac-40)}
+tr.tot td{font-weight:700;border-top:2px solid var(--purple);background:var(--lilac)}
+tr.tot td:first-child{background:var(--lilac)}
+td .cpa{color:var(--navy-45);font-size:11.5px;font-weight:400}
+td.dash{color:var(--navy-45)}
+footer{margin-top:36px;padding-top:18px;border-top:1.5px solid var(--rule);
+  font-size:12px;color:var(--navy-45);display:flex;flex-wrap:wrap;gap:6px 22px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
 <div class="wrap">
 <header>
-  <div class="eyebrow">__CLIENT__ &middot; Paid media performance</div>
-  <h1>Where the money went, and what it brought back</h1>
-  <p class="sub">Media investment, conversions and cost per conversion across every
-  active channel. Spend and conversion counts come straight from the ad platforms;
-  every total and cost-per-conversion figure on this page is calculated from them.</p>
+  <div class="brandbar">
+    <img src="data:image/png;base64,__LOGO__" alt="Atlas Digital">
+    <div class="eyebrow"><span class="l">For</span><span class="c">__CLIENT__</span></div>
+  </div>
+  <div class="titleblock">
+    <h1>Where the money went,<br>and what it brought back</h1>
+    <p class="sub">Media investment, conversions and cost per conversion across every
+    active channel. Spend and conversion counts come straight from the ad platforms;
+    every total and cost-per-conversion figure here is calculated from them.</p>
+  </div>
   <div class="controls">
     <label class="ctl" for="mo">Reporting month</label>
     <select id="mo"></select>
@@ -127,55 +149,48 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);
 <div class="kpis" id="kpis"></div>
 
 <div class="card">
-  <div class="hd"><div>
-    <h2>Investment against plan</h2>
-    <div class="note">Actual media spend versus the forecast set for each month.</div>
-  </div></div>
+  <h2>Investment against plan</h2>
+  <div class="note">Actual media spend against the forecast set for each month.</div>
   <div class="legend">
-    <span><i style="background:var(--s1)"></i>Actual spend</span>
-    <span><i class="ln" style="background:var(--ink-2)"></i>Forecast</span>
+    <span><i style="background:var(--purple)"></i>Actual spend</span>
+    <span><i class="ln" style="background:var(--navy)"></i>Forecast</span>
   </div>
   <div class="plot" id="p-spend"></div>
 </div>
 
 <div class="card">
-  <div class="hd"><div>
-    <h2>Conversions by product</h2>
-    <div class="note">Every conversion the channels drove, stacked by Sharesies product.
-    A product with no bar in a month simply had no activity recorded.</div>
-  </div></div>
-  <div class="legend" id="lg-prod"></div>
+  <h2>Conversions driven</h2>
+  <div class="note">Every conversion across all products, month by month.</div>
   <div class="plot" id="p-conv"></div>
 </div>
 
 <div class="card">
-  <div class="hd"><div>
-    <h2>Cost per conversion</h2>
-    <div class="note">One panel per product so each keeps its own scale — a $40 CPA and a
-    $1,200 CPA can&rsquo;t share an axis honestly. The figure shown is the selected month.<br><b>How this is calculated:</b> total media spend divided by that product&rsquo;s conversions &mdash; the same method the working doc has always used. Because one channel&rsquo;s spend drives several products at once, treat these as a trend over time per product, not as a like-for-like comparison between products.</div>
-  </div></div>
-  <div class="sm" id="p-cpa"></div>
+  <h2>Product by product</h2>
+  <div class="note">One panel per product, each on its own scale &mdash; a product doing
+  3,000 conversions and one doing 100 can&rsquo;t share an axis honestly. The bars show
+  the trend; the figures are the selected month.<br>
+  <b>How cost per conversion is calculated:</b> total media spend divided by that
+  product&rsquo;s conversions, the same method the working doc has always used. Because
+  one channel&rsquo;s spend drives several products at once, read these as a trend within
+  a product, not as a ranking between products.</div>
+  <div class="sm" id="p-prod"></div>
 </div>
 
 <div class="card">
-  <div class="hd"><div>
-    <h2 id="ch-h">Channel contribution</h2>
-    <div class="note">Spend by channel for the selected month, largest first.</div>
-  </div></div>
+  <h2 id="ch-h">Channel contribution</h2>
+  <div class="note">Spend by channel for the selected month, largest first.</div>
   <div class="plot" id="p-chan"></div>
 </div>
 
 <div class="card">
-  <div class="hd"><div>
-    <h2>The numbers</h2>
-    <div class="note">The selected month in full — every channel against every product,
-    with cost per conversion underneath. This is the same data the charts draw from.</div>
-  </div></div>
+  <h2>The numbers</h2>
+  <div class="note">The selected month in full &mdash; every channel against every
+  product, cost per conversion underneath. The same data the charts draw from.</div>
   <details open><summary>Show table</summary><div class="tbl" id="p-tbl"></div></details>
 </div>
 
 <footer>
-  <span><span class="dot"></span> Generated __GENERATED__</span>
+  <span>Generated __GENERATED__</span>
   <span id="fsrc"></span>
   <span>All figures $NZD</span>
 </footer>
@@ -193,130 +208,124 @@ const money=(v,dp)=>v==null?"—":(v<0?"-$":"$")+Math.abs(v).toLocaleString("en-
   {minimumFractionDigits:dp??0,maximumFractionDigits:dp??0});
 const num=v=>v==null?"—":Math.round(v).toLocaleString("en-NZ");
 const SVGNS="http://www.w3.org/2000/svg";
+const PURPLE="#6D31E6",NAVY="#050C65",LILAC="#E2D7FA",VIOLET="#1E0A5B",RULE="#d8d3ee";
 function E(n,a,p){const e=document.createElementNS(SVGNS,n);
   for(const k in a||{})e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
 function ticks(max,n){if(!(max>0))return[0,1];const raw=max/n,mag=Math.pow(10,Math.floor(Math.log10(raw)));
   const st=[1,2,2.5,5,10].map(x=>x*mag).find(x=>x>=raw)||10*mag;
   const out=[];for(let v=0;v<=Math.ceil(max/st)*st+1e-9;v+=st)out.push(v);return out;}
 function idx(){const a=[];for(let i=Math.max(0,NM-win);i<NM;i++)a.push(i);return a;}
-
-function tipFor(host){let t=host.querySelector(".tip");
-  if(!t){t=document.createElement("div");t.className="tip";host.appendChild(t);}return t;}
-function showTip(host,t,x,title,rows){
+function tipFor(h){let t=h.querySelector(".tip");
+  if(!t){t=document.createElement("div");t.className="tip";h.appendChild(t);}return t;}
+function showTip(h,t,x,title,rows){
   t.innerHTML="<h4>"+title+"</h4>"+rows.map(r=>
-    '<div class="r"><span>'+(r.c?'<i style="background:'+r.c+'"></i>':'')+r.k+"</span><b>"+r.v+"</b></div>").join("");
-  t.style.opacity=1;const w=host.clientWidth,tw=t.offsetWidth;
-  t.style.left=Math.max(4,Math.min(x-tw/2,w-tw-4))+"px";t.style.top="6px";}
+    '<div class="r"><span>'+r.k+"</span><b>"+r.v+"</b></div>").join("");
+  t.style.opacity=1;const w=h.clientWidth,tw=t.offsetWidth;
+  t.style.left=Math.max(4,Math.min(x-tw/2,w-tw-4))+"px";t.style.top="4px";}
 
-/* ---------- grouped: actual bars + forecast ticks ---------- */
+/* axis + grid shared by the two full-width bar charts */
+function frame(host,I,max,fmtTick,H){
+  const W=Math.max(548,I.length*72),L=60,R=14,T=12,B=42;
+  const pw=W-L-R,ph=H-T-B,tk=ticks(max,5),top=tk[tk.length-1];
+  const svg=E("svg",{viewBox:`0 0 ${W} ${H}`,width:W},host);
+  const y=v=>T+ph-(v/top)*ph;
+  tk.forEach(v=>{E("line",{x1:L,x2:W-R,y1:y(v),y2:y(v),stroke:RULE,"stroke-width":1},svg);
+    const t=E("text",{x:L-9,y:y(v)+4,"text-anchor":"end",fill:"#8489b3","font-size":11,
+      "font-family":"Plus Jakarta Sans,sans-serif"},svg);t.textContent=fmtTick(v);});
+  E("line",{x1:L,x2:W-R,y1:T+ph,y2:T+ph,stroke:NAVY,"stroke-width":1.2},svg);
+  return {svg,y,L,R,T,B,pw,ph,W,H,step:pw/I.length};
+}
+function xLabels(f,I,svg){
+  I.forEach((i,k)=>{
+    const cx=f.L+(k+.5)*f.step;
+    const t=E("text",{x:cx,y:f.H-24,"text-anchor":"middle",fill:"#4a5091","font-size":11,
+      "font-family":"Plus Jakarta Sans,sans-serif"},svg);t.textContent=D.labelsShort[i];
+    if(D.partial.includes(D.months[i])){
+      const p=E("text",{x:cx,y:f.H-11,"text-anchor":"middle",fill:"#8489b3","font-size":9.5,
+        "font-family":"DM Mono,monospace"},svg);p.textContent="partial";}
+  });
+}
+
 function spendChart(){
   const host=document.getElementById("p-spend");host.innerHTML="";
-  const I=idx(),W=Math.max(560,I.length*74),H=286,L=62,R=14,T=12,B=42;
-  const pw=W-L-R,ph=H-T-B;
+  const I=idx();
   const max=Math.max(...I.map(i=>Math.max(D.spend[i]||0,D.forecast[i]||0)))||1;
-  const tk=ticks(max,5),top=tk[tk.length-1];
-  const svg=E("svg",{viewBox:`0 0 ${W} ${H}`,width:W,role:"img",
-    "aria-label":"Actual media spend against forecast by month"},host);
-  const y=v=>T+ph-(v/top)*ph, bw=Math.min(38,pw/I.length*0.56);
-  tk.forEach(v=>{E("line",{x1:L,x2:W-R,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
-    const t=E("text",{x:L-9,y:y(v)+4,"text-anchor":"end",fill:"var(--muted)","font-size":11},svg);
-    t.textContent=v>=1000?"$"+(v/1000)+"k":"$"+v;});
+  const f=frame(host,I,max,v=>v>=1000?"$"+(v/1000)+"k":"$"+v,286);
+  const bw=Math.min(38,f.step*.56),t=tipFor(host);
   I.forEach((i,k)=>{
-    const cx=L+(k+0.5)*(pw/I.length), part=D.partial.includes(D.months[i]);
-    const sv=D.spend[i];
-    if(sv!=null){const h=Math.max(2,(sv/top)*ph);
-      const r=E("rect",{x:cx-bw/2,y:y(sv),width:bw,height:h,rx:4,fill:"var(--s1)"},svg);
-      if(part){r.setAttribute("fill-opacity",".55");
-        E("rect",{x:cx-bw/2,y:y(sv),width:bw,height:h,rx:4,fill:"none",
-          stroke:"var(--s1)","stroke-width":1.5,"stroke-dasharray":"3 2"},svg);}}
+    const cx=f.L+(k+.5)*f.step,part=D.partial.includes(D.months[i]),sv=D.spend[i];
+    if(sv!=null){const h=Math.max(2,f.T+f.ph-f.y(sv));
+      E("rect",{x:cx-bw/2,y:f.y(sv),width:bw,height:h,rx:3,fill:PURPLE,
+        "fill-opacity":part?".35":"1"},f.svg);
+      if(part)E("rect",{x:cx-bw/2,y:f.y(sv),width:bw,height:h,rx:3,fill:"none",
+        stroke:PURPLE,"stroke-width":1.5,"stroke-dasharray":"3 2"},f.svg);}
     const fv=D.forecast[i];
-    if(fv!=null)E("line",{x1:cx-bw/2-4,x2:cx+bw/2+4,y1:y(fv),y2:y(fv),
-      stroke:"var(--ink-2)","stroke-width":2.5,"stroke-linecap":"round"},svg);
-    const lb=E("text",{x:cx,y:H-24,"text-anchor":"middle",fill:"var(--ink-2)","font-size":11},svg);
-    lb.textContent=D.labelsShort[i];
-    if(part){const p=E("text",{x:cx,y:H-11,"text-anchor":"middle",fill:"var(--muted)","font-size":9.5},svg);
-      p.textContent="partial";}
-    const hit=E("rect",{x:L+k*(pw/I.length),y:T,width:pw/I.length,height:ph,
-      fill:"transparent",style:"cursor:crosshair"},svg);
-    const t=tipFor(host);
+    if(fv!=null)E("line",{x1:cx-bw/2-5,x2:cx+bw/2+5,y1:f.y(fv),y2:f.y(fv),
+      stroke:NAVY,"stroke-width":2.5,"stroke-linecap":"round"},f.svg);
+    const hit=E("rect",{x:f.L+k*f.step,y:f.T,width:f.step,height:f.ph,
+      fill:"transparent",style:"cursor:crosshair"},f.svg);
     hit.addEventListener("mouseenter",()=>{const rows=[
-      {k:"Actual",v:money(sv),c:"var(--s1)"},{k:"Forecast",v:money(fv),c:"var(--ink-2)"}];
+      {k:"Actual",v:money(sv)},{k:"Forecast",v:money(fv)}];
       if(sv!=null&&fv!=null)rows.push({k:fv-sv>=0?"Under plan":"Over plan",v:money(Math.abs(fv-sv))});
-      showTip(host,t,cx,D.labels[i]+(part?" (partial)":""),rows);});
+      showTip(host,t,cx,D.labels[i]+(part?" · partial":""),rows);});
     hit.addEventListener("mouseleave",()=>t.style.opacity=0);
   });
-  E("line",{x1:L,x2:W-R,y1:T+ph,y2:T+ph,stroke:"var(--border)","stroke-width":1},svg);
+  xLabels(f,I,f.svg);
 }
 
-/* ---------- stacked product conversions ---------- */
 function convChart(){
   const host=document.getElementById("p-conv");host.innerHTML="";
-  const I=idx(),W=Math.max(560,I.length*74),H=300,L=62,R=14,T=12,B=42;
-  const pw=W-L-R,ph=H-T-B;
+  const I=idx();
   const max=Math.max(...I.map(i=>D.grandConv[i]||0))||1;
-  const tk=ticks(max,5),top=tk[tk.length-1];
-  const svg=E("svg",{viewBox:`0 0 ${W} ${H}`,width:W,role:"img",
-    "aria-label":"Conversions by product by month, stacked"},host);
-  const y=v=>T+ph-(v/top)*ph, bw=Math.min(40,pw/I.length*0.6);
-  tk.forEach(v=>{E("line",{x1:L,x2:W-R,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);
-    const t=E("text",{x:L-9,y:y(v)+4,"text-anchor":"end",fill:"var(--muted)","font-size":11},svg);
-    t.textContent=v>=1000?(v/1000)+"k":v;});
+  const f=frame(host,I,max,v=>v>=1000?(v/1000)+"k":""+v,262);
+  const bw=Math.min(38,f.step*.56),t=tipFor(host);
   I.forEach((i,k)=>{
-    const cx=L+(k+0.5)*(pw/I.length),part=D.partial.includes(D.months[i]);
-    let acc=0;
-    D.products.forEach(p=>{const v=p.conv[i];if(!v)return;
-      const y0=y(acc),y1=y(acc+v),h=Math.max(1.5,y0-y1-2);
-      E("rect",{x:cx-bw/2,y:y1,width:bw,height:h,rx:2,fill:"var(--"+p.slot+")",
-        "fill-opacity":part?".6":"1"},svg);acc+=v;});
-    const lb=E("text",{x:cx,y:H-24,"text-anchor":"middle",fill:"var(--ink-2)","font-size":11},svg);
-    lb.textContent=D.labelsShort[i];
-    if(part){const p2=E("text",{x:cx,y:H-11,"text-anchor":"middle",fill:"var(--muted)","font-size":9.5},svg);
-      p2.textContent="partial";}
-    const hit=E("rect",{x:L+k*(pw/I.length),y:T,width:pw/I.length,height:ph,
-      fill:"transparent",style:"cursor:crosshair"},svg);
-    const t=tipFor(host);
+    const cx=f.L+(k+.5)*f.step,part=D.partial.includes(D.months[i]),cv=D.grandConv[i];
+    if(cv!=null){const h=Math.max(2,f.T+f.ph-f.y(cv));
+      E("rect",{x:cx-bw/2,y:f.y(cv),width:bw,height:h,rx:3,fill:PURPLE,
+        "fill-opacity":part?".35":"1"},f.svg);
+      if(part)E("rect",{x:cx-bw/2,y:f.y(cv),width:bw,height:h,rx:3,fill:"none",
+        stroke:PURPLE,"stroke-width":1.5,"stroke-dasharray":"3 2"},f.svg);}
+    const hit=E("rect",{x:f.L+k*f.step,y:f.T,width:f.step,height:f.ph,
+      fill:"transparent",style:"cursor:crosshair"},f.svg);
     hit.addEventListener("mouseenter",()=>{
       const rows=D.products.filter(p=>p.conv[i]).sort((a,b)=>b.conv[i]-a.conv[i])
-        .map(p=>({k:p.label,v:num(p.conv[i]),c:"var(--"+p.slot+")"}));
-      rows.push({k:"Total",v:num(D.grandConv[i])});
-      showTip(host,t,cx,D.labels[i]+(part?" (partial)":""),rows);});
+        .map(p=>({k:p.label,v:num(p.conv[i])}));
+      rows.unshift({k:"All products",v:num(cv)});
+      rows.push({k:"Cost / conversion",v:money(D.grandCpa[i],2)});
+      showTip(host,t,cx,D.labels[i]+(part?" · partial":""),rows);});
     hit.addEventListener("mouseleave",()=>t.style.opacity=0);
   });
-  E("line",{x1:L,x2:W-R,y1:T+ph,y2:T+ph,stroke:"var(--border)","stroke-width":1},svg);
+  xLabels(f,I,f.svg);
 }
 
-/* ---------- CPA small multiples ---------- */
-function cpaPanels(){
-  const host=document.getElementById("p-cpa");host.innerHTML="";
+/* one panel per product: identity comes from the title, not a hue */
+function prodPanels(){
+  const host=document.getElementById("p-prod");host.innerHTML="";
   const I=idx();
-  D.products.forEach(p=>{
-    const vals=I.map(i=>p.cpa[i]),have=vals.filter(v=>v!=null);
+  D.products.slice().sort((a,b)=>(b.conv[sel]||0)-(a.conv[sel]||0)).forEach(p=>{
     const c=document.createElement("div");c.className="c";
-    const cur=p.cpa[sel];
-    c.innerHTML='<div class="t"><i style="background:var(--'+p.slot+')"></i>'+p.label+"</div>"+
-      '<div class="n">'+money(cur,cur!=null&&cur<100?2:0)+"</div>"+
-      '<div class="m">'+(have.length?"per conversion":"no conversions recorded")+"</div>";
-    if(have.length>1){
-      const W=170,H=40,mx=Math.max(...have),mn=Math.min(...have);
-      const rng=(mx-mn)||mx||1;
+    const cv=p.conv[sel],cp=p.cpa[sel];
+    c.innerHTML='<div class="t">'+p.label+"</div>"+
+      '<div class="n num">'+num(cv)+"</div>"+
+      '<div class="m">'+(cv!=null?"conversions &middot; <b>"+money(cp,cp!=null&&cp<100?2:0)+
+        "</b> each":"none recorded")+"</div>";
+    const vals=I.map(i=>p.conv[i]),mx=Math.max(...vals.map(v=>v||0));
+    if(mx>0){
+      const W=200,H=42,bw=Math.max(2,(W-6)/vals.length-2);
       const svg=E("svg",{viewBox:`0 0 ${W} ${H}`,width:"100%",
-        role:"img","aria-label":p.label+" cost per conversion trend"},c);
-      const pts=[];
-      vals.forEach((v,k)=>{if(v==null)return;
-        pts.push([4+(k/(vals.length-1))*(W-8),H-6-((v-mn)/rng)*(H-14)]);});
-      if(pts.length>1){
-        E("path",{d:"M"+pts.map(q=>q[0].toFixed(1)+","+q[1].toFixed(1)).join("L"),
-          fill:"none",stroke:"var(--"+p.slot+")","stroke-width":2,
-          "stroke-linecap":"round","stroke-linejoin":"round"},svg);
-        const last=pts[pts.length-1];
-        E("circle",{cx:last[0],cy:last[1],r:3.4,fill:"var(--"+p.slot+")",
-          stroke:"var(--surface)","stroke-width":2},svg);}
+        role:"img","aria-label":p.label+" conversions trend"},c);
+      vals.forEach((v,k)=>{
+        const x=3+k*((W-6)/vals.length),h=v?Math.max(1.5,(v/mx)*(H-8)):0;
+        if(h>0)E("rect",{x:x,y:H-4-h,width:bw,height:h,rx:1.5,
+          fill:I[k]===sel?VIOLET:PURPLE,"fill-opacity":I[k]===sel?"1":".38"},svg);
+      });
+      E("line",{x1:2,x2:W-2,y1:H-3.4,y2:H-3.4,stroke:RULE,"stroke-width":1},svg);
     }
     host.appendChild(c);
   });
 }
 
-/* ---------- channel contribution ---------- */
 function chanChart(){
   const host=document.getElementById("p-chan");host.innerHTML="";
   document.getElementById("ch-h").textContent="Channel contribution — "+D.labels[sel];
@@ -324,113 +333,104 @@ function chanChart(){
     .filter(r=>r.v!=null&&r.v>0).sort((a,b)=>b.v-a.v);
   if(!rows.length){host.innerHTML='<p class="note">No spend recorded for this month.</p>';return;}
   const tot=rows.reduce((s,r)=>s+r.v,0);
-  const W=Math.max(520,560),rh=30,H=rows.length*rh+16,L=104,R=118;
-  const max=Math.max(...rows.map(r=>r.v));
+  const W=560,rh=31,H=rows.length*rh+14,L=104,R=124;
+  const max=Math.max(...rows.map(r=>r.v)),t=tipFor(host);
   const svg=E("svg",{viewBox:`0 0 ${W} ${H}`,width:W,role:"img",
     "aria-label":"Spend by channel for "+D.labels[sel]},host);
-  const t=tipFor(host);
   rows.forEach((r,k)=>{
-    const y=8+k*rh, bw=(r.v/max)*(W-L-R);
-    const lb=E("text",{x:L-11,y:y+15,"text-anchor":"end",fill:"var(--ink)","font-size":13},svg);
-    lb.textContent=r.c;
-    E("rect",{x:L,y:y+3,width:Math.max(2,bw),height:17,rx:4,fill:"var(--accent)"},svg);
-    const vl=E("text",{x:L+bw+10,y:y+16,fill:"var(--ink-2)","font-size":12,
-      style:'font-family:"IBM Plex Mono",monospace'},svg);
+    const y=7+k*rh,bw=(r.v/max)*(W-L-R);
+    const lb=E("text",{x:L-12,y:y+16,"text-anchor":"end",fill:NAVY,"font-size":13,
+      "font-family":"Plus Jakarta Sans,sans-serif","font-weight":"500"},svg);lb.textContent=r.c;
+    E("rect",{x:L,y:y+4,width:Math.max(2,bw),height:17,rx:3,fill:PURPLE},svg);
+    const vl=E("text",{x:L+bw+11,y:y+17,fill:"#4a5091","font-size":12,
+      "font-family":"Plus Jakarta Sans,sans-serif"},svg);
     vl.textContent=money(r.v)+"  ·  "+(r.v/tot*100).toFixed(0)+"%";
     const hit=E("rect",{x:0,y:y,width:W,height:rh-2,fill:"transparent",style:"cursor:crosshair"},svg);
     hit.addEventListener("mouseenter",()=>{
       const pr=D.products.filter(p=>p.byChannel[r.c]&&p.byChannel[r.c].conv[sel])
-        .map(p=>({k:p.label,v:num(p.byChannel[r.c].conv[sel]),c:"var(--"+p.slot+")"}));
-      showTip(host,t,W/2,r.c+" — "+D.labels[sel],
-        [{k:"Spend",v:money(r.v),c:"var(--accent)"},{k:"Share",v:(r.v/tot*100).toFixed(1)+"%"}].concat(pr));});
+        .map(p=>({k:p.label,v:num(p.byChannel[r.c].conv[sel])}));
+      showTip(host,t,W/2,r.c+" · "+D.labels[sel],
+        [{k:"Spend",v:money(r.v)},{k:"Share of month",v:(r.v/tot*100).toFixed(1)+"%"}].concat(pr));});
     hit.addEventListener("mouseleave",()=>t.style.opacity=0);
   });
 }
 
-/* ---------- KPIs ---------- */
 function kpis(){
   const host=document.getElementById("kpis");host.innerHTML="";
-  const prev=sel>0?sel-1:null;
-  const part=D.partial.includes(D.months[sel]);
-  // goodUp: true = rising is good, false = falling is good, null = neutral/informational
-  function delta(cur,pv,goodUp){
-    if(cur==null||pv==null||!pv)return '<span class="pill fl">no prior month</span>';
-    const pc=(cur-pv)/Math.abs(pv)*100, up=pc>=0;
-    let cls="fl";
-    if(goodUp!==null&&Math.abs(pc)>=0.5)cls=(goodUp?up:!up)?"up":"dn";
-    return '<span class="pill '+cls+'">'+(up?"▲":"▼")+" "+Math.abs(pc).toFixed(0)+"%</span>";
+  const prev=sel>0?sel-1:null,part=D.partial.includes(D.months[sel]);
+  // The Atlas palette carries no status hues, so valence lives in the WORDS --
+  // "more expensive" / "cheaper" rather than a red or green chip. Each metric
+  // passes the word pair that actually describes its direction.
+  function delta(cur,pv,words){
+    const w=words||["up","down"];
+    if(cur==null||pv==null||!pv)return '<span class="pill flat">no prior month</span>';
+    const pc=(cur-pv)/Math.abs(pv)*100,up=pc>=0;
+    if(Math.abs(pc)<0.5)
+      return '<span class="pill flat">level on '+D.labelsShort[prev]+"</span>";
+    return '<span class="pill">'+(up?"▲":"▼")+" "+Math.abs(pc).toFixed(0)+"% "+
+      (up?w[0]:w[1])+"</span>";
   }
   const fc=D.forecast[sel],sp=D.spend[sel];
   const items=[
-    {k:"Media spend",v:money(sp),
-     d:delta(sp,prev!=null?D.spend[prev]:null,null)+
-       (fc!=null?" <span>"+(fc-sp>=0?money(fc-sp)+" under plan":money(sp-fc)+" over plan")+"</span>":
-        " <span>no forecast set</span>")},
+    {k:"Media spend",v:money(sp),d:delta(sp,prev!=null?D.spend[prev]:null,["up","down"])+
+      (fc!=null?"<span>"+(fc-sp>=0?money(fc-sp)+" under plan":money(sp-fc)+" over plan")+"</span>":
+       "<span>no forecast set</span>")},
     {k:"Conversions",v:num(D.grandConv[sel]),
-     d:delta(D.grandConv[sel],prev!=null?D.grandConv[prev]:null,true)+" <span>all products</span>"},
-    {k:"Blended cost / conversion",v:money(D.grandCpa[sel],2),
-     d:delta(D.grandCpa[sel],prev!=null?D.grandCpa[prev]:null,false)+" <span>lower is better</span>"},
+     d:delta(D.grandConv[sel],prev!=null?D.grandConv[prev]:null,["more","fewer"])+"<span>all products</span>"},
+    {k:"Cost per conversion",v:money(D.grandCpa[sel],2),
+     d:delta(D.grandCpa[sel],prev!=null?D.grandCpa[prev]:null,["more expensive","cheaper"])+"<span>blended</span>"},
   ];
-  const big=D.products.map(p=>({l:p.label,v:p.conv[sel]})).filter(x=>x.v)
+  const big=D.products.map(p=>({l:p.label,k:p.key,v:p.conv[sel]})).filter(x=>x.v)
     .sort((a,b)=>b.v-a.v)[0];
-  const bigPrev=big&&prev!=null?(D.products.find(p=>p.label===big.l)||{}).conv?.[prev]:null;
+  let bp=null;
+  if(big&&prev!=null){const o=D.products.find(x=>x.key===big.k);if(o)bp=o.conv[prev];}
   items.push({k:"Largest product",v:big?num(big.v):"—",
-    d:(big?delta(big.v,bigPrev,true):"")+" <span>"+(big?big.l:"no conversions recorded")+"</span>"});
+    d:(big?delta(big.v,bp,["more","fewer"]):"")+"<span>"+(big?big.l:"none recorded")+"</span>"});
   items.forEach(it=>{const d=document.createElement("div");d.className="kpi";
-    d.innerHTML='<div class="k">'+it.k+'</div><div class="v">'+it.v+'</div><div class="d">'+it.d+"</div>";
-    host.appendChild(d);});
+    d.innerHTML='<div class="k">'+it.k+'</div><div class="v num">'+it.v+
+      '</div><div class="d">'+it.d+"</div>";host.appendChild(d);});
   document.getElementById("pw").innerHTML = part ?
-    '<div class="banner"><b>Month in progress.</b><span>'+D.labels[sel]+
-    ' is not finished, so its figures are lower than a full month and are shown hatched on the'+
-    ' charts. Compare complete months for a like-for-like read.</span></div>' : "";
+    '<div class="callout"><b>Month in progress.</b><span>'+D.labels[sel]+
+    ' isn&rsquo;t finished, so its figures sit below a full month and appear hatched on'+
+    ' the charts. Compare complete months for a like-for-like read.</span></div>' : "";
 }
 
-/* ---------- table ---------- */
 function table(){
-  const host=document.getElementById("p-tbl");
   const P=D.products;
   let h="<table><thead><tr><th>Channel</th><th>Spend</th>"+
     P.map(p=>"<th>"+p.label+"</th>").join("")+"</tr></thead><tbody>";
   D.channels.forEach(c=>{
-    const sp=D.spendByChannel[c][sel];
-    h+="<tr><td>"+c+'</td><td class="num">'+money(sp)+"</td>"+
+    h+="<tr><td>"+c+'</td><td class="num">'+money(D.spendByChannel[c][sel])+"</td>"+
       P.map(p=>{const b=p.byChannel[c];
-        if(!b)return '<td class="num" style="color:var(--muted)">—</td>';
+        if(!b)return '<td class="num dash">—</td>';
         const cv=b.conv[sel],cp=b.cpa[sel];
-        return '<td class="num">'+num(cv)+(cp!=null?'<br><span style="color:var(--muted);font-size:11.5px">'
-          +money(cp,cp<100?2:0)+"</span>":"")+"</td>";}).join("")+"</tr>";
+        return '<td class="num">'+num(cv)+(cp!=null?
+          '<br><span class="cpa">'+money(cp,cp<100?2:0)+"</span>":"")+"</td>";}).join("")+"</tr>";
   });
   h+='<tr class="tot"><td>Total</td><td class="num">'+money(D.spend[sel])+"</td>"+
     P.map(p=>{const cp=p.cpa[sel];
       return '<td class="num">'+num(p.conv[sel])+(cp!=null?
-        '<br><span style="font-weight:400;color:var(--ink-2);font-size:11.5px">'+
-        money(cp,cp<100?2:0)+"</span>":"")+"</td>";}).join("")+"</tr></tbody></table>";
-  host.innerHTML=h;
+        '<br><span class="cpa">'+money(cp,cp<100?2:0)+"</span>":"")+"</td>";}).join("")+
+    "</tr></tbody></table>";
+  document.getElementById("p-tbl").innerHTML=h;
 }
 
-function legend(){
-  document.getElementById("lg-prod").innerHTML =
-    D.products.map(p=>'<span><i style="background:var(--'+p.slot+')"></i>'+p.label+"</span>").join("");
-}
+function draw(){kpis();spendChart();convChart();prodPanels();chanChart();table();}
 
-function draw(){kpis();spendChart();convChart();cpaPanels();chanChart();table();}
-
-/* init */
-D.products.forEach((p,i)=>p.slot="s"+(i%7+1));
 const msel=document.getElementById("mo");
 D.months.forEach((m,i)=>{if(D.spend[i]==null&&D.grandConv[i]==null)return;
-  const o=document.createElement("option");o.value=i;o.textContent=D.labels[i]+
-    (D.partial.includes(m)?" (in progress)":"");msel.appendChild(o);});
+  const o=document.createElement("option");o.value=i;
+  o.textContent=D.labels[i]+(D.partial.includes(m)?" (in progress)":"");msel.appendChild(o);});
 msel.value=sel;
 msel.addEventListener("change",e=>{sel=+e.target.value;draw();});
 const wb=document.getElementById("win");
-wb.addEventListener("click",()=>{win=win===13?NM:(NM>25?13:(win===NM?13:NM));
-  if(win>NM)win=NM;wb.textContent="Showing "+win+" months";
-  spendChart();convChart();cpaPanels();});
+wb.addEventListener("click",()=>{win=(win===13&&NM>13)?NM:13;
+  wb.textContent="Showing "+Math.min(win,NM)+" months";
+  spendChart();convChart();prodPanels();});
 wb.textContent="Showing "+Math.min(win,NM)+" months";
 const srcs=new Set();Object.values(D.sources).forEach(a=>a.forEach(s=>srcs.add(s)));
 document.getElementById("fsrc").textContent="Sources: "+
   [...srcs].map(s=>({doc:"historic doc",meta_ads:"Meta Ads API",
     google_ads:"Google Ads API",manual:"manual entry"}[s]||s)).join(", ");
-legend();draw();
+draw();
 </script>

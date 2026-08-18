@@ -37,13 +37,36 @@ manual. What changed is that the manual work is now one short file with last
 month's values printed beside each field, instead of hunting cells across a wide
 sheet.
 
+## Branding
+
+The client report carries the Atlas Digital identity — Navy/Violet/Purple/Lilac,
+Plus Jakarta Sans with DM Mono for metadata labels, and the wordmark embedded as a
+data URI (`scripts/_logo_b64.txt`) so the page stays self-contained.
+
+Two consequences of staying inside the five-colour palette, both deliberate:
+
+- **The report is single-theme.** The Atlas identity is light-first (Off-White page,
+  Navy type), so rather than invent a dark palette the page commits to the light one
+  and paints every colour explicitly, holding on any host background.
+- **Products are faceted, not colour-coded.** Seven products can't be given seven
+  distinguishable hues from a five-colour palette without going off-brand, so each
+  product gets its own small-multiple panel in Purple and takes its identity from the
+  panel title. Direction on the KPI chips is carried by wording — "more expensive" /
+  "cheaper" — rather than the red/green the brand rules out.
+
 ## Weekly run
+
+A Routine (`Sharesies MoM update (weekly)`) fires Mondays 8am NZ time and runs the
+skill below, then asks for the four manual channels. It is bound to the Claude
+session that holds the Meta and Google connectors, because this org can't attach
+connectors to a Routine via the API — if it ever fires without them, recreate the
+Routine from the claude.ai Routines UI and attach GAds MCP + Meta Ads MCP there.
+
+Manually, or on demand:
 
 Ask Claude to **run the MoM update** — that invokes
 [`.claude/skills/mom-update/SKILL.md`](.claude/skills/mom-update/SKILL.md), which
 does the MCP pulls, prompts for the manual channels, and renders both outputs.
-
-Manually:
 
 ```bash
 python3 scripts/new_month.py     2026-09    # create the manual-entry stub

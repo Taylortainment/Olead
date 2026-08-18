@@ -107,6 +107,8 @@ def main():
     with open(tpl_path) as fh:
         html = fh.read()
     html = html.replace("/*__DATA__*/null", json.dumps(payload, separators=(",", ":")))
+    with open(os.path.join(lib.ROOT, "scripts", "_logo_b64.txt")) as fh:
+        html = html.replace("__LOGO__", fh.read().strip())
     html = html.replace("__CLIENT__", schema["client"])
     html = html.replace("__GENERATED__", today.strftime("%-d %B %Y"))
 

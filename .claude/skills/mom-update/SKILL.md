@@ -135,5 +135,9 @@ the verifier flagged.
 - CPAs, totals and budget variance are **never stored** — they are derived at
   render time. That is why `#DIV/0!` cannot come back.
 - Event renames on either platform are a `config/schema.yml` edit, not a code edit.
+- The report is Atlas-branded and deliberately single-theme (the identity is
+  light-first). Products are faceted into per-product panels rather than given
+  seven hues, because the five-colour palette can't separate that many series;
+  KPI direction is carried by wording, not the red/green the brand rules out.
 - LinkedIn is configured as `auto` but has spent $0 for the doc's whole history.
   If it restarts, wire up the LinkedIn MCP in `build_pull.py`.
