@@ -6,7 +6,7 @@
     {
       "channel": "YouTube",
       "metric": "spend_actual",
-      "value": 4193.92
+      "value": 5368.19
     },
     {
       "channel": "YouTube",
@@ -41,7 +41,7 @@
     {
       "channel": "Google",
       "metric": "spend_actual",
-      "value": 12386.75
+      "value": 17356.49
     },
     {
       "channel": "Google",
@@ -51,7 +51,7 @@
     {
       "channel": "Google",
       "metric": "crypto",
-      "value": 2
+      "value": 3
     },
     {
       "channel": "Google",
@@ -61,7 +61,7 @@
     {
       "channel": "Google",
       "metric": "save",
-      "value": 8
+      "value": 9
     },
     {
       "channel": "Google",

@@ -5,87 +5,87 @@
   {
    "channel": "Google",
    "metric": "spend_p_other",
-   "value": 886.02
+   "value": 1920.94
   },
   {
    "channel": "Google",
    "metric": "spend_p_kiwisaver",
-   "value": 8431.08
+   "value": 11415.23
   },
   {
    "channel": "Google",
    "metric": "spend_p_save",
-   "value": 1328.47
+   "value": 1790.92
   },
   {
    "channel": "Google",
    "metric": "spend_p_spend_signup",
-   "value": 676.47
+   "value": 899.41
   },
   {
    "channel": "Google",
    "metric": "spend_p_wills",
-   "value": 1064.71
+   "value": 1330.0
   },
   {
    "channel": "Meta",
-   "metric": "spend_p_insure_quote",
-   "value": 2411.03
-  },
-  {
-   "channel": "Meta",
-   "metric": "spend_p_insure_payment",
-   "value": 2411.03
-  },
-  {
-   "channel": "Meta",
-   "metric": "spend_p_kiwisaver",
-   "value": 17970.31
-  },
-  {
-   "channel": "Meta",
-   "metric": "spend_p_crypto",
-   "value": 1094.26
-  },
-  {
-   "channel": "Meta",
-   "metric": "spend_p_brand",
-   "value": 2187.46
-  },
-  {
-   "channel": "Meta",
-   "metric": "spend_p_spend_signup",
-   "value": 1612.72
-  },
-  {
-   "channel": "Meta",
-   "metric": "spend_p_save",
-   "value": 5865.97
+   "metric": "spend_p_wills",
+   "value": 896.57
   },
   {
    "channel": "Meta",
    "metric": "spend_p_other",
-   "value": 1873.12
+   "value": 3838.74
   },
   {
    "channel": "Meta",
-   "metric": "spend_p_wills",
-   "value": 571.47
+   "metric": "spend_p_save",
+   "value": 7434.63
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_spend_signup",
+   "value": 2837.21
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_brand",
+   "value": 2880.29
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_crypto",
+   "value": 1422.79
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_kiwisaver",
+   "value": 22900.24
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_insure_quote",
+   "value": 3238.09
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_insure_payment",
+   "value": 3238.09
   },
   {
    "channel": "YouTube",
    "metric": "spend_p_brand",
-   "value": 2412.26
+   "value": 3087.17
   },
   {
    "channel": "YouTube",
    "metric": "spend_p_kiwisaver",
-   "value": 1188.19
+   "value": 1520.78
   },
   {
    "channel": "YouTube",
    "metric": "spend_p_crypto",
-   "value": 593.47
+   "value": 760.24
   }
  ]
 }
