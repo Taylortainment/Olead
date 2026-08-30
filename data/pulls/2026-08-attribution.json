@@ -5,87 +5,87 @@
   {
    "channel": "Google",
    "metric": "spend_p_other",
-   "value": 1920.94
+   "value": 4110.85
   },
   {
    "channel": "Google",
    "metric": "spend_p_kiwisaver",
-   "value": 11415.23
+   "value": 15594.23
   },
   {
    "channel": "Google",
    "metric": "spend_p_save",
-   "value": 1790.92
+   "value": 2362.96
   },
   {
    "channel": "Google",
    "metric": "spend_p_spend_signup",
-   "value": 899.41
+   "value": 999.04
   },
   {
    "channel": "Google",
    "metric": "spend_p_wills",
-   "value": 1330.0
+   "value": 1735.46
   },
   {
    "channel": "Meta",
-   "metric": "spend_p_wills",
-   "value": 896.57
+   "metric": "spend_p_kiwisaver",
+   "value": 33000.04
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_save",
+   "value": 9665.86
   },
   {
    "channel": "Meta",
    "metric": "spend_p_other",
-   "value": 3838.74
-  },
-  {
-   "channel": "Meta",
-   "metric": "spend_p_save",
-   "value": 7434.63
+   "value": 6554.18
   },
   {
    "channel": "Meta",
    "metric": "spend_p_spend_signup",
-   "value": 2837.21
-  },
-  {
-   "channel": "Meta",
-   "metric": "spend_p_brand",
-   "value": 2880.29
-  },
-  {
-   "channel": "Meta",
-   "metric": "spend_p_crypto",
-   "value": 1422.79
-  },
-  {
-   "channel": "Meta",
-   "metric": "spend_p_kiwisaver",
-   "value": 22900.24
+   "value": 4832.28
   },
   {
    "channel": "Meta",
    "metric": "spend_p_insure_quote",
-   "value": 3238.09
+   "value": 4613.59
   },
   {
    "channel": "Meta",
    "metric": "spend_p_insure_payment",
-   "value": 3238.09
+   "value": 4613.59
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_brand",
+   "value": 3926.36
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_crypto",
+   "value": 1965.19
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_wills",
+   "value": 1827.35
   },
   {
    "channel": "YouTube",
    "metric": "spend_p_brand",
-   "value": 3087.17
+   "value": 3960.75
   },
   {
    "channel": "YouTube",
    "metric": "spend_p_kiwisaver",
-   "value": 1520.78
+   "value": 1950.95
   },
   {
    "channel": "YouTube",
    "metric": "spend_p_crypto",
-   "value": 760.24
+   "value": 975.3
   }
  ]
 }

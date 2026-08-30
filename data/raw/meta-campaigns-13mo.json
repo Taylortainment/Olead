@@ -586,42 +586,52 @@
  },
  {
   "month": "2026-08",
-  "name": "Wills - Conversions",
-  "spend": 896.57
- },
- {
-  "month": "2026-08",
-  "name": "Invest - Advised Portfolios - Conversions",
-  "spend": 3838.74
+  "name": "KS - Conversions - Prospecting",
+  "spend": 30948.57
  },
  {
   "month": "2026-08",
   "name": "Save - Conversions",
-  "spend": 7434.63
+  "spend": 9185.84
+ },
+ {
+  "month": "2026-08",
+  "name": "Invest - Advised Portfolios - Conversions",
+  "spend": 6554.18
  },
  {
   "month": "2026-08",
   "name": "Spend - Conversions",
-  "spend": 2837.21
- },
- {
-  "month": "2026-08",
-  "name": "Brand - Reach",
-  "spend": 2880.29
- },
- {
-  "month": "2026-08",
-  "name": "Crypto - Conversions",
-  "spend": 1422.79
- },
- {
-  "month": "2026-08",
-  "name": "KS - Conversions",
-  "spend": 22900.24
+  "spend": 4832.28
  },
  {
   "month": "2026-08",
   "name": "Insure - Prospecting",
-  "spend": 3238.09
+  "spend": 4613.59
+ },
+ {
+  "month": "2026-08",
+  "name": "Brand - Reach",
+  "spend": 3926.36
+ },
+ {
+  "month": "2026-08",
+  "name": "KS - Conversions - REM",
+  "spend": 2051.47
+ },
+ {
+  "month": "2026-08",
+  "name": "Crypto - Conversions",
+  "spend": 1965.19
+ },
+ {
+  "month": "2026-08",
+  "name": "Wills - Conversions",
+  "spend": 1827.35
+ },
+ {
+  "month": "2026-08",
+  "name": "Save - Conversions - REM",
+  "spend": 480.02
  }
 ]

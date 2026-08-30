@@ -128,4 +128,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except BrokenPipeError:
+        # stdout closed early (e.g. piped into `head`) -- not a failure
+        os._exit(0)

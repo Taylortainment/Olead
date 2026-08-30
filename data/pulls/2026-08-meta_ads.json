@@ -6,42 +6,42 @@
     {
       "channel": "Meta",
       "metric": "spend_actual",
-      "value": 45448.56
+      "value": 66384.85
     },
     {
       "channel": "Meta",
       "metric": "kiwisaver",
-      "value": 511
+      "value": 646
     },
     {
       "channel": "Meta",
       "metric": "crypto",
-      "value": 904
+      "value": 1238
     },
     {
       "channel": "Meta",
       "metric": "spend_signup",
-      "value": 487
+      "value": 705
     },
     {
       "channel": "Meta",
       "metric": "subscription",
-      "value": 1082
+      "value": 1387
     },
     {
       "channel": "Meta",
       "metric": "insure_quote",
-      "value": 443
+      "value": 574
     },
     {
       "channel": "Meta",
       "metric": "insure_payment",
-      "value": 34
+      "value": 44
     },
     {
       "channel": "Meta",
       "metric": "save",
-      "value": 932
+      "value": 1207
     }
   ]
 }
