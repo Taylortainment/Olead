@@ -14,13 +14,13 @@
   },
   {
    "channel": "Meta",
-   "metric": "spend_p_crypto",
-   "value": 18073.17
+   "metric": "spend_p_brand",
+   "value": 10300.98
   },
   {
    "channel": "Meta",
-   "metric": "spend_p_brand",
-   "value": 10300.98
+   "metric": "spend_p_crypto",
+   "value": 18073.17
   },
   {
    "channel": "YouTube",
@@ -29,13 +29,13 @@
   },
   {
    "channel": "YouTube",
-   "metric": "spend_p_kiwisaver",
-   "value": 7201.77
+   "metric": "spend_p_crypto",
+   "value": 4880.15
   },
   {
    "channel": "YouTube",
-   "metric": "spend_p_crypto",
-   "value": 4880.15
+   "metric": "spend_p_kiwisaver",
+   "value": 7201.77
   }
  ]
 }

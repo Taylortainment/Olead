@@ -1,40 +1,5 @@
 [
  {
-  "month": "2025-08",
-  "name": "Remarketing - Conversions",
-  "spend": 620.67
- },
- {
-  "month": "2025-08",
-  "name": "Prospecting - KiwiSaver",
-  "spend": 4033.22
- },
- {
-  "month": "2025-08",
-  "name": "Existing Members - KiwiSaver",
-  "spend": 993.2
- },
- {
-  "month": "2025-08",
-  "name": "Insure - Prospecting",
-  "spend": 3033.96
- },
- {
-  "month": "2025-08",
-  "name": "Insure - Remarketing",
-  "spend": 663.03
- },
- {
-  "month": "2025-09",
-  "name": "Remarketing - Conversions",
-  "spend": 1461.44
- },
- {
-  "month": "2025-09",
-  "name": "Prospecting - KiwiSaver",
-  "spend": 13617.09
- },
- {
   "month": "2025-09",
   "name": "Existing Members - KiwiSaver",
   "spend": 1917.78
@@ -50,19 +15,19 @@
   "spend": 6.17
  },
  {
-  "month": "2025-10",
-  "name": "Prospecting - Save",
-  "spend": 225.72
- },
- {
-  "month": "2025-10",
-  "name": "Remarketing - Conversions",
-  "spend": 27.3
- },
- {
-  "month": "2025-10",
+  "month": "2025-09",
   "name": "Prospecting - KiwiSaver",
-  "spend": 16926.48
+  "spend": 13617.09
+ },
+ {
+  "month": "2025-09",
+  "name": "Remarketing - Conversions",
+  "spend": 1461.44
+ },
+ {
+  "month": "2025-10",
+  "name": "Existing Members - Crypto",
+  "spend": 601.27
  },
  {
   "month": "2025-10",
@@ -71,8 +36,13 @@
  },
  {
   "month": "2025-10",
-  "name": "Remarketing - KiwiSaver",
-  "spend": 1673.73
+  "name": "Existing Members - Save",
+  "spend": 105.37
+ },
+ {
+  "month": "2025-10",
+  "name": "Existing NZ Customers - Crypto",
+  "spend": 810.82
  },
  {
   "month": "2025-10",
@@ -86,63 +56,33 @@
  },
  {
   "month": "2025-10",
-  "name": "Existing NZ Customers - Crypto",
-  "spend": 810.82
- },
- {
-  "month": "2025-10",
-  "name": "Shared Lunch - Engagement - Ad Hoc",
-  "spend": 70.96
- },
- {
-  "month": "2025-10",
   "name": "Prospecting - Crypto (2)",
   "spend": 966.1
  },
  {
   "month": "2025-10",
-  "name": "Existing Members - Crypto",
-  "spend": 601.27
+  "name": "Prospecting - KiwiSaver",
+  "spend": 16926.48
  },
  {
   "month": "2025-10",
-  "name": "Existing Members - Save",
-  "spend": 105.37
- },
- {
-  "month": "2025-11",
   "name": "Prospecting - Save",
-  "spend": 2268.81
+  "spend": 225.72
  },
  {
-  "month": "2025-11",
-  "name": "Prospecting - KiwiSaver",
-  "spend": 15229.58
+  "month": "2025-10",
+  "name": "Remarketing - Conversions",
+  "spend": 27.3
  },
  {
-  "month": "2025-11",
-  "name": "Existing Members - KiwiSaver",
-  "spend": 2102.5
- },
- {
-  "month": "2025-11",
+  "month": "2025-10",
   "name": "Remarketing - KiwiSaver",
-  "spend": 1654.16
+  "spend": 1673.73
  },
  {
-  "month": "2025-11",
-  "name": "Members + Remarketing - Debit Card",
-  "spend": 308.05
- },
- {
-  "month": "2025-11",
+  "month": "2025-10",
   "name": "Shared Lunch - Engagement - Ad Hoc",
-  "spend": 67.71
- },
- {
-  "month": "2025-11",
-  "name": "Prospecting - Crypto",
-  "spend": 2908.37
+  "spend": 70.96
  },
  {
   "month": "2025-11",
@@ -151,28 +91,43 @@
  },
  {
   "month": "2025-11",
+  "name": "Existing Members - KiwiSaver",
+  "spend": 2102.5
+ },
+ {
+  "month": "2025-11",
   "name": "Existing Members - Save",
   "spend": 1084.1
  },
  {
-  "month": "2025-12",
-  "name": "Prospecting - KiwiSaver",
-  "spend": 8529.13
+  "month": "2025-11",
+  "name": "Members + Remarketing - Debit Card",
+  "spend": 308.05
  },
  {
-  "month": "2025-12",
-  "name": "Existing Members - KiwiSaver",
-  "spend": 894.59
- },
- {
-  "month": "2025-12",
-  "name": "Remarketing - KiwiSaver",
-  "spend": 1363.02
- },
- {
-  "month": "2025-12",
+  "month": "2025-11",
   "name": "Prospecting - Crypto",
-  "spend": 567.43
+  "spend": 2908.37
+ },
+ {
+  "month": "2025-11",
+  "name": "Prospecting - KiwiSaver",
+  "spend": 15229.58
+ },
+ {
+  "month": "2025-11",
+  "name": "Prospecting - Save",
+  "spend": 2268.81
+ },
+ {
+  "month": "2025-11",
+  "name": "Remarketing - KiwiSaver",
+  "spend": 1654.16
+ },
+ {
+  "month": "2025-11",
+  "name": "Shared Lunch - Engagement - Ad Hoc",
+  "spend": 67.71
  },
  {
   "month": "2025-12",
@@ -181,18 +136,23 @@
  },
  {
   "month": "2025-12",
-  "name": "SC - KS - Conversions - Members",
-  "spend": 962.39
+  "name": "Existing Members - KiwiSaver",
+  "spend": 894.59
  },
  {
   "month": "2025-12",
-  "name": "SC - KS - Conversions - Remarketing",
-  "spend": 643.0
+  "name": "Prospecting - Crypto",
+  "spend": 567.43
  },
  {
   "month": "2025-12",
-  "name": "SC - Crypto - Conversions - Remarketing",
-  "spend": 461.36
+  "name": "Prospecting - KiwiSaver",
+  "spend": 8529.13
+ },
+ {
+  "month": "2025-12",
+  "name": "Remarketing - KiwiSaver",
+  "spend": 1363.02
  },
  {
   "month": "2025-12",
@@ -206,23 +166,28 @@
  },
  {
   "month": "2025-12",
+  "name": "SC - Crypto - Conversions - Remarketing",
+  "spend": 461.36
+ },
+ {
+  "month": "2025-12",
+  "name": "SC - KS - Conversions - Members",
+  "spend": 962.39
+ },
+ {
+  "month": "2025-12",
+  "name": "SC - KS - Conversions - Remarketing",
+  "spend": 643.0
+ },
+ {
+  "month": "2025-12",
   "name": "SC - KS -Conversions - Prospects",
   "spend": 1614.96
  },
  {
   "month": "2026-01",
-  "name": "SC - KS - Conversions - Members",
-  "spend": 5020.77
- },
- {
-  "month": "2026-01",
-  "name": "SC - KS - Conversions - Remarketing",
-  "spend": 3349.23
- },
- {
-  "month": "2026-01",
-  "name": "SC - Crypto - Conversions - Remarketing",
-  "spend": 2348.69
+  "name": "SC - Brand - Reach",
+  "spend": 3966.33
  },
  {
   "month": "2026-01",
@@ -236,28 +201,33 @@
  },
  {
   "month": "2026-01",
+  "name": "SC - Crypto - Conversions - Remarketing",
+  "spend": 2348.69
+ },
+ {
+  "month": "2026-01",
+  "name": "SC - KS - Conversions - Members",
+  "spend": 5020.77
+ },
+ {
+  "month": "2026-01",
+  "name": "SC - KS - Conversions - Remarketing",
+  "spend": 3349.23
+ },
+ {
+  "month": "2026-01",
   "name": "SC - KS -Conversions - Prospects",
   "spend": 8362.25
  },
  {
-  "month": "2026-01",
+  "month": "2026-02",
+  "name": "KS - Ryan Teece UGC - Prospects",
+  "spend": 228.93
+ },
+ {
+  "month": "2026-02",
   "name": "SC - Brand - Reach",
-  "spend": 3966.33
- },
- {
-  "month": "2026-02",
-  "name": "SC - KS - Conversions - Members",
-  "spend": 4718.18
- },
- {
-  "month": "2026-02",
-  "name": "SC - KS - Conversions - Remarketing",
-  "spend": 1588.07
- },
- {
-  "month": "2026-02",
-  "name": "SC - Crypto - Conversions - Remarketing",
-  "spend": 2701.11
+  "spend": 10300.98
  },
  {
   "month": "2026-02",
@@ -271,58 +241,23 @@
  },
  {
   "month": "2026-02",
+  "name": "SC - Crypto - Conversions - Remarketing",
+  "spend": 2701.11
+ },
+ {
+  "month": "2026-02",
+  "name": "SC - KS - Conversions - Members",
+  "spend": 4718.18
+ },
+ {
+  "month": "2026-02",
+  "name": "SC - KS - Conversions - Remarketing",
+  "spend": 1588.07
+ },
+ {
+  "month": "2026-02",
   "name": "SC - KS -Conversions - Prospects",
   "spend": 5814.34
- },
- {
-  "month": "2026-02",
-  "name": "SC - Brand - Reach",
-  "spend": 10300.98
- },
- {
-  "month": "2026-02",
-  "name": "KS - Ryan Teece UGC - Prospects",
-  "spend": 228.93
- },
- {
-  "month": "2026-03",
-  "name": "SC - KS - Conversions - Members",
-  "spend": 3724.83
- },
- {
-  "month": "2026-03",
-  "name": "SC - KS - Conversions - Remarketing",
-  "spend": 2400.68
- },
- {
-  "month": "2026-03",
-  "name": "SC - Crypto - Conversions - Remarketing",
-  "spend": 2932.19
- },
- {
-  "month": "2026-03",
-  "name": "SC - Crypto - Conversions - Members",
-  "spend": 7157.71
- },
- {
-  "month": "2026-03",
-  "name": "SC - Crypto - Conversions - Prospects",
-  "spend": 9286.65
- },
- {
-  "month": "2026-03",
-  "name": "SC - KS -Conversions - Prospects",
-  "spend": 10695.08
- },
- {
-  "month": "2026-03",
-  "name": "SC - Brand - Reach",
-  "spend": 18649.18
- },
- {
-  "month": "2026-03",
-  "name": "KS - Ryan Teece UGC - Prospects",
-  "spend": 771.05
  },
  {
   "month": "2026-03",
@@ -336,8 +271,78 @@
  },
  {
   "month": "2026-03",
+  "name": "KS - Ryan Teece UGC - Prospects",
+  "spend": 771.05
+ },
+ {
+  "month": "2026-03",
+  "name": "SC - Brand - Reach",
+  "spend": 18649.18
+ },
+ {
+  "month": "2026-03",
+  "name": "SC - Crypto - Conversions - Members",
+  "spend": 7157.71
+ },
+ {
+  "month": "2026-03",
+  "name": "SC - Crypto - Conversions - Prospects",
+  "spend": 9286.65
+ },
+ {
+  "month": "2026-03",
+  "name": "SC - Crypto - Conversions - Remarketing",
+  "spend": 2932.19
+ },
+ {
+  "month": "2026-03",
   "name": "SC - Invest -Conversions - Prospects",
   "spend": 504.69
+ },
+ {
+  "month": "2026-03",
+  "name": "SC - KS - Conversions - Members",
+  "spend": 3724.83
+ },
+ {
+  "month": "2026-03",
+  "name": "SC - KS - Conversions - Remarketing",
+  "spend": 2400.68
+ },
+ {
+  "month": "2026-03",
+  "name": "SC - KS -Conversions - Prospects",
+  "spend": 10695.08
+ },
+ {
+  "month": "2026-04",
+  "name": "Apple Pay - Sharesies Spend - Conversion",
+  "spend": 3138.71
+ },
+ {
+  "month": "2026-04",
+  "name": "Brand - Reach",
+  "spend": 4797.54
+ },
+ {
+  "month": "2026-04",
+  "name": "Crypto - Conversions",
+  "spend": 1493.73
+ },
+ {
+  "month": "2026-04",
+  "name": "Crypto - Conversions (old)",
+  "spend": 497.58
+ },
+ {
+  "month": "2026-04",
+  "name": "Crypto - Conversions - Members",
+  "spend": 1480.72
+ },
+ {
+  "month": "2026-04",
+  "name": "Farmers - Conversions",
+  "spend": 402.48
  },
  {
   "month": "2026-04",
@@ -356,23 +361,8 @@
  },
  {
   "month": "2026-04",
-  "name": "KS - Ryan Teece UGC - Prospects",
-  "spend": 1969.88
- },
- {
-  "month": "2026-04",
-  "name": "Apple Pay - Sharesies Spend - Conversion",
-  "spend": 3138.71
- },
- {
-  "month": "2026-04",
   "name": "KS - Conversions",
   "spend": 2432.96
- },
- {
-  "month": "2026-04",
-  "name": "KS - Conversions - Remarketing",
-  "spend": 972.61
  },
  {
   "month": "2026-04",
@@ -381,33 +371,43 @@
  },
  {
   "month": "2026-04",
-  "name": "Crypto - Conversions",
-  "spend": 1493.73
+  "name": "KS - Conversions - Remarketing",
+  "spend": 972.61
  },
  {
   "month": "2026-04",
-  "name": "Crypto - Conversions - Members",
-  "spend": 1480.72
- },
- {
-  "month": "2026-04",
-  "name": "Crypto - Conversions (old)",
-  "spend": 497.58
- },
- {
-  "month": "2026-04",
-  "name": "Brand - Reach",
-  "spend": 4797.54
- },
- {
-  "month": "2026-04",
-  "name": "Farmers - Conversions",
-  "spend": 402.48
+  "name": "KS - Ryan Teece UGC - Prospects",
+  "spend": 1969.88
  },
  {
   "month": "2026-04",
   "name": "Spend - Conversions",
   "spend": 193.37
+ },
+ {
+  "month": "2026-05",
+  "name": "Brand - Reach",
+  "spend": 3995.87
+ },
+ {
+  "month": "2026-05",
+  "name": "Crypto - Conversions",
+  "spend": 1522.56
+ },
+ {
+  "month": "2026-05",
+  "name": "Crypto - Conversions (old)",
+  "spend": 525.48
+ },
+ {
+  "month": "2026-05",
+  "name": "Crypto - Conversions - Members",
+  "spend": 1536.6
+ },
+ {
+  "month": "2026-05",
+  "name": "Farmers - Conversions",
+  "spend": 8776.9
  },
  {
   "month": "2026-05",
@@ -426,18 +426,8 @@
  },
  {
   "month": "2026-05",
-  "name": "KS - Ryan Teece UGC - Prospects",
-  "spend": 2064.58
- },
- {
-  "month": "2026-05",
   "name": "KS - Conversions",
   "spend": 5758.76
- },
- {
-  "month": "2026-05",
-  "name": "KS - Conversions - Remarketing",
-  "spend": 118.2
  },
  {
   "month": "2026-05",
@@ -446,33 +436,13 @@
  },
  {
   "month": "2026-05",
-  "name": "Crypto - Conversions",
-  "spend": 1522.56
+  "name": "KS - Conversions - Remarketing",
+  "spend": 118.2
  },
  {
   "month": "2026-05",
-  "name": "Crypto - Conversions - Members",
-  "spend": 1536.6
- },
- {
-  "month": "2026-05",
-  "name": "Crypto - Conversions (old)",
-  "spend": 525.48
- },
- {
-  "month": "2026-05",
-  "name": "Brand - Reach",
-  "spend": 3995.87
- },
- {
-  "month": "2026-05",
-  "name": "Farmers - Conversions",
-  "spend": 8776.9
- },
- {
-  "month": "2026-05",
-  "name": "Spend - Conversions",
-  "spend": 9709.03
+  "name": "KS - Ryan Teece UGC - Prospects",
+  "spend": 2064.58
  },
  {
   "month": "2026-05",
@@ -480,34 +450,9 @@
   "spend": 2432.98
  },
  {
-  "month": "2026-06",
-  "name": "Insure - Prospecting",
-  "spend": 2942.27
- },
- {
-  "month": "2026-06",
-  "name": "KS - Ryan Teece UGC - Prospects",
-  "spend": 7940.92
- },
- {
-  "month": "2026-06",
-  "name": "KS - Conversions",
-  "spend": 9882.01
- },
- {
-  "month": "2026-06",
-  "name": "Crypto - Conversions",
-  "spend": 379.99
- },
- {
-  "month": "2026-06",
-  "name": "Crypto - Conversions - Members",
-  "spend": 327.04
- },
- {
-  "month": "2026-06",
-  "name": "Crypto - Conversions (old)",
-  "spend": 2156.91
+  "month": "2026-05",
+  "name": "Spend - Conversions",
+  "spend": 9709.03
  },
  {
   "month": "2026-06",
@@ -516,8 +461,38 @@
  },
  {
   "month": "2026-06",
-  "name": "Spend - Conversions",
-  "spend": 6804.95
+  "name": "Crypto - Conversions",
+  "spend": 379.99
+ },
+ {
+  "month": "2026-06",
+  "name": "Crypto - Conversions (old)",
+  "spend": 2156.91
+ },
+ {
+  "month": "2026-06",
+  "name": "Crypto - Conversions - Members",
+  "spend": 327.04
+ },
+ {
+  "month": "2026-06",
+  "name": "Insure - Prospecting",
+  "spend": 2942.27
+ },
+ {
+  "month": "2026-06",
+  "name": "Invest - Advised Portfolios - Conversions",
+  "spend": 1687.87
+ },
+ {
+  "month": "2026-06",
+  "name": "KS - Conversions",
+  "spend": 9882.01
+ },
+ {
+  "month": "2026-06",
+  "name": "KS - Ryan Teece UGC - Prospects",
+  "spend": 7940.92
  },
  {
   "month": "2026-06",
@@ -526,23 +501,13 @@
  },
  {
   "month": "2026-06",
-  "name": "Invest - Advised Portfolios - Conversions",
-  "spend": 1687.87
+  "name": "Spend - Conversions",
+  "spend": 6804.95
  },
  {
   "month": "2026-07",
-  "name": "Insure - Prospecting",
-  "spend": 2970.62
- },
- {
-  "month": "2026-07",
-  "name": "KS - Ryan Teece UGC - Prospects",
-  "spend": 5383.95
- },
- {
-  "month": "2026-07",
-  "name": "KS - Conversions",
-  "spend": 24948.57
+  "name": "Brand - Reach",
+  "spend": 4016.91
  },
  {
   "month": "2026-07",
@@ -556,18 +521,8 @@
  },
  {
   "month": "2026-07",
-  "name": "Brand - Reach",
-  "spend": 4016.91
- },
- {
-  "month": "2026-07",
-  "name": "Spend - Conversions",
-  "spend": 5448.47
- },
- {
-  "month": "2026-07",
-  "name": "Save - Conversions",
-  "spend": 9925.28
+  "name": "Insure - Prospecting",
+  "spend": 2970.62
  },
  {
   "month": "2026-07",
@@ -576,8 +531,28 @@
  },
  {
   "month": "2026-07",
+  "name": "KS - Conversions",
+  "spend": 24948.57
+ },
+ {
+  "month": "2026-07",
+  "name": "KS - Ryan Teece UGC - Prospects",
+  "spend": 5383.95
+ },
+ {
+  "month": "2026-07",
   "name": "KS - Total World - Conversions",
   "spend": 3912.18
+ },
+ {
+  "month": "2026-07",
+  "name": "Save - Conversions",
+  "spend": 9925.28
+ },
+ {
+  "month": "2026-07",
+  "name": "Spend - Conversions",
+  "spend": 5448.47
  },
  {
   "month": "2026-07",
@@ -586,52 +561,102 @@
  },
  {
   "month": "2026-08",
-  "name": "KS - Conversions - Prospecting",
-  "spend": 30948.57
- },
- {
-  "month": "2026-08",
-  "name": "Save - Conversions",
-  "spend": 9185.84
- },
- {
-  "month": "2026-08",
-  "name": "Invest - Advised Portfolios - Conversions",
-  "spend": 6554.18
- },
- {
-  "month": "2026-08",
-  "name": "Spend - Conversions",
-  "spend": 4832.28
- },
- {
-  "month": "2026-08",
-  "name": "Insure - Prospecting",
-  "spend": 4613.59
- },
- {
-  "month": "2026-08",
   "name": "Brand - Reach",
-  "spend": 3926.36
- },
- {
-  "month": "2026-08",
-  "name": "KS - Conversions - REM",
-  "spend": 2051.47
+  "spend": 4091.2
  },
  {
   "month": "2026-08",
   "name": "Crypto - Conversions",
-  "spend": 1965.19
+  "spend": 2059.64
  },
  {
   "month": "2026-08",
-  "name": "Wills - Conversions",
-  "spend": 1827.35
+  "name": "Insure - Prospecting",
+  "spend": 4836.08
+ },
+ {
+  "month": "2026-08",
+  "name": "Invest - Advised Portfolios - Conversions",
+  "spend": 7071.93
+ },
+ {
+  "month": "2026-08",
+  "name": "KS - Conversions - Prospecting",
+  "spend": 31690.75
+ },
+ {
+  "month": "2026-08",
+  "name": "KS - Conversions - REM",
+  "spend": 2364.64
+ },
+ {
+  "month": "2026-08",
+  "name": "Save - Conversions",
+  "spend": 9409.87
  },
  {
   "month": "2026-08",
   "name": "Save - Conversions - REM",
-  "spend": 480.02
+  "spend": 528.11
+ },
+ {
+  "month": "2026-08",
+  "name": "Spend - Conversions",
+  "spend": 5132.64
+ },
+ {
+  "month": "2026-08",
+  "name": "Wills - Conversions",
+  "spend": 1985.9
+ },
+ {
+  "month": "2026-09",
+  "name": "Brand - Reach",
+  "spend": 799.48
+ },
+ {
+  "month": "2026-09",
+  "name": "Crypto - Conversions",
+  "spend": 403.14
+ },
+ {
+  "month": "2026-09",
+  "name": "Insure - Prospecting",
+  "spend": 1003.08
+ },
+ {
+  "month": "2026-09",
+  "name": "Invest - Advised Portfolios - Conversions",
+  "spend": 1238.48
+ },
+ {
+  "month": "2026-09",
+  "name": "KS - Conversions - Prospecting",
+  "spend": 5621.81
+ },
+ {
+  "month": "2026-09",
+  "name": "KS - Conversions - REM",
+  "spend": 1843.22
+ },
+ {
+  "month": "2026-09",
+  "name": "Save - Conversions",
+  "spend": 1136.85
+ },
+ {
+  "month": "2026-09",
+  "name": "Save - Conversions - REM",
+  "spend": 257.55
+ },
+ {
+  "month": "2026-09",
+  "name": "Spend - Conversions",
+  "spend": 653.94
+ },
+ {
+  "month": "2026-09",
+  "name": "Wills - Conversions",
+  "spend": 963.69
  }
 ]

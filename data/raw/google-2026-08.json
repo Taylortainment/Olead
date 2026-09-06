@@ -6,7 +6,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "costMicros": "4110852508"
+    "costMicros": "4296922508"
    }
   },
   {
@@ -15,7 +15,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "costMicros": "15594232314"
+    "costMicros": "16259914654"
    }
   },
   {
@@ -24,7 +24,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "costMicros": "2362961140"
+    "costMicros": "2432229921"
    }
   },
   {
@@ -33,7 +33,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "costMicros": "999040054"
+    "costMicros": "1009363179"
    }
   },
   {
@@ -42,7 +42,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "costMicros": "1735458417"
+    "costMicros": "1824128417"
    }
   },
   {
@@ -51,7 +51,7 @@
     "advertisingChannelType": "VIDEO"
    },
    "metrics": {
-    "costMicros": "1980230695"
+    "costMicros": "2036333967"
    }
   },
   {
@@ -60,7 +60,7 @@
     "advertisingChannelType": "VIDEO"
    },
    "metrics": {
-    "costMicros": "975676247"
+    "costMicros": "1003905719"
    }
   },
   {
@@ -69,7 +69,7 @@
     "advertisingChannelType": "VIDEO"
    },
    "metrics": {
-    "costMicros": "975276560"
+    "costMicros": "1002906616"
    }
   },
   {
@@ -78,7 +78,7 @@
     "advertisingChannelType": "VIDEO"
    },
    "metrics": {
-    "costMicros": "975296560"
+    "costMicros": "1003096106"
    }
   },
   {
@@ -87,7 +87,7 @@
     "advertisingChannelType": "VIDEO"
    },
    "metrics": {
-    "costMicros": "1980516916"
+    "costMicros": "2037471575"
    }
   }
  ],
@@ -98,7 +98,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "allConversions": 31.912968
+    "allConversions": 34.953553
    },
    "segments": {
     "conversionActionName": "rudderstack_account_signup_completed"
@@ -122,7 +122,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "allConversions": 1
+    "allConversions": 1.026124
    },
    "segments": {
     "conversionActionName": "rudderstack_insurance_quote_created"
@@ -170,7 +170,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "allConversions": 39.087032
+    "allConversions": 44.587032
    },
    "segments": {
     "conversionActionName": "rudderstack_account_signup_completed"
@@ -194,7 +194,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "allConversions": 6
+    "allConversions": 8
    },
    "segments": {
     "conversionActionName": "rudderstack_kiwisaver_signup_completed"
@@ -206,7 +206,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "allConversions": 5
+    "allConversions": 6.349326
    },
    "segments": {
     "conversionActionName": "rudderstack_save_account_opened"
@@ -218,7 +218,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "allConversions": 1
+    "allConversions": 3
    },
    "segments": {
     "conversionActionName": "rudderstack_subscription_plan_started"
@@ -230,7 +230,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "allConversions": 31
+    "allConversions": 35.5
    },
    "segments": {
     "conversionActionName": "rudderstack_account_signup_completed"
@@ -242,7 +242,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "allConversions": 1
+    "allConversions": 2
    },
    "segments": {
     "conversionActionName": "rudderstack_insurance_quote_created"
@@ -266,7 +266,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "allConversions": 15
+    "allConversions": 18.666666
    },
    "segments": {
     "conversionActionName": "rudderstack_save_account_opened"
@@ -279,6 +279,18 @@
    },
    "metrics": {
     "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_spend_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/20454829890",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 2
    },
    "segments": {
     "conversionActionName": "rudderstack_subscription_plan_started"
@@ -350,6 +362,18 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
+    "allConversions": 0.333334
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_save_account_opened"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/23831378601",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
     "allConversions": 2
    },
    "segments": {
@@ -362,10 +386,22 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "allConversions": 7
+    "allConversions": 8
    },
    "segments": {
     "conversionActionName": "rudderstack_account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/24041290939",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_crypto_signup_completed"
    }
   },
   {

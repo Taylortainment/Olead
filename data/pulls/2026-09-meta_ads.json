@@ -1,47 +1,47 @@
 {
-  "month": "2026-08",
+  "month": "2026-09",
   "connector": "meta_ads",
-  "source_file": "data/raw/meta-2026-08.json",
+  "source_file": "data/raw/meta-2026-09.json",
   "rows": [
     {
       "channel": "Meta",
       "metric": "spend_actual",
-      "value": 69170.76
+      "value": 13921.24
     },
     {
       "channel": "Meta",
       "metric": "kiwisaver",
-      "value": 677
+      "value": 112
     },
     {
       "channel": "Meta",
       "metric": "crypto",
-      "value": 1290
+      "value": 270
     },
     {
       "channel": "Meta",
       "metric": "spend_signup",
-      "value": 733
+      "value": 139
     },
     {
       "channel": "Meta",
       "metric": "subscription",
-      "value": 1438
+      "value": 282
     },
     {
       "channel": "Meta",
       "metric": "insure_quote",
-      "value": 604
+      "value": 106
     },
     {
       "channel": "Meta",
       "metric": "insure_payment",
-      "value": 45
+      "value": 3
     },
     {
       "channel": "Meta",
       "metric": "save",
-      "value": 1252
+      "value": 429
     }
   ]
 }

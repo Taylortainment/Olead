@@ -31,6 +31,7 @@ def build_google(month, raw, schema):
     amap = schema["mapping"]["google_ads"]["actions"]
     by_action = {v: k for k, v in amap.items()}
     out = {"YouTube": {}, "Google": {}}
+    off_list = []
 
     for row in raw.get("cost", []):
         ctype = row["campaign"]["advertisingChannelType"]
@@ -46,6 +47,13 @@ def build_google(month, raw, schema):
         if not product:
             continue
         v = float(row["metrics"].get("allConversions", 0))
+        # A channel reporting a product it is not listed under would be stored
+        # but never rendered, because every total is summed over
+        # product_channels. Surface it instead of dropping it silently -- it
+        # means config/schema.yml needs that channel added.
+        if ch not in schema["product_channels"][product]:
+            off_list.append((ch, product, v))
+            continue
         out[ch][product] = out[ch].get(product, 0.0) + v
 
     # A channel that spent but recorded no conversions of a mapped product is a
@@ -60,7 +68,16 @@ def build_google(month, raw, schema):
         for mt, v in fields.items():
             rows.append({"channel": ch, "metric": mt,
                          "value": round(v, 2) if mt in lib.MONEY_METRICS else round(v)})
-    return rows, []
+
+    warnings = []
+    agg = {}
+    for ch, product, v in off_list:
+        agg[(ch, product)] = agg.get((ch, product), 0.0) + v
+    for (ch, product), v in sorted(agg.items()):
+        warnings.append(f"{ch} reported {v:.2f} {product} conversions but is not "
+                        f"listed under product_channels[{product}] -- not stored. "
+                        f"Add it in config/schema.yml if this is real.")
+    return rows, warnings
 
 
 def build_meta(month, raw, schema):

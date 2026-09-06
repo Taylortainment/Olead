@@ -1,16 +1,15 @@
 {
  "date_start": "2026-08-01",
- "date_stop": "2026-08-30",
- "amount_spent": "NZ$66,384.85 NZD",
- "impressions": "10838024",
- "cost_per_conversion:offsite_conversion.fb_pixel_custom.wills_started": "27.602848",
- "cost_per_conversion:offsite_conversion.fb_pixel_custom.subscription_plan_started": "47.862185",
- "cost_per_conversion:offsite_conversion.fb_pixel_custom.spend_signup_completed": "94.162908",
- "cost_per_conversion:offsite_conversion.fb_pixel_custom.save_account_opened": "54.999876",
- "cost_per_conversion:offsite_conversion.fb_pixel_custom.insurance_quote_created": "115.653049",
- "cost_per_conversion:offsite_conversion.fb_pixel_custom.insurance_payment_complete": "1508.746591",
- "cost_per_conversion:offsite_conversion.fb_pixel_custom.kiwisaver_signup_completed": "102.762926",
- "cost_per_conversion:offsite_conversion.fb_pixel_custom.crypto_signup_completed": "53.622658",
+ "amount_spent": "NZ$69,170.76 NZD",
+ "impressions": "11258866",
  "id": "1432660143475665",
- "name": "Sharesies"
+ "name": "Sharesies",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.wills_started": "27.547097",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.subscription_plan_started": "48.102058",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.spend_signup_completed": "94.366658",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.save_account_opened": "55.248211",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.insurance_quote_created": "114.521126",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.insurance_payment_complete": "1537.128",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.kiwisaver_signup_completed": "102.172467",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.crypto_signup_completed": "53.620744"
 }

@@ -9,11 +9,6 @@
   },
   {
    "channel": "Meta",
-   "metric": "spend_p_other",
-   "value": 1461.41
-  },
-  {
-   "channel": "Meta",
    "metric": "spend_p_kiwisaver",
    "value": 15534.55
   },
@@ -26,6 +21,11 @@
    "channel": "Meta",
    "metric": "spend_p_insure_payment",
    "value": 39.08
+  },
+  {
+   "channel": "Meta",
+   "metric": "spend_p_other",
+   "value": 1461.41
   },
   {
    "channel": "YouTube",
