@@ -6,7 +6,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "costMicros": "907920695"
+    "costMicros": "2029594508"
    }
   },
   {
@@ -15,7 +15,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "costMicros": "767187258"
+    "costMicros": "1169770859"
    }
   },
   {
@@ -24,7 +24,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "costMicros": "402965793"
+    "costMicros": "876358301"
    }
   },
   {
@@ -33,7 +33,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "costMicros": "236095965"
+    "costMicros": "447185965"
    }
   },
   {
@@ -42,7 +42,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "costMicros": "541600585"
+    "costMicros": "1086026757"
    }
   },
   {
@@ -51,7 +51,7 @@
     "advertisingChannelType": "VIDEO"
    },
    "metrics": {
-    "costMicros": "421978570"
+    "costMicros": "911712445"
    }
   },
   {
@@ -60,7 +60,7 @@
     "advertisingChannelType": "VIDEO"
    },
    "metrics": {
-    "costMicros": "412645690"
+    "costMicros": "891994427"
    }
   },
   {
@@ -69,7 +69,7 @@
     "advertisingChannelType": "VIDEO"
    },
    "metrics": {
-    "costMicros": "411681065"
+    "costMicros": "890253774"
    }
   },
   {
@@ -78,7 +78,7 @@
     "advertisingChannelType": "VIDEO"
    },
    "metrics": {
-    "costMicros": "207697412"
+    "costMicros": "449154223"
    }
   },
   {
@@ -87,7 +87,7 @@
     "advertisingChannelType": "VIDEO"
    },
    "metrics": {
-    "costMicros": "422779097"
+    "costMicros": "912729740"
    }
   }
  ],
@@ -98,10 +98,22 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "allConversions": 12.959415
+    "allConversions": 21.90209
    },
    "segments": {
     "conversionActionName": "rudderstack_account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/1814209845",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_crypto_signup_completed"
    }
   },
   {
@@ -158,7 +170,7 @@
     "advertisingChannelType": "SEARCH"
    },
    "metrics": {
-    "allConversions": 0.798308
+    "allConversions": 4.798308
    },
    "segments": {
     "conversionActionName": "rudderstack_save_account_opened"
