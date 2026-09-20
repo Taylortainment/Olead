@@ -519,60 +519,60 @@
   "month": "2026-09",
   "name": "Brand - Video - Non-Skippable",
   "channel_type": "VIDEO",
-  "cost": 911.712445
+  "cost": 1391.618135
  },
  {
   "month": "2026-09",
   "name": "Brand - Video - Shorts",
   "channel_type": "VIDEO",
-  "cost": 912.72974
+  "cost": 1392.586057
  },
  {
   "month": "2026-09",
   "name": "Crypto - Video - Non-Skippable",
   "channel_type": "VIDEO",
-  "cost": 449.154223
+  "cost": 685.457477
  },
  {
   "month": "2026-09",
   "name": "KiwiSaver - Video - Non-Skippable",
   "channel_type": "VIDEO",
-  "cost": 890.253774
+  "cost": 1359.117098
  },
  {
   "month": "2026-09",
   "name": "KiwiSaver - Video - Shorts",
   "channel_type": "VIDEO",
-  "cost": 891.994427
+  "cost": 1360.32078
  },
  {
   "month": "2026-09",
   "name": "Search - Invest",
   "channel_type": "SEARCH",
-  "cost": 2029.594508
+  "cost": 3521.116447
  },
  {
   "month": "2026-09",
   "name": "Search - KiwiSaver",
   "channel_type": "SEARCH",
-  "cost": 1169.770859
+  "cost": 3048.846585
  },
  {
   "month": "2026-09",
   "name": "Search - Save",
   "channel_type": "SEARCH",
-  "cost": 876.358301
+  "cost": 1359.687207
  },
  {
   "month": "2026-09",
   "name": "Search - Spend",
   "channel_type": "SEARCH",
-  "cost": 447.185965
+  "cost": 683.333829
  },
  {
   "month": "2026-09",
   "name": "Search - Wills",
   "channel_type": "SEARCH",
-  "cost": 1086.026757
+  "cost": 2029.902428
  }
 ]

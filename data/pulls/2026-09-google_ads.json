@@ -6,7 +6,7 @@
     {
       "channel": "YouTube",
       "metric": "spend_actual",
-      "value": 4055.84
+      "value": 6189.1
     },
     {
       "channel": "YouTube",
@@ -41,12 +41,12 @@
     {
       "channel": "Google",
       "metric": "spend_actual",
-      "value": 5608.94
+      "value": 10642.89
     },
     {
       "channel": "Google",
       "metric": "crypto",
-      "value": 1
+      "value": 6
     },
     {
       "channel": "Google",
@@ -56,7 +56,7 @@
     {
       "channel": "Google",
       "metric": "save",
-      "value": 5
+      "value": 8
     },
     {
       "channel": "Google",
@@ -66,7 +66,7 @@
     {
       "channel": "Google",
       "metric": "kiwisaver",
-      "value": 0
+      "value": 5
     },
     {
       "channel": "Google",

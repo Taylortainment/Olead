@@ -612,51 +612,56 @@
  {
   "month": "2026-09",
   "name": "Brand - Reach",
-  "spend": 1718.31
+  "spend": 2645.82
  },
  {
   "month": "2026-09",
   "name": "Crypto - Conversions",
-  "spend": 857.8
+  "spend": 1319.79
  },
  {
   "month": "2026-09",
   "name": "Insure - Prospecting",
-  "spend": 2161.99
+  "spend": 3308.1
  },
  {
   "month": "2026-09",
   "name": "Invest - Advised Portfolios - Conversions",
-  "spend": 3087.9
+  "spend": 5650.21
  },
  {
   "month": "2026-09",
   "name": "KS - Conversions - Prospecting",
-  "spend": 11495.62
+  "spend": 17418.93
  },
  {
   "month": "2026-09",
   "name": "KS - Conversions - REM",
-  "spend": 4229.07
+  "spend": 4333.0
  },
  {
   "month": "2026-09",
   "name": "Save - Conversions",
-  "spend": 2523.31
+  "spend": 3626.58
  },
  {
   "month": "2026-09",
   "name": "Save - Conversions - REM",
-  "spend": 547.63
+  "spend": 851.83
  },
  {
   "month": "2026-09",
   "name": "Spend - Conversions",
-  "spend": 1344.3
+  "spend": 2048.17
  },
  {
   "month": "2026-09",
   "name": "Wills - Conversions",
-  "spend": 2097.74
+  "spend": 3008.67
+ },
+ {
+  "month": "2026-09",
+  "name": "Wills Webinar 2026",
+  "spend": 340.15
  }
 ]
