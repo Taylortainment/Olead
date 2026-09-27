@@ -6,7 +6,7 @@
     {
       "channel": "YouTube",
       "metric": "spend_actual",
-      "value": 6189.1
+      "value": 8243.14
     },
     {
       "channel": "YouTube",
@@ -41,37 +41,37 @@
     {
       "channel": "Google",
       "metric": "spend_actual",
-      "value": 10642.89
+      "value": 15859.63
     },
     {
       "channel": "Google",
       "metric": "crypto",
-      "value": 6
-    },
-    {
-      "channel": "Google",
-      "metric": "insure_quote",
-      "value": 1
-    },
-    {
-      "channel": "Google",
-      "metric": "save",
       "value": 8
     },
     {
       "channel": "Google",
+      "metric": "insure_quote",
+      "value": 2
+    },
+    {
+      "channel": "Google",
+      "metric": "save",
+      "value": 12
+    },
+    {
+      "channel": "Google",
       "metric": "spend_signup",
+      "value": 3
+    },
+    {
+      "channel": "Google",
+      "metric": "subscription",
       "value": 1
     },
     {
       "channel": "Google",
       "metric": "kiwisaver",
-      "value": 5
-    },
-    {
-      "channel": "Google",
-      "metric": "subscription",
-      "value": 0
+      "value": 8
     },
     {
       "channel": "Google",

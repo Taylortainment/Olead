@@ -72,12 +72,26 @@ python3 scripts/build_pull.py google <YYYY-MM> data/raw/google-<YYYY-MM>.json
 - `time_range`: `{"since":"<START>","until":"<END>"}`
 - `time_increment`: `"monthly"`
 
+> **Always pass `time_increment: "monthly"` on the campaign-level call too.**
+> Without it the campaign call and the account call cover *different date
+> windows*, and the campaign spend will not sum to the account total. On
+> 2026-09-27 that produced a $413.90 phantom gap that vanished once both calls
+> used the same increment. Because attribution scales the product split onto the
+> stored channel total, a window mismatch would silently distort every product's
+> cost rather than erroring.
+
 Save the returned entity object as `data/raw/meta-<YYYY-MM>.json`, then:
 
 ```bash
 python3 scripts/build_pull.py meta <YYYY-MM> data/raw/meta-<YYYY-MM>.json
 ```
 
+> **`amount_spent` has two shapes.** Older responses return a string
+> (`"NZ$33,586.34 NZD"`); current ones return an object
+> (`{"value": "59237.78", "unit": "NZD"}`). `_money()` reads the object by key.
+> Do not "simplify" it back to string parsing -- that only works by accident,
+> because the digits happen to precede the unit.
+>
 > **Why the odd shape:** this MCP surface exposes no raw action counts — `results`
 > returns "Not available" and `actions` is rejected as a field. It *does* return
 > `cost_per_conversion:offsite_conversion.fb_pixel_custom.<event>` per named pixel
