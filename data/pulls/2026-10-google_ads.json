@@ -1,12 +1,12 @@
 {
-  "month": "2026-09",
+  "month": "2026-10",
   "connector": "google_ads",
-  "source_file": "data/raw/google-2026-09.json",
+  "source_file": "data/raw/google-2026-10.json",
   "rows": [
     {
       "channel": "YouTube",
       "metric": "spend_actual",
-      "value": 9056.0
+      "value": 1192.7
     },
     {
       "channel": "YouTube",
@@ -41,37 +41,37 @@
     {
       "channel": "Google",
       "metric": "spend_actual",
-      "value": 17398.25
-    },
-    {
-      "channel": "Google",
-      "metric": "crypto",
-      "value": 10
-    },
-    {
-      "channel": "Google",
-      "metric": "insure_quote",
-      "value": 3
+      "value": 1711.97
     },
     {
       "channel": "Google",
       "metric": "kiwisaver",
-      "value": 27
+      "value": 1
     },
     {
       "channel": "Google",
       "metric": "save",
-      "value": 16
+      "value": 1
     },
     {
       "channel": "Google",
       "metric": "spend_signup",
-      "value": 4
+      "value": 2
+    },
+    {
+      "channel": "Google",
+      "metric": "crypto",
+      "value": 0
     },
     {
       "channel": "Google",
       "metric": "subscription",
-      "value": 1
+      "value": 0
+    },
+    {
+      "channel": "Google",
+      "metric": "insure_quote",
+      "value": 0
     },
     {
       "channel": "Google",

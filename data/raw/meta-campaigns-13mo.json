@@ -1,30 +1,5 @@
 [
  {
-  "month": "2025-09",
-  "name": "Existing Members - KiwiSaver",
-  "spend": 1917.78
- },
- {
-  "month": "2025-09",
-  "name": "Insure - Prospecting",
-  "spend": 32.91
- },
- {
-  "month": "2025-09",
-  "name": "Insure - Remarketing",
-  "spend": 6.17
- },
- {
-  "month": "2025-09",
-  "name": "Prospecting - KiwiSaver",
-  "spend": 13617.09
- },
- {
-  "month": "2025-09",
-  "name": "Remarketing - Conversions",
-  "spend": 1461.44
- },
- {
   "month": "2025-10",
   "name": "Existing Members - Crypto",
   "spend": 601.27
@@ -612,27 +587,27 @@
  {
   "month": "2026-09",
   "name": "Brand - Reach",
-  "spend": 3600.03
+  "spend": 3967.2
  },
  {
   "month": "2026-09",
   "name": "Crypto - Conversions",
-  "spend": 1799.72
+  "spend": 1998.98
  },
  {
   "month": "2026-09",
   "name": "Insure - Prospecting",
-  "spend": 4521.56
+  "spend": 5026.11
  },
  {
   "month": "2026-09",
   "name": "Invest - Advised Portfolios - Conversions",
-  "spend": 9465.12
+  "spend": 11051.06
  },
  {
   "month": "2026-09",
   "name": "KS - Conversions - Prospecting",
-  "spend": 23041.3
+  "spend": 25434.29
  },
  {
   "month": "2026-09",
@@ -642,26 +617,66 @@
  {
   "month": "2026-09",
   "name": "Save - Conversions",
-  "spend": 4335.79
+  "spend": 4649.51
  },
  {
   "month": "2026-09",
   "name": "Save - Conversions - REM",
-  "spend": 1158.93
+  "spend": 1169.39
  },
  {
   "month": "2026-09",
   "name": "Spend - Conversions",
-  "spend": 2763.88
+  "spend": 3074.47
  },
  {
   "month": "2026-09",
   "name": "Wills - Conversions",
-  "spend": 3710.45
+  "spend": 4005.15
  },
  {
   "month": "2026-09",
   "name": "Wills Webinar 2026",
   "spend": 508.0
+ },
+ {
+  "month": "2026-10",
+  "name": "Brand - Reach",
+  "spend": 512.09
+ },
+ {
+  "month": "2026-10",
+  "name": "Crypto - Conversions",
+  "spend": 241.05
+ },
+ {
+  "month": "2026-10",
+  "name": "Insure - Prospecting",
+  "spend": 300.24
+ },
+ {
+  "month": "2026-10",
+  "name": "Invest - Advised Portfolios - Conversions",
+  "spend": 1842.57
+ },
+ {
+  "month": "2026-10",
+  "name": "KS - Conversions - Prospecting",
+  "spend": 4956.83
+ },
+ {
+  "month": "2026-10",
+  "name": "Save - Conversions",
+  "spend": 656.94
+ },
+ {
+  "month": "2026-10",
+  "name": "Spend - Conversions",
+  "spend": 345.28
+ },
+ {
+  "month": "2026-10",
+  "name": "Wills - Conversions",
+  "spend": 435.79
  }
 ]

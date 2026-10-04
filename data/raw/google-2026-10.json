@@ -1,0 +1,180 @@
+{
+ "cost": [
+  {
+   "campaign": {
+    "resourceName": "c/1814209845",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "costMicros": "546463335"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "costMicros": "706870000"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/20454829890",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "costMicros": "127728961"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/23831378601",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "costMicros": "130879220"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/24041290939",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "costMicros": "200026056"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/23387631524",
+    "advertisingChannelType": "VIDEO"
+   },
+   "metrics": {
+    "costMicros": "264775057"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/23390566700",
+    "advertisingChannelType": "VIDEO"
+   },
+   "metrics": {
+    "costMicros": "265304325"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/23390566703",
+    "advertisingChannelType": "VIDEO"
+   },
+   "metrics": {
+    "costMicros": "264259040"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/23390566709",
+    "advertisingChannelType": "VIDEO"
+   },
+   "metrics": {
+    "costMicros": "132208404"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/23391962386",
+    "advertisingChannelType": "VIDEO"
+   },
+   "metrics": {
+    "costMicros": "266153103"
+   }
+  }
+ ],
+ "conversions": [
+  {
+   "campaign": {
+    "resourceName": "c/1814209845",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 6
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/2045012361",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_kiwisaver_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/20454829890",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 2.966458
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_account_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/20454829890",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_save_account_opened"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/20454829890",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_spend_signup_completed"
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "c/23831378601",
+    "advertisingChannelType": "SEARCH"
+   },
+   "metrics": {
+    "allConversions": 1
+   },
+   "segments": {
+    "conversionActionName": "rudderstack_spend_signup_completed"
+   }
+  }
+ ]
+}

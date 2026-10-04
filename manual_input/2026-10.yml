@@ -1,0 +1,41 @@
+# Manual channel entry -- October 2026
+# Only channels without an API connector live here. Meta, Google and
+# YouTube are pulled automatically by the /mom-update skill.
+#
+# Leave a field blank or delete the line if there is genuinely no data.
+# A 0 means 'measured zero'; blank means 'not reported'. They render
+# differently in the client report, so the distinction matters.
+month: "2026-10"
+channels:
+  TikTok:
+    spend:            # Sep 26 was n/a
+    kiwisaver:        # KiwiSaver -- Sep 26 was n/a
+    crypto:           # Crypto -- Sep 26 was n/a
+    spend_signup:     # Spend -- Sep 26 was n/a
+    subscription:     # Subscription (Plan Started) -- Sep 26 was n/a
+    insure_quote:     # Insure (Quote) -- Sep 26 was n/a
+    insure_payment:   # Insure (Payment) -- Sep 26 was n/a
+
+  Reddit:
+    spend:            # Sep 26 was n/a
+    kiwisaver:        # KiwiSaver -- Sep 26 was n/a
+    crypto:           # Crypto -- Sep 26 was n/a
+    spend_signup:     # Spend -- Sep 26 was n/a
+    subscription:     # Subscription (Plan Started) -- Sep 26 was n/a
+    insure_quote:     # Insure (Quote) -- Sep 26 was n/a
+    save:             # Save -- Sep 26 was n/a
+    insure_payment:   # Insure (Payment) -- Sep 26 was n/a
+
+  Spotify:
+    spend:            # Sep 26 was n/a
+
+  Stackadapt:
+    spend:            # Sep 26 was n/a
+    kiwisaver:        # KiwiSaver -- Sep 26 was n/a
+    crypto:           # Crypto -- Sep 26 was n/a
+    spend_signup:     # Spend -- Sep 26 was n/a
+    subscription:     # Subscription (Plan Started) -- Sep 26 was n/a
+    insure_quote:     # Insure (Quote) -- Sep 26 was n/a
+    save:             # Save -- Sep 26 was n/a
+    insure_payment:   # Insure (Payment) -- Sep 26 was n/a
+

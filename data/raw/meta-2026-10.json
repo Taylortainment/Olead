@@ -1,0 +1,18 @@
+{
+ "date_start": "2026-10-01",
+ "amount_spent": {
+  "value": "9290.79",
+  "unit": "NZD"
+ },
+ "impressions": "1380920",
+ "id": "1432660143475665",
+ "name": "Sharesies",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.wills_started": "42.423699",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.subscription_plan_started": "60.329805",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.spend_signup_completed": "109.303412",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.save_account_opened": "54.016221",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.insurance_quote_created": "157.471017",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.insurance_payment_complete": "844.617273",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.kiwisaver_signup_completed": "56.998712",
+ "cost_per_conversion:offsite_conversion.fb_pixel_custom.crypto_signup_completed": "59.556346"
+}
